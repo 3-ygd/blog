@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>JSX</title>
-    <url>/ygd_blog_pub/2022/03/18/02-JSX/</url>
+    <url>/blog/2022/03/18/02-JSX/</url>
     <content><![CDATA[<h1 id="JSX"><a href="#JSX" class="headerlink" title="JSX"></a>JSX</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
 <li>知道什么什么是 JSX</li>
 <li>能够使用 JSX 完成基本的条件渲染和列表渲染</li>
@@ -89,7 +89,7 @@
 <li><p>安装插件</p>
 </li>
 </ul>
-<p><img src="/ygd_blog_pub/images/image-20211006151941639.png" alt="image-20211006151941639"></p>
+<p><img src="/blog/images/image-20211006151941639.png" alt="image-20211006151941639"></p>
 <ul>
 <li>添加 prettier 的配置</li>
 </ul>
@@ -293,8 +293,23 @@
       </tags>
   </entry>
   <entry>
+    <title>哈哈哈哈</title>
+    <url>/blog/2022/01/10/asdasd/</url>
+    <content><![CDATA[<h1 id="asdasd"><a href="#asdasd" class="headerlink" title="asdasd"></a>asdasd</h1><p>你好</p>
+<img src="https://cdn.jsdelivr.net/gh/3-ygd/image-hosting@master/image-hosting/1.6idsgm0jaho0.webp">
+
+<img src="https://raw.githubusercontent.com/3-ygd/image-hosting/master/image-hosting/5.5k4q4q86po80.webp">
+]]></content>
+      <categories>
+        <category>javaScript</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>React 的特点</title>
-    <url>/ygd_blog_pub/2022/01/10/01-React%E6%A6%82%E8%BF%B0/</url>
+    <url>/blog/2022/01/10/01-React%E6%A6%82%E8%BF%B0/</url>
     <content><![CDATA[<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
 <li>说出 React 的特点</li>
 <li>了解“声明式”和“命令式”术语</li>
@@ -361,7 +376,7 @@
 <p>使用 react&#x2F;react-native 可以开发移动端原生安卓 和 iOS 应用</p>
 <p>使用 react&#x2F;react-360 可以开发 VR（虚拟现实）应用</p>
 <p>。。。。。。。。</p>
-<p><img src="/ygd_blog_pub/images/%E5%AD%A6%E4%B9%A0%E4%B8%80%E6%AC%A1-%E9%9A%8F%E5%A4%84%E4%BD%BF%E7%94%A8.png" alt="image-20211006125918723"></p>
+<p><img src="/blog/images/%E5%AD%A6%E4%B9%A0%E4%B8%80%E6%AC%A1-%E9%9A%8F%E5%A4%84%E4%BD%BF%E7%94%A8.png" alt="image-20211006125918723"></p>
 <p><strong>问题：</strong></p>
 <p>什么是声明式 API？举例说明</p>
 <p>封装“组件”的目的是什么？</p>
@@ -515,7 +530,7 @@
   </entry>
   <entry>
     <title>Hello World</title>
-    <url>/ygd_blog_pub/2022/01/15/hello-world/</url>
+    <url>/blog/2022/01/15/hello-world/</url>
     <content><![CDATA[<!-- category 文章分类 -->
 <!-- tag 文章标签 -->
 
@@ -532,21 +547,6 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a class="link"   href="https://hexo.io/docs/one-command-deployment.html" >Deployment<i class="fas fa-external-link-alt"></i></a></p>
-]]></content>
-      <categories>
-        <category>javaScript</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>哈哈哈哈</title>
-    <url>/ygd_blog_pub/2022/01/10/asdasd/</url>
-    <content><![CDATA[<h1 id="asdasd"><a href="#asdasd" class="headerlink" title="asdasd"></a>asdasd</h1><p>你好</p>
-<img src="https://cdn.jsdelivr.net/gh/3-ygd/image-hosting@master/image-hosting/1.6idsgm0jaho0.webp">
-
-<img src="https://raw.githubusercontent.com/3-ygd/image-hosting/master/image-hosting/5.5k4q4q86po80.webp">
 ]]></content>
       <categories>
         <category>javaScript</category>
