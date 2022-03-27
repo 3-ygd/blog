@@ -9,7 +9,7 @@
     
     <title>
         
-            Hello World |
+            运算符 |
         
         苑木木的博客
     </title>
@@ -164,7 +164,7 @@
 
         <div class="article-title">
             <span class="title-hover-animation">
-                Hello World
+                运算符
             </span>
         </div>
 
@@ -189,10 +189,10 @@
     <span class="article-date article-meta-item">
         <!-- <i class="fas fa-edit"></i>&nbsp; -->
         <span class="pc">
-            2022-01-15 22:41:03
+            2019-12-15 13:27:10
         </span>
         <span class="mobile">
-            2022-01-15 22:41
+            2019-12-15 13:27
         </span>
     </span>
     
@@ -220,6 +220,12 @@
                                     </a>&nbsp;
                             </li>
                             
+                            <li>
+                                | <a href="/blog/tags/%E8%BF%90%E7%AE%97%E7%AC%A6/">
+                                        运算符
+                                    </a>&nbsp;
+                            </li>
+                            
                     </ul>
                 </span>
                 
@@ -228,7 +234,7 @@
                         
                             <span class="article-wordcount article-meta-item">
                                 <i class="fas fa-file-word"></i>&nbsp;<span>
-                                    75
+                                    1.3k
                                         Words
                                 </span>
                             </span>
@@ -242,22 +248,165 @@
             
 
                     <div class="article-content markdown-body">
-                        <!-- category 文章分类 -->
-<!-- tag 文章标签 -->
+                        <h1 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h1><h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><ul>
+<li>运算符：算术运算符，赋值运算符，比较运算符，逻辑运算符，三目运算符</li>
+<li>表达式：算术表示式，赋值表达式，判断表达式，逻辑表达式</li>
+</ul>
+<h2 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h2><pre><code class="js">+  -   *   /  %取余      自增++    自减--
+</code></pre>
+<ul>
+<li><p>数据在进行运算的时候，会尽量转为数字在进行运算（内置帮我们去转的，属于隐式转换）符合 Number 的规律</p>
+</li>
+<li><p>+ :一旦遇到字符串表示拼接 将另一边数据也转为字符串</p>
+</li>
+<li><pre><code class="js">console.log(10 + 10)
+console.log(10 + &#39;10&#39;) //&quot;10&quot; + &quot;10&quot; =&gt;&quot;1010&quot;
+console.log(10 + 20 + &#39;100&#39;) //30 + &quot;100&quot; =&gt; &quot;30&quot; + &quot;100&quot; =&gt; &quot;30100&quot;
+console.log(true + 100) // 1 + 100 =&gt;101
+console.log(false + null) // 0 + 0 =&gt; 0
+console.log(&#39;&#39; + 100) // &quot;&quot; + &quot;100&quot; =&gt; &quot;100&quot;
 
-<p>Welcome to <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/" >Hexo<i class="fas fa-external-link-alt"></i></a>! This is your very first post. Check <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/" >documentation<i class="fas fa-external-link-alt"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html" >troubleshooting<i class="fas fa-external-link-alt"></i></a> or you can ask me on <a class="link"   target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues" >GitHub<i class="fas fa-external-link-alt"></i></a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+console.log(10 - &#39;5&#39;) // 10 - 5 = &gt;5
+console.log(10 - &#39;5px&#39;) // 10 - NaN =&gt;NaN
+console.log(10 - null) // 10 - 0 =&gt; 10
+console.log(10 - true) // 10 - 1 =&gt; 9
 
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html" >Writing<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+console.log(10 * null) // 10 * 0 =&gt; 0
+console.log(10 * true) // 10 * 1 =&gt; 10
 
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/server.html" >Server<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+console.log(100 / &#39;&#39;) // 100 / 0 =&gt; Infinity
 
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html" >Generating<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+// % 取余（取模）
+console.log(100 % &#39;5&#39;) //0
+console.log(100 % &#39;3&#39;) //1
+</code></pre>
+</li>
+<li><p>++ ：不管++在前还是++在后都表示自身加 1，++在前表示先自身加 1，然后再进行运算，++在后表示先进行运算然后再自身加 1</p>
+</li>
+<li><p>– ：不管–在前还是–在后都表示自身减 1，–在前表示先自身减 1，然后再进行运算，–在后表示先进行运算然后再自身减 1</p>
+<pre><code class="js">let a = 5
+// a++;
+++a
+console.log(a) //6
+let b = 3
+// var c = ++b;
+// console.log(c,b); //4 4
 
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html" >Deployment<i class="fas fa-external-link-alt"></i></a></p>
+// var c = 3;
+// console.log(c, b); //3 4
+let e = 2 //10
+//          2   +  3  +  5 + 5   +  7  -  7  -  9   + 9
+console.log(e++ + e++ + ++e + e++ + ++e - e++ - ++e + e++) //15
+console.log(e) //10
+let f = 3 //5
+//          3  +  4  +  6  -  5  - 5  +  4   -  5  -  4  +  4   + 4
+console.log(f++ + f++ + ++f - --f - f-- + f++ - f-- - f-- + ++f + f++) //6
+console.log(f) //5
+// ++ -- 同样存在隐式转换
+let test1 = &#39;10&#39;
+--test1
+console.log(test1) //9
+</code></pre>
+</li>
+</ul>
+<h2 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h2><pre><code class="js">let a = 10
+console.log(a)
+
+// 在a的基础上增加 5
+// 给a重新赋值
+// a = 15;
+// console.log(a);
+
+// a = a + 5;
+a += 5 //相当于 a = a + 5；
+console.log(a)
+
+let b = 100
+b -= 50 //&lt;=&gt; b = b - 50;
+console.log(b)
+</code></pre>
+<h2 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h2><h3 id="普通比较"><a href="#普通比较" class="headerlink" title="普通比较"></a>普通比较</h3><pre><code class="js">// 1.数据在进行比较的时候，会尽量转为数字进行比较（内置帮我们去转的，属于隐式转换）符合Number的规律
+console.log(10 &gt; 5) //true
+console.log(10 &gt; &#39;5&#39;) // 10 &gt; 5 true
+console.log(true &gt; false) //1 &gt; 0 =&gt; true
+console.log(&#39;100px&#39; &gt; 100) // NaN &gt; 100 =&gt; false
+console.log(null &gt; &#39;&#39;) // 0 &gt; 0 =&gt;false
+console.log(null &gt;= &#39;&#39;) // 0 &gt; 0 =&gt;true
+console.log(10 != &#39;20&#39;) //10 != 20 =&gt; true
+
+// 2.null等于undefined 但是null和undefined与其它数据类型都不相等
+//null == 0  =&gt;false
+console.log(null == &#39;&#39;) //false
+console.log(null == undefined) //true
+console.log(NaN == NaN) //false
+console.log(NaN != NaN) //true
+console.log(undefined == undefined) //true
+console.log(undefined == 0) //false
+console.log(null == undefined) //true
+console.log(4 == &#39;abc&#39;) //false
+console.log(NaN == NaN) //false
+console.log(NaN != NaN) //true
+console.log(null == null) //true
+console.log(null !== undefined) //true
+console.log(3 !== &#39;3&#39;) //true
+console.log(null &gt;= 0)
+true
+console.log(null &lt;= 0)
+true
+// 3.字符串比较是按照ASCII（Unicode编码）值进行比较的，并且是按位进行比较的一旦某一位比较出结果，就不再比了
+console.log(&#39;158&#39; &gt; &#39;1399999999999931231&#39;) //false
+// 0 - 9 :48 - 57
+// A - Z: 65 - 90
+// a - z: 97 - 122
+</code></pre>
+<h3 id="绝对比较"><a href="#绝对比较" class="headerlink" title="绝对比较"></a>绝对比较</h3><pre><code class="text">=== 绝对等于   !== 绝对不等于
+
+1.不同数据类型一定不相等
+  === 绝对等于 （不仅要值相等，数据类型也要一样）
+  !==    10 !== &quot;10&quot;   10 != &quot;10&quot;
+</code></pre>
+<pre><code class="js">console.log(0 == &#39;&#39;) // true
+console.log(0 === &#39;&#39;) // false
+console.log(9 === &#39;9&#39;) // false
+console.log(null === undefined) // false
+console.log(&#39;10&#39; !== 10) //true
+</code></pre>
+<h2 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h2><pre><code class="text">&amp;&amp;与  || 或   ! 非
+</code></pre>
+<pre><code class="js">// &amp;&amp; 与  || 或
+console.log(true &amp;&amp; true) //true
+console.log(true &amp;&amp; false &amp;&amp; true) //false
+console.log(true || false) //true
+// 逻辑运算符会自动检测当前数据类型的真假 符合Boolean的规律
+// 根据自身的规律返回对应位置的值
+// 短路运算
+var res = 66 &amp;&amp; &#39;10&#39; &amp;&amp; &#39;哈哈&#39; &amp;&amp; 100
+console.log(res) //100
+var res1 = 66 &amp;&amp; null &amp;&amp; &#39;哈哈&#39; &amp;&amp; 100
+console.log(res1) //null
+var res2 = &#39;aa&#39; || &#39;bb&#39; || &#39;&#39;
+console.log(res2) //&quot;aa&quot;
+var res3 = &#39;&#39; || null || undefined || NaN
+console.log(res3) //NaN
+</code></pre>
+<h3 id="非：取反"><a href="#非：取反" class="headerlink" title="! 非：取反"></a>! 非：取反</h3><pre><code class="js">// 先将当前数据转为布尔值符合Number的规律，然后再进行取反
+console.log(!10) // true - &gt; false
+console.log(!20) //true -&gt; false
+console.log(!&#39;哈哈&#39;) //true -&gt; false
+console.log(!&#39;&#39;) //false -&gt; true
+</code></pre>
+<h2 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h2><img src="https://raw.githubusercontent.com/3-ygd/image-hosting/master/运算符优先级.6svw4j0gciw0.webp">
+
+<h2 id="三目运算符-三元表达式"><a href="#三目运算符-三元表达式" class="headerlink" title="三目运算符(三元表达式)"></a>三目运算符(三元表达式)</h2><pre><code class="txt">条件 ? 条件成立执行的代码段 : 条件不成立执行的代码段; (三目运算符又称之为问号冒号表达式，一般应用于简单的判断相当于if..else)
+</code></pre>
+<pre><code class="js">// 条件  ? 条件成立执行的代码段 : 条件不成立执行的代码段; (三目运算符又称之为问号冒号表达式，一般应用于简单的判断相当于if..else)
+// 条件为真执行的是问号后边的代码段  条件为假执行的是冒号后边的代码段
+let score = 50
+score &gt;= 60 ? console.log(&#39;中午吃点好的&#39;) : console.log(&#39;中午不吃了~~~&#39;)
+
+// 单个数据会自动检测真假
+&#39;&#39; ? console.log(&#39;真的&#39;) : console.log(&#39;假的&#39;)
+</code></pre>
 
                     </div>
 
@@ -270,19 +419,39 @@
                                             <a href="/blog/tags/js/">#js</a>&nbsp;
                                         </li>
                                         
+                                        <li class="tag-item">
+                                            <a href="/blog/tags/%E8%BF%90%E7%AE%97%E7%AC%A6/">#运算符</a>&nbsp;
+                                        </li>
+                                        
                                 </ul>
                                 
 
                                     
                                         <div class="article-nav">
                                             
+                                                <div class="article-prev">
+                                                    <a class="prev" rel="prev" href="/blog/2019/12/23/for-%E6%95%B0%E7%BB%84-%E5%AF%B9%E8%B1%A1/">
+                                                        <span class="left arrow-icon flex-center">
+                                                            <i class="fas fa-chevron-left"></i>
+                                                        </span>
+                                                        <span class="title flex-center">
+                                                            <span class="post-nav-title-item">
+                                                                for循环语法|数组|对象
+                                                            </span>
+                                                            <span class="post-nav-item">
+                                                                Prev posts
+                                                            </span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                
                                                     
                                                         <div class="article-next">
                                                             <a class="next" rel="next"
-                                                                href="/blog/2020/01/16/DOM-%E8%8E%B7%E5%8F%96DOM%E5%85%83%E7%B4%A0%E3%80%81%E4%BF%AE%E6%94%B9%E5%B1%9E%E6%80%A7/">
+                                                                href="/blog/2019/12/08/js%E5%8F%98%E9%87%8F%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
                                                                 <span class="title flex-center">
                                                                     <span class="post-nav-title-item">
-                                                                        DOM-获取DOM元素、修改属性
+                                                                        JavaScript的变量和数据类型
                                                                     </span>
                                                                     <span class="post-nav-item">
                                                                         Next posts
@@ -398,7 +567,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.</span> <span class="nav-text">运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E7%B1%BB"><span class="nav-number">1.1.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.2.</span> <span class="nav-text">算术运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.3.</span> <span class="nav-text">赋值运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.4.</span> <span class="nav-text">比较运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%99%AE%E9%80%9A%E6%AF%94%E8%BE%83"><span class="nav-number">1.4.1.</span> <span class="nav-text">普通比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%9D%E5%AF%B9%E6%AF%94%E8%BE%83"><span class="nav-number">1.4.2.</span> <span class="nav-text">绝对比较</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.5.</span> <span class="nav-text">逻辑运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9E%EF%BC%9A%E5%8F%96%E5%8F%8D"><span class="nav-number">1.5.1.</span> <span class="nav-text">! 非：取反</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7"><span class="nav-number">1.6.</span> <span class="nav-text">运算符优先级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E7%9B%AE%E8%BF%90%E7%AE%97%E7%AC%A6-%E4%B8%89%E5%85%83%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">1.7.</span> <span class="nav-text">三目运算符(三元表达式)</span></a></li></ol></li></ol>
     </div>
 </div>
         </aside>

@@ -9,7 +9,7 @@
     
     <title>
         
-            Hello World |
+            JavaScript的变量和数据类型 |
         
         苑木木的博客
     </title>
@@ -164,7 +164,7 @@
 
         <div class="article-title">
             <span class="title-hover-animation">
-                Hello World
+                JavaScript的变量和数据类型
             </span>
         </div>
 
@@ -189,10 +189,10 @@
     <span class="article-date article-meta-item">
         <!-- <i class="fas fa-edit"></i>&nbsp; -->
         <span class="pc">
-            2022-01-15 22:41:03
+            2019-12-08 17:11:20
         </span>
         <span class="mobile">
-            2022-01-15 22:41
+            2019-12-08 17:11
         </span>
     </span>
     
@@ -220,6 +220,12 @@
                                     </a>&nbsp;
                             </li>
                             
+                            <li>
+                                | <a href="/blog/tags/%E5%8F%98%E9%87%8F/">
+                                        变量
+                                    </a>&nbsp;
+                            </li>
+                            
                     </ul>
                 </span>
                 
@@ -228,7 +234,7 @@
                         
                             <span class="article-wordcount article-meta-item">
                                 <i class="fas fa-file-word"></i>&nbsp;<span>
-                                    75
+                                    893
                                         Words
                                 </span>
                             </span>
@@ -242,22 +248,81 @@
             
 
                     <div class="article-content markdown-body">
-                        <!-- category 文章分类 -->
-<!-- tag 文章标签 -->
-
-<p>Welcome to <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/" >Hexo<i class="fas fa-external-link-alt"></i></a>! This is your very first post. Check <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/" >documentation<i class="fas fa-external-link-alt"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html" >troubleshooting<i class="fas fa-external-link-alt"></i></a> or you can ask me on <a class="link"   target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues" >GitHub<i class="fas fa-external-link-alt"></i></a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html" >Writing<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/server.html" >Server<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html" >Generating<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html" >Deployment<i class="fas fa-external-link-alt"></i></a></p>
+                        <h1 id="JavaScript-的变量和数据类型"><a href="#JavaScript-的变量和数据类型" class="headerlink" title="JavaScript 的变量和数据类型"></a>JavaScript 的变量和数据类型</h1><h2 id="1-变量的含义和存储"><a href="#1-变量的含义和存储" class="headerlink" title="1.变量的含义和存储"></a>1.变量的含义和存储</h2><p>变量就是用来存放数据的容器，可以通过变量名获取数据，也可以修改数据；</p>
+<p>在内存中存储的本质：变量是程序在内存中申请的一块用来存放数据的空间；</p>
+<h2 id="2-变量"><a href="#2-变量" class="headerlink" title="2.变量"></a>2.变量</h2><p>变量的声明：使用 var 或者 let (ES6 语法) 进行声明<br>var 声明的变量会进行变量提升（可以先使用，后定义）<br>let 声明的变量不会变量提升（先定义，后使用）</p>
+<p>变量的命名规范：</p>
+<p>1.由字母(A-Za-z)、数字(0-9)、下划线(_)、美元符号( $ )组成， 2.严格区分大小写。 3.不能 以数字开头。 4.不能 是关键字。 5.变量名必须有意义。 6.遵守驼峰命名法。首字母小写，后面单词的首字母需要大写</p>
+<h2 id="3-数据类型"><a href="#3-数据类型" class="headerlink" title="3.数据类型"></a>3.数据类型</h2><h3 id="3-1-数据类型的种类"><a href="#3-1-数据类型的种类" class="headerlink" title="3.1 数据类型的种类"></a>3.1 数据类型的种类</h3><h4 id="1-简单的数据类型："><a href="#1-简单的数据类型：" class="headerlink" title="1.简单的数据类型："></a>1.简单的数据类型：</h4><p>Number: 数字型，包含整型和浮点型；</p>
+<p>String：字符串类型（用引号引起来）；</p>
+<p>Boolean：布尔值类型（true 和 false）；</p>
+<p>Undefined ：声明一个变量但是未赋值，就是 undefined；</p>
+<p>Null：空值；</p>
+<h4 id="2-复杂的数据类型：Object"><a href="#2-复杂的数据类型：Object" class="headerlink" title="2.复杂的数据类型：Object"></a>2.复杂的数据类型：Object</h4><pre><code class="js">typeof Object //&quot;function&quot;
+typeof typeof Object //string类型
+</code></pre>
+<p><strong>01.数字型进制：</strong>二进制、八进制、十进制、十六进制</p>
+<p>02.数字型的范围：</p>
+<p>最大值：(Number.MAX_VALUE)&#x3D;1.7976931348623157e+308；</p>
+<p>最小值：（Number.MIN_VALUE)&#x3D;5e-324;</p>
+<p>03.三个特殊值：</p>
+<p>infinity:无穷大，大于任何值；</p>
+<p>-infinity:无穷小，小于任何值；</p>
+<p>NaN:Not a number 非数值；</p>
+<p>04.判断一个变量是否为非数字类型返回 true 或 false：</p>
+<p>isNaN(a):a 是数字返回 false；a 不是数字返回 true</p>
+<pre><code class="js">//数字
+console.log(3.14) //3.14
+//八进制 0-7 数字前边加0表示8进制
+console.log(015) //13
+//十六进制 0-9 a-f 数字前边加0x 表示十六进制
+console.log(0xa) //10
+console.log(0x2a) //42
+//数字型的最大值和最小值
+console.log(Number.MAX_VALUE) //1.7976931348623157e+308
+console.log(Number.MIN_VALUE) //5e-324
+//无穷大和无穷小 最大值乘以大于1的数就是无穷大，前边加一个负号就是负无穷
+console.log(Number.MAX_VALUE * 1.1) // infinity 无穷大
+console.log(-Number.MIN_VALUE * 1.1) // -infinity 无穷小
+//NaN 非数字
+console.log(0 / 0) //NaN
+console.log(10 - &#39;a&#39;) //NaN
+</code></pre>
+<h3 id="3-3-字符串型-String"><a href="#3-3-字符串型-String" class="headerlink" title="3.3 字符串型 String"></a>3.3 字符串型 String</h3><pre><code class="js">typeof string //&quot;undefined&quot;
+typeof typeof string //string类型
+typeof (10 + &#39;5&#39;) //string
+</code></pre>
+<p>字符串是引号中的任意文本，用双引号或者单引号；</p>
+<p><strong>引号的嵌套</strong>(外双内单，外单内双)：1.单引号嵌套双引号；2.双引号嵌套单引号；</p>
+<pre><code class="js">\n :换行符；
+\\ :单斜杠\;
+\&#39; :&#39;单引号;
+\&quot; :” 双引号;
+\t :tab缩进；
+\b ：空格
+</code></pre>
+<p><strong>字符串拼接</strong>：</p>
+<p>多个字符串之间使用 z：字符串 + 任何类型 &#x3D; 新的字符串；</p>
+<p>拼接前会把与字符串相加的任何类型转换成字符串，在拼接一个新的字符串</p>
+<pre><code class="js">//Boolean
+typeof Boolean //&quot;function&quot;
+typeof typeof Boolean //string类型
+typeof true //Boolean
+typeof false //Boolean
+</code></pre>
+<h3 id="3-5undefined-和-null"><a href="#3-5undefined-和-null" class="headerlink" title="3.5undefined 和 null"></a>3.5undefined 和 null</h3><pre><code class="js">//null
+typeof null //&quot;object&quot;
+typeof typeof null //string类型
+//undefined
+typeof undefined //&quot;undefined&quot;
+typeof typeof undefined //string类型
+</code></pre>
+<p>特殊情况：<br>undefined &gt; 0 false;<br>undefined &lt; 0 false;<br>undefined &#x3D;&#x3D; 0 false;<br>undefined&#x3D;&#x3D;null true;</p>
+<p>（1）一个声明后没有被赋值的变量会有一个默认值 undefined;</p>
+<p>（2) 调用函数时，应该提供的参数没有提供，为 undefined;</p>
+<p>（3）函数没有返回值时，默认返回 undefined;</p>
+<p>（4）对象没有赋值的属性，该属性的值为 undefined;</p>
+<p>(5)一个声明变量给 null 值，里面存的值为空;</p>
 
                     </div>
 
@@ -270,30 +335,33 @@
                                             <a href="/blog/tags/js/">#js</a>&nbsp;
                                         </li>
                                         
+                                        <li class="tag-item">
+                                            <a href="/blog/tags/%E5%8F%98%E9%87%8F/">#变量</a>&nbsp;
+                                        </li>
+                                        
                                 </ul>
                                 
 
                                     
                                         <div class="article-nav">
                                             
+                                                <div class="article-prev">
+                                                    <a class="prev" rel="prev" href="/blog/2019/12/15/%E8%BF%90%E7%AE%97%E7%AC%A6/">
+                                                        <span class="left arrow-icon flex-center">
+                                                            <i class="fas fa-chevron-left"></i>
+                                                        </span>
+                                                        <span class="title flex-center">
+                                                            <span class="post-nav-title-item">
+                                                                运算符
+                                                            </span>
+                                                            <span class="post-nav-item">
+                                                                Prev posts
+                                                            </span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                
                                                     
-                                                        <div class="article-next">
-                                                            <a class="next" rel="next"
-                                                                href="/blog/2020/01/16/DOM-%E8%8E%B7%E5%8F%96DOM%E5%85%83%E7%B4%A0%E3%80%81%E4%BF%AE%E6%94%B9%E5%B1%9E%E6%80%A7/">
-                                                                <span class="title flex-center">
-                                                                    <span class="post-nav-title-item">
-                                                                        DOM-获取DOM元素、修改属性
-                                                                    </span>
-                                                                    <span class="post-nav-item">
-                                                                        Next posts
-                                                                    </span>
-                                                                </span>
-                                                                <span class="right arrow-icon flex-center">
-                                                                    <i class="fas fa-chevron-right"></i>
-                                                                </span>
-                                                            </a>
-                                                        </div>
-                                                        
                                         </div>
                                         
 
@@ -398,7 +466,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-%E7%9A%84%E5%8F%98%E9%87%8F%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">JavaScript 的变量和数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%8F%98%E9%87%8F%E7%9A%84%E5%90%AB%E4%B9%89%E5%92%8C%E5%AD%98%E5%82%A8"><span class="nav-number">1.1.</span> <span class="nav-text">1.变量的含义和存储</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%8F%98%E9%87%8F"><span class="nav-number">1.2.</span> <span class="nav-text">2.变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.3.</span> <span class="nav-text">3.数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E7%A7%8D%E7%B1%BB"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1 数据类型的种类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E7%AE%80%E5%8D%95%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%EF%BC%9A"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">1.简单的数据类型：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%A4%8D%E6%9D%82%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%EF%BC%9AObject"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">2.复杂的数据类型：Object</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%9E%8B-String"><span class="nav-number">1.3.2.</span> <span class="nav-text">3.3 字符串型 String</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5undefined-%E5%92%8C-null"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.5undefined 和 null</span></a></li></ol></li></ol></li></ol>
     </div>
 </div>
         </aside>
