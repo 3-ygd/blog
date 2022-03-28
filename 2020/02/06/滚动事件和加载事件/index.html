@@ -9,7 +9,7 @@
     
     <title>
         
-            Hello World |
+            滚动事件和加载事件 |
         
         苑木木的博客
     </title>
@@ -164,7 +164,7 @@
 
         <div class="article-title">
             <span class="title-hover-animation">
-                Hello World
+                滚动事件和加载事件
             </span>
         </div>
 
@@ -189,10 +189,10 @@
     <span class="article-date article-meta-item">
         <!-- <i class="fas fa-edit"></i>&nbsp; -->
         <span class="pc">
-            2019-12-07 22:41:03
+            2020-02-06 09:46:36
         </span>
         <span class="mobile">
-            2019-12-07 22:41
+            2020-02-06 09:46
         </span>
     </span>
     
@@ -201,8 +201,8 @@
             <ul>
                 
                     <li>
-                        <a href="/blog/categories/javaScript/">
-                                javaScript
+                        <a href="/blog/categories/WebAPI/">
+                                WebAPI
                             </a>&nbsp;
                     </li>
                     
@@ -215,8 +215,20 @@
                     <ul>
                         
                             <li>
-                                <a href="/blog/tags/js/">
-                                        js
+                                <a href="/blog/tags/WebAPI/">
+                                        WebAPI
+                                    </a>&nbsp;
+                            </li>
+                            
+                            <li>
+                                | <a href="/blog/tags/%E6%BB%9A%E5%8A%A8%E4%BA%8B%E4%BB%B6/">
+                                        滚动事件
+                                    </a>&nbsp;
+                            </li>
+                            
+                            <li>
+                                | <a href="/blog/tags/%E5%8A%A0%E8%BD%BD%E4%BA%8B%E4%BB%B6/">
+                                        加载事件
                                     </a>&nbsp;
                             </li>
                             
@@ -228,7 +240,7 @@
                         
                             <span class="article-wordcount article-meta-item">
                                 <i class="fas fa-file-word"></i>&nbsp;<span>
-                                    75
+                                    285
                                         Words
                                 </span>
                             </span>
@@ -242,22 +254,35 @@
             
 
                     <div class="article-content markdown-body">
-                        <!-- category 文章分类 -->
-<!-- tag 文章标签 -->
+                        <h1 id="滚动事件和加载事件"><a href="#滚动事件和加载事件" class="headerlink" title="滚动事件和加载事件"></a>滚动事件和加载事件</h1><h2 id="一、滚动事件"><a href="#一、滚动事件" class="headerlink" title="一、滚动事件"></a>一、滚动事件</h2><p>触发时机：当页面进行滚动时触发的事件</p>
+<p>为什么要使用？</p>
+<p>​ 因为很多网页需要检测用户把页面滚动到某个区域后做一些处理， 比如固定导航栏，比如返回顶部</p>
+<p>事件名：scroll</p>
+<pre><code class="js">// 语法
+window.addEventListener(&#39;scroll&#39;, function () &#123;
+  // 执行的操作
+&#125;)
 
-<p>Welcome to <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/" >Hexo<i class="fas fa-external-link-alt"></i></a>! This is your very first post. Check <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/" >documentation<i class="fas fa-external-link-alt"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html" >troubleshooting<i class="fas fa-external-link-alt"></i></a> or you can ask me on <a class="link"   target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues" >GitHub<i class="fas fa-external-link-alt"></i></a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
+// 给 window 或 document 添加 scroll 事件
 </code></pre>
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html" >Writing<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
+<p>监听那个元素的内部滚动直接给某个元素加即可</p>
+<h2 id="二、加载事件"><a href="#二、加载事件" class="headerlink" title="二、加载事件"></a>二、加载事件</h2><p>触发时机：加载外部资源（如图片、外联 CSS 和 JavaScript 等）加载完毕时触发的事件</p>
+<p>为什么要使用？</p>
+<ul>
+<li>有些时候需要等页面资源全部处理完了做一些事情</li>
+<li>老代码喜欢把 script 写在 head 中，这时候直接找 dom 元素找不到</li>
+</ul>
+<p>事件名：load</p>
+<p>例如：给 window 添加 load 事件</p>
+<pre><code class="js">// 语法
+// 页面加载事件
+window.addEventListener(&#39;load&#39;, function () &#123;
+  // 执行的操作
+&#125;)
+
+// 给 window 添加 load 事件
 </code></pre>
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/server.html" >Server<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
-</code></pre>
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html" >Generating<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
-</code></pre>
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html" >Deployment<i class="fas fa-external-link-alt"></i></a></p>
+<p>注意：不光可以监听整个页面资源加载完毕，也可以针对某个资源绑定 load 事件</p>
 
                     </div>
 
@@ -267,7 +292,15 @@
                                 <ul class="post-tags-box">
                                     
                                         <li class="tag-item">
-                                            <a href="/blog/tags/js/">#js</a>&nbsp;
+                                            <a href="/blog/tags/WebAPI/">#WebAPI</a>&nbsp;
+                                        </li>
+                                        
+                                        <li class="tag-item">
+                                            <a href="/blog/tags/%E6%BB%9A%E5%8A%A8%E4%BA%8B%E4%BB%B6/">#滚动事件</a>&nbsp;
+                                        </li>
+                                        
+                                        <li class="tag-item">
+                                            <a href="/blog/tags/%E5%8A%A0%E8%BD%BD%E4%BA%8B%E4%BB%B6/">#加载事件</a>&nbsp;
                                         </li>
                                         
                                 </ul>
@@ -277,13 +310,13 @@
                                         <div class="article-nav">
                                             
                                                 <div class="article-prev">
-                                                    <a class="prev" rel="prev" href="/blog/2019/12/08/js%E5%8F%98%E9%87%8F%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+                                                    <a class="prev" rel="prev" href="/blog/2020/02/13/%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%A4%A7%E5%B0%8F%E5%92%8C%E4%BD%8D%E7%BD%AE/">
                                                         <span class="left arrow-icon flex-center">
                                                             <i class="fas fa-chevron-left"></i>
                                                         </span>
                                                         <span class="title flex-center">
                                                             <span class="post-nav-title-item">
-                                                                JavaScript的变量和数据类型
+                                                                获取元素大小和位置
                                                             </span>
                                                             <span class="post-nav-item">
                                                                 Prev posts
@@ -293,6 +326,23 @@
                                                 </div>
                                                 
                                                     
+                                                        <div class="article-next">
+                                                            <a class="next" rel="next"
+                                                                href="/blog/2020/01/27/DOM-%20%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1%E3%80%81%E4%BA%8B%E4%BB%B6%E6%B5%81%E3%80%81%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/">
+                                                                <span class="title flex-center">
+                                                                    <span class="post-nav-title-item">
+                                                                        DOM- 事件对象、事件流、事件委托
+                                                                    </span>
+                                                                    <span class="post-nav-item">
+                                                                        Next posts
+                                                                    </span>
+                                                                </span>
+                                                                <span class="right arrow-icon flex-center">
+                                                                    <i class="fas fa-chevron-right"></i>
+                                                                </span>
+                                                            </a>
+                                                        </div>
+                                                        
                                         </div>
                                         
 
@@ -397,7 +447,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%BB%9A%E5%8A%A8%E4%BA%8B%E4%BB%B6%E5%92%8C%E5%8A%A0%E8%BD%BD%E4%BA%8B%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">滚动事件和加载事件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%BB%9A%E5%8A%A8%E4%BA%8B%E4%BB%B6"><span class="nav-number">1.1.</span> <span class="nav-text">一、滚动事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%8A%A0%E8%BD%BD%E4%BA%8B%E4%BB%B6"><span class="nav-number">1.2.</span> <span class="nav-text">二、加载事件</span></a></li></ol></li></ol>
     </div>
 </div>
         </aside>

@@ -9,7 +9,7 @@
     
     <title>
         
-            Hello World |
+            获取元素大小和位置 |
         
         苑木木的博客
     </title>
@@ -164,7 +164,7 @@
 
         <div class="article-title">
             <span class="title-hover-animation">
-                Hello World
+                获取元素大小和位置
             </span>
         </div>
 
@@ -189,10 +189,10 @@
     <span class="article-date article-meta-item">
         <!-- <i class="fas fa-edit"></i>&nbsp; -->
         <span class="pc">
-            2019-12-07 22:41:03
+            2020-02-13 10:16:30
         </span>
         <span class="mobile">
-            2019-12-07 22:41
+            2020-02-13 10:16
         </span>
     </span>
     
@@ -201,8 +201,8 @@
             <ul>
                 
                     <li>
-                        <a href="/blog/categories/javaScript/">
-                                javaScript
+                        <a href="/blog/categories/WebAPI/">
+                                WebAPI
                             </a>&nbsp;
                     </li>
                     
@@ -215,8 +215,26 @@
                     <ul>
                         
                             <li>
-                                <a href="/blog/tags/js/">
-                                        js
+                                <a href="/blog/tags/WebAPI/">
+                                        WebAPI
+                                    </a>&nbsp;
+                            </li>
+                            
+                            <li>
+                                | <a href="/blog/tags/scroll/">
+                                        scroll
+                                    </a>&nbsp;
+                            </li>
+                            
+                            <li>
+                                | <a href="/blog/tags/offset/">
+                                        offset
+                                    </a>&nbsp;
+                            </li>
+                            
+                            <li>
+                                | <a href="/blog/tags/client/">
+                                        client
                                     </a>&nbsp;
                             </li>
                             
@@ -228,7 +246,7 @@
                         
                             <span class="article-wordcount article-meta-item">
                                 <i class="fas fa-file-word"></i>&nbsp;<span>
-                                    75
+                                    393
                                         Words
                                 </span>
                             </span>
@@ -242,22 +260,66 @@
             
 
                     <div class="article-content markdown-body">
-                        <!-- category 文章分类 -->
-<!-- tag 文章标签 -->
+                        <h1 id="获取元素大小和位置"><a href="#获取元素大小和位置" class="headerlink" title="获取元素大小和位置"></a>获取元素大小和位置</h1><h2 id="一、scroll-家族"><a href="#一、scroll-家族" class="headerlink" title="一、scroll 家族"></a>一、scroll 家族</h2><p>获取宽高：</p>
+<ul>
+<li>获取元素的<strong>内容</strong>总宽高（不包含滚动条）返回值不带单位</li>
+<li>scrollWidth 和 scrollHeight</li>
+</ul>
+<p>获取位置:</p>
+<ul>
+<li><p>获取元素内容往左、往上滚出去看不到的距离</p>
+</li>
+<li><p><strong>scrollLeft</strong>和<strong>scrollTop</strong></p>
+</li>
+<li><p>这两个属性是可以<strong>修改</strong>的</p>
+<pre><code class="js">// 例如
+div.addEventListener(&#39;scroll&#39;, function () &#123;
+  console.log(this.scrollTop)
+&#125;)
+</code></pre>
+</li>
+</ul>
+<p>注意：开发中，我们经常检测页面滚动的距离，比如页面滚动 100 像素，就可以显示一个元素，或者固定一个元素</p>
+<img src="https://cdn.jsdelivr.net/gh/3-ygd/image-hosting@master/1648483445(1).blsri7mcqqw.webp">
 
-<p>Welcome to <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/" >Hexo<i class="fas fa-external-link-alt"></i></a>! This is your very first post. Check <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/" >documentation<i class="fas fa-external-link-alt"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html" >troubleshooting<i class="fas fa-external-link-alt"></i></a> or you can ask me on <a class="link"   target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues" >GitHub<i class="fas fa-external-link-alt"></i></a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
-</code></pre>
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html" >Writing<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
-</code></pre>
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/server.html" >Server<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
-</code></pre>
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html" >Generating<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
-</code></pre>
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html" >Deployment<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="二、offset-家族"><a href="#二、offset-家族" class="headerlink" title="二、offset 家族"></a>二、offset 家族</h2><p>获取宽高：</p>
+<ul>
+<li>获取元素的自身宽高、包含元素自身设置的宽高、padding、border</li>
+<li>offsetWidth 和 offsetHeight</li>
+</ul>
+<p>获取位置：</p>
+<ul>
+<li>获取元素距离自己<strong>定位父级</strong>元素的左、上距离</li>
+<li><strong>offsetLeft</strong>和<strong>offsetTop</strong> 注意是只读属性</li>
+</ul>
+<h2 id="三、client-家族"><a href="#三、client-家族" class="headerlink" title="三、client 家族"></a>三、client 家族</h2><p>获取宽高：</p>
+<ul>
+<li>获取元素的可见部分宽高（不包含边框，滚动条等）</li>
+<li>clientWidth 和 clientHeight</li>
+</ul>
+<p>获取位置：</p>
+<ul>
+<li>获取左边框和上边框宽度</li>
+<li>clientLeft 和 clientTop 注意是只读属性</li>
+</ul>
+<p>触发时机：会在窗口尺寸改变的时候触发事件 | 检测屏幕宽度</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>1.offset 家族</p>
+<ul>
+<li><p>获取元素自身大小：包括自身设置的宽高、padding、border</p>
+</li>
+<li><p>获取元素距离定位父级的左和上距离 只读属性</p>
+<p>2.client 家族</p>
+</li>
+<li><p>获取元素可见区域的大小</p>
+</li>
+<li><p>获取元素左、上边框距离 只读属性</p>
+<p>3.scroll 家族</p>
+</li>
+<li><p>获取元素内容的总大小</p>
+</li>
+<li><p><strong>获取元素向左向上滚出去看不见的</strong>距离 可读写属性</p>
+</li>
+</ul>
 
                     </div>
 
@@ -267,7 +329,19 @@
                                 <ul class="post-tags-box">
                                     
                                         <li class="tag-item">
-                                            <a href="/blog/tags/js/">#js</a>&nbsp;
+                                            <a href="/blog/tags/WebAPI/">#WebAPI</a>&nbsp;
+                                        </li>
+                                        
+                                        <li class="tag-item">
+                                            <a href="/blog/tags/scroll/">#scroll</a>&nbsp;
+                                        </li>
+                                        
+                                        <li class="tag-item">
+                                            <a href="/blog/tags/offset/">#offset</a>&nbsp;
+                                        </li>
+                                        
+                                        <li class="tag-item">
+                                            <a href="/blog/tags/client/">#client</a>&nbsp;
                                         </li>
                                         
                                 </ul>
@@ -277,13 +351,13 @@
                                         <div class="article-nav">
                                             
                                                 <div class="article-prev">
-                                                    <a class="prev" rel="prev" href="/blog/2019/12/08/js%E5%8F%98%E9%87%8F%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+                                                    <a class="prev" rel="prev" href="/blog/2020/02/20/BOM-%20%E6%93%8D%E4%BD%9C%E6%B5%8F%E8%A7%88%E5%99%A8/">
                                                         <span class="left arrow-icon flex-center">
                                                             <i class="fas fa-chevron-left"></i>
                                                         </span>
                                                         <span class="title flex-center">
                                                             <span class="post-nav-title-item">
-                                                                JavaScript的变量和数据类型
+                                                                BOM- 操作浏览器
                                                             </span>
                                                             <span class="post-nav-item">
                                                                 Prev posts
@@ -293,6 +367,23 @@
                                                 </div>
                                                 
                                                     
+                                                        <div class="article-next">
+                                                            <a class="next" rel="next"
+                                                                href="/blog/2020/02/06/%E6%BB%9A%E5%8A%A8%E4%BA%8B%E4%BB%B6%E5%92%8C%E5%8A%A0%E8%BD%BD%E4%BA%8B%E4%BB%B6/">
+                                                                <span class="title flex-center">
+                                                                    <span class="post-nav-title-item">
+                                                                        滚动事件和加载事件
+                                                                    </span>
+                                                                    <span class="post-nav-item">
+                                                                        Next posts
+                                                                    </span>
+                                                                </span>
+                                                                <span class="right arrow-icon flex-center">
+                                                                    <i class="fas fa-chevron-right"></i>
+                                                                </span>
+                                                            </a>
+                                                        </div>
+                                                        
                                         </div>
                                         
 
@@ -397,7 +488,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%A4%A7%E5%B0%8F%E5%92%8C%E4%BD%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">获取元素大小和位置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81scroll-%E5%AE%B6%E6%97%8F"><span class="nav-number">1.1.</span> <span class="nav-text">一、scroll 家族</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81offset-%E5%AE%B6%E6%97%8F"><span class="nav-number">1.2.</span> <span class="nav-text">二、offset 家族</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81client-%E5%AE%B6%E6%97%8F"><span class="nav-number">1.3.</span> <span class="nav-text">三、client 家族</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.4.</span> <span class="nav-text">总结</span></a></li></ol></li></ol>
     </div>
 </div>
         </aside>
