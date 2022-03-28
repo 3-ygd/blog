@@ -9,7 +9,7 @@
     
     <title>
         
-            获取元素大小和位置 |
+            BOM- 操作浏览器 |
         
         苑木木的博客
     </title>
@@ -164,7 +164,7 @@
 
         <div class="article-title">
             <span class="title-hover-animation">
-                获取元素大小和位置
+                BOM- 操作浏览器
             </span>
         </div>
 
@@ -189,10 +189,10 @@
     <span class="article-date article-meta-item">
         <!-- <i class="fas fa-edit"></i>&nbsp; -->
         <span class="pc">
-            2020-02-13 10:16:30
+            2020-02-26 19:13:56
         </span>
         <span class="mobile">
-            2020-02-13 10:16
+            2020-02-26 19:13
         </span>
     </span>
     
@@ -221,20 +221,20 @@
                             </li>
                             
                             <li>
-                                | <a href="/blog/tags/scroll/">
-                                        scroll
+                                | <a href="/blog/tags/window/">
+                                        window
                                     </a>&nbsp;
                             </li>
                             
                             <li>
-                                | <a href="/blog/tags/offset/">
-                                        offset
+                                | <a href="/blog/tags/setTimeout/">
+                                        setTimeout
                                     </a>&nbsp;
                             </li>
                             
                             <li>
-                                | <a href="/blog/tags/client/">
-                                        client
+                                | <a href="/blog/tags/histroy%E5%AF%B9%E8%B1%A1/">
+                                        histroy对象
                                     </a>&nbsp;
                             </li>
                             
@@ -246,7 +246,7 @@
                         
                             <span class="article-wordcount article-meta-item">
                                 <i class="fas fa-file-word"></i>&nbsp;<span>
-                                    393
+                                    627
                                         Words
                                 </span>
                             </span>
@@ -260,66 +260,67 @@
             
 
                     <div class="article-content markdown-body">
-                        <h1 id="获取元素大小和位置"><a href="#获取元素大小和位置" class="headerlink" title="获取元素大小和位置"></a>获取元素大小和位置</h1><h2 id="一、scroll-家族"><a href="#一、scroll-家族" class="headerlink" title="一、scroll 家族"></a>一、scroll 家族</h2><p>获取宽高：</p>
-<ul>
-<li>获取元素的<strong>内容</strong>总宽高（不包含滚动条）返回值不带单位</li>
-<li>scrollWidth 和 scrollHeight</li>
-</ul>
-<p>获取位置:</p>
-<ul>
-<li><p>获取元素内容往左、往上滚出去看不到的距离</p>
-</li>
-<li><p><strong>scrollLeft</strong>和<strong>scrollTop</strong></p>
-</li>
-<li><p>这两个属性是可以<strong>修改</strong>的</p>
-<pre><code class="js">// 例如
-div.addEventListener(&#39;scroll&#39;, function () &#123;
-  console.log(this.scrollTop)
-&#125;)
-</code></pre>
-</li>
-</ul>
-<p>注意：开发中，我们经常检测页面滚动的距离，比如页面滚动 100 像素，就可以显示一个元素，或者固定一个元素</p>
-<img src="https://cdn.jsdelivr.net/gh/3-ygd/image-hosting@master/1648483445(1).blsri7mcqqw.webp">
+                        <h1 id="BOM-操作浏览器"><a href="#BOM-操作浏览器" class="headerlink" title="BOM- 操作浏览器"></a>BOM- 操作浏览器</h1><h2 id="window-对象"><a href="#window-对象" class="headerlink" title="window 对象"></a>window 对象</h2><h3 id="BOM-浏览器对象模型"><a href="#BOM-浏览器对象模型" class="headerlink" title="BOM(浏览器对象模型)"></a>BOM(浏览器对象模型)</h3><p>BOM(Browser Object Model ) 是浏览器对象模型</p>
+<img src="https://cdn.jsdelivr.net/gh/3-ygd/image-hosting@master/图片1.2m9rwhel15q0.webp">
 
-<h2 id="二、offset-家族"><a href="#二、offset-家族" class="headerlink" title="二、offset 家族"></a>二、offset 家族</h2><p>获取宽高：</p>
+<p>window 是浏览器内置中的全局对象，我们所学习的所有 Web APIs 的知识内容都是基于 window 对象实现的</p>
+<p>window 对象下包含了 navigator、location、document、history、screen 5 个属性，即所谓的 BOM （浏览器对象模型）</p>
+<p>document 是实现 DOM 的基础，它其实是依附于 window 的属性。</p>
+<p>注：依附于 window 对象的所有属性和方法，使用时可以省略 window</p>
+<h3 id="定时器-延时函数"><a href="#定时器-延时函数" class="headerlink" title="定时器-延时函数"></a>定时器-延时函数</h3><p>JavaScript 内置的一个用来让代码延迟执行的函数，叫 setTimeout</p>
+<pre><code class="js">// 语法：
+setTimeout(回调函数，等待的毫秒数)
+</code></pre>
+<p>setTimeout 仅仅只执行一次，所以可以理解为就是把一段代码延迟执行, 平时省略 window</p>
+<p><strong>清除延时函数</strong>：</p>
+<pre><code class="js">// 语法：
+let timer = setTimeout(回调函数，等待的毫秒数)
+clearTimeout(timer) // 清除操作
+</code></pre>
+<p><strong>结合递归函数可以使用 setTimeout 实现 setInterval 一样的功能</strong></p>
+<img src="https://cdn.jsdelivr.net/gh/3-ygd/image-hosting@master/1648484053(1).11f3ojnjbrgw.webp">
+
+<p><strong>两种定时器对比：</strong></p>
 <ul>
-<li>获取元素的自身宽高、包含元素自身设置的宽高、padding、border</li>
-<li>offsetWidth 和 offsetHeight</li>
+<li>setInterval 的特征是重复执行，首次执行会延时</li>
+<li>setTimeout 的特征是延时执行，只执行 1 次</li>
+<li>setTimeout 结合递归函数，能模拟 setInterval 重复执行</li>
+<li>clearTimeout 清除由 setTimeout 创建的定时任务</li>
 </ul>
-<p>获取位置：</p>
+<h3 id="location-对象"><a href="#location-对象" class="headerlink" title="location 对象"></a>location 对象</h3><p>location 的数据类型是对象，它拆分并保存了 URL 地址的各个组成部分</p>
+<p><strong>常用属性和方法：</strong></p>
 <ul>
-<li>获取元素距离自己<strong>定位父级</strong>元素的左、上距离</li>
-<li><strong>offsetLeft</strong>和<strong>offsetTop</strong> 注意是只读属性</li>
+<li>href 属性获取完整的 URL 地址，对其赋值时用于地址的跳转</li>
 </ul>
-<h2 id="三、client-家族"><a href="#三、client-家族" class="headerlink" title="三、client 家族"></a>三、client 家族</h2><p>获取宽高：</p>
+<img src="https://cdn.jsdelivr.net/gh/3-ygd/image-hosting@master/1648484228(1).28dyzfbpmqtc.webp">
+
 <ul>
-<li>获取元素的可见部分宽高（不包含边框，滚动条等）</li>
-<li>clientWidth 和 clientHeight</li>
+<li>reload 方法用来刷新当前页面，传入参数 true 时表示强制刷新</li>
 </ul>
-<p>获取位置：</p>
-<ul>
-<li>获取左边框和上边框宽度</li>
-<li>clientLeft 和 clientTop 注意是只读属性</li>
-</ul>
-<p>触发时机：会在窗口尺寸改变的时候触发事件 | 检测屏幕宽度</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>1.offset 家族</p>
-<ul>
-<li><p>获取元素自身大小：包括自身设置的宽高、padding、border</p>
-</li>
-<li><p>获取元素距离定位父级的左和上距离 只读属性</p>
-<p>2.client 家族</p>
-</li>
-<li><p>获取元素可见区域的大小</p>
-</li>
-<li><p>获取元素左、上边框距离 只读属性</p>
-<p>3.scroll 家族</p>
-</li>
-<li><p>获取元素内容的总大小</p>
-</li>
-<li><p><strong>获取元素向左向上滚出去看不见的</strong>距离 可读写属性</p>
-</li>
-</ul>
+<img src="https://cdn.jsdelivr.net/gh/3-ygd/image-hosting@master/1648484291(1).1y7oon8x7fts.webp">
+
+<h3 id="histroy-对象"><a href="#histroy-对象" class="headerlink" title="histroy 对象"></a>histroy 对象</h3><p>history 的数据类型是对象，该对象与浏览器地址栏的操作相对应，如前进、后退、历史记录等</p>
+<p><strong>常用属性和方法：</strong></p>
+<img src="https://cdn.jsdelivr.net/gh/3-ygd/image-hosting@master/1648484385(1).3ybl9j8q6h40.webp">
+
+<h3 id="本地存储"><a href="#本地存储" class="headerlink" title="本地存储"></a>本地存储</h3><p>1、生命周期永久生效，除非手动删除 否则关闭页面也会存在</p>
+<p>2、可以多窗口（页面）共享（同一浏览器可以共享）</p>
+<p>3、以键值对的形式存储使用</p>
+<pre><code class="js">// 存储数据
+localStorage.setItem(key, value)
+
+// 获取数据
+localStorage.getItem(key)
+
+// 删除数据
+localStorage.removeItem(key)
+</code></pre>
+<p><strong>存储复杂</strong> 数据类型存储</p>
+<p>本地只能存储字符串,无法存储复杂数据类型.需要将复杂数据类型转换成 JSON 字符串,在存储到本地</p>
+<p><strong>JSON.stringify</strong>(复杂数据类型)</p>
+<p>​ 将复杂数据转换成 JSON 字符串 <strong>存储</strong> 本地存储中</p>
+<p><strong>JSON.parse</strong>(JSON 字符串)</p>
+<p>​ 将 JSON 字符串转换成对象 <strong>取出</strong> 时候使用</p>
 
                     </div>
 
@@ -333,15 +334,15 @@ div.addEventListener(&#39;scroll&#39;, function () &#123;
                                         </li>
                                         
                                         <li class="tag-item">
-                                            <a href="/blog/tags/scroll/">#scroll</a>&nbsp;
+                                            <a href="/blog/tags/window/">#window</a>&nbsp;
                                         </li>
                                         
                                         <li class="tag-item">
-                                            <a href="/blog/tags/offset/">#offset</a>&nbsp;
+                                            <a href="/blog/tags/setTimeout/">#setTimeout</a>&nbsp;
                                         </li>
                                         
                                         <li class="tag-item">
-                                            <a href="/blog/tags/client/">#client</a>&nbsp;
+                                            <a href="/blog/tags/histroy%E5%AF%B9%E8%B1%A1/">#histroy对象</a>&nbsp;
                                         </li>
                                         
                                 </ul>
@@ -350,29 +351,13 @@ div.addEventListener(&#39;scroll&#39;, function () &#123;
                                     
                                         <div class="article-nav">
                                             
-                                                <div class="article-prev">
-                                                    <a class="prev" rel="prev" href="/blog/2020/02/20/BOM-%20%E6%93%8D%E4%BD%9C%E6%B5%8F%E8%A7%88%E5%99%A8/">
-                                                        <span class="left arrow-icon flex-center">
-                                                            <i class="fas fa-chevron-left"></i>
-                                                        </span>
-                                                        <span class="title flex-center">
-                                                            <span class="post-nav-title-item">
-                                                                BOM- 操作浏览器
-                                                            </span>
-                                                            <span class="post-nav-item">
-                                                                Prev posts
-                                                            </span>
-                                                        </span>
-                                                    </a>
-                                                </div>
-                                                
                                                     
                                                         <div class="article-next">
                                                             <a class="next" rel="next"
-                                                                href="/blog/2020/02/06/%E6%BB%9A%E5%8A%A8%E4%BA%8B%E4%BB%B6%E5%92%8C%E5%8A%A0%E8%BD%BD%E4%BA%8B%E4%BB%B6/">
+                                                                href="/blog/2020/02/20/%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%A4%A7%E5%B0%8F%E5%92%8C%E4%BD%8D%E7%BD%AE/">
                                                                 <span class="title flex-center">
                                                                     <span class="post-nav-title-item">
-                                                                        滚动事件和加载事件
+                                                                        获取元素大小和位置
                                                                     </span>
                                                                     <span class="post-nav-item">
                                                                         Next posts
@@ -488,7 +473,7 @@ div.addEventListener(&#39;scroll&#39;, function () &#123;
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%A4%A7%E5%B0%8F%E5%92%8C%E4%BD%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">获取元素大小和位置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81scroll-%E5%AE%B6%E6%97%8F"><span class="nav-number">1.1.</span> <span class="nav-text">一、scroll 家族</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81offset-%E5%AE%B6%E6%97%8F"><span class="nav-number">1.2.</span> <span class="nav-text">二、offset 家族</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81client-%E5%AE%B6%E6%97%8F"><span class="nav-number">1.3.</span> <span class="nav-text">三、client 家族</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.4.</span> <span class="nav-text">总结</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#BOM-%E6%93%8D%E4%BD%9C%E6%B5%8F%E8%A7%88%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text">BOM- 操作浏览器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#window-%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.1.</span> <span class="nav-text">window 对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#BOM-%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.1.1.</span> <span class="nav-text">BOM(浏览器对象模型)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E6%97%B6%E5%99%A8-%E5%BB%B6%E6%97%B6%E5%87%BD%E6%95%B0"><span class="nav-number">1.1.2.</span> <span class="nav-text">定时器-延时函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#location-%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.1.3.</span> <span class="nav-text">location 对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#histroy-%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.1.4.</span> <span class="nav-text">histroy 对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8"><span class="nav-number">1.1.5.</span> <span class="nav-text">本地存储</span></a></li></ol></li></ol></li></ol>
     </div>
 </div>
         </aside>

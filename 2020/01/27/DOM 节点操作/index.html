@@ -9,7 +9,7 @@
     
     <title>
         
-            BOM- 操作浏览器 |
+            DOM 节点操作 |
         
         苑木木的博客
     </title>
@@ -164,7 +164,7 @@
 
         <div class="article-title">
             <span class="title-hover-animation">
-                BOM- 操作浏览器
+                DOM 节点操作
             </span>
         </div>
 
@@ -189,10 +189,10 @@
     <span class="article-date article-meta-item">
         <!-- <i class="fas fa-edit"></i>&nbsp; -->
         <span class="pc">
-            2020-02-20 09:18:16
+            2020-01-27 18:10:29
         </span>
         <span class="mobile">
-            2020-02-20 09:18
+            2020-01-27 18:10
         </span>
     </span>
     
@@ -221,20 +221,8 @@
                             </li>
                             
                             <li>
-                                | <a href="/blog/tags/window/">
-                                        window
-                                    </a>&nbsp;
-                            </li>
-                            
-                            <li>
-                                | <a href="/blog/tags/setTimeout/">
-                                        setTimeout
-                                    </a>&nbsp;
-                            </li>
-                            
-                            <li>
-                                | <a href="/blog/tags/histroy%E5%AF%B9%E8%B1%A1/">
-                                        histroy对象
+                                | <a href="/blog/tags/%E8%8A%82%E7%82%B9%E6%93%8D%E4%BD%9C/">
+                                        节点操作
                                     </a>&nbsp;
                             </li>
                             
@@ -246,7 +234,7 @@
                         
                             <span class="article-wordcount article-meta-item">
                                 <i class="fas fa-file-word"></i>&nbsp;<span>
-                                    627
+                                    733
                                         Words
                                 </span>
                             </span>
@@ -260,67 +248,91 @@
             
 
                     <div class="article-content markdown-body">
-                        <h1 id="BOM-操作浏览器"><a href="#BOM-操作浏览器" class="headerlink" title="BOM- 操作浏览器"></a>BOM- 操作浏览器</h1><h2 id="window-对象"><a href="#window-对象" class="headerlink" title="window 对象"></a>window 对象</h2><h3 id="BOM-浏览器对象模型"><a href="#BOM-浏览器对象模型" class="headerlink" title="BOM(浏览器对象模型)"></a>BOM(浏览器对象模型)</h3><p>BOM(Browser Object Model ) 是浏览器对象模型</p>
-<img src="https://cdn.jsdelivr.net/gh/3-ygd/image-hosting@master/图片1.2m9rwhel15q0.webp">
-
-<p>window 是浏览器内置中的全局对象，我们所学习的所有 Web APIs 的知识内容都是基于 window 对象实现的</p>
-<p>window 对象下包含了 navigator、location、document、history、screen 5 个属性，即所谓的 BOM （浏览器对象模型）</p>
-<p>document 是实现 DOM 的基础，它其实是依附于 window 的属性。</p>
-<p>注：依附于 window 对象的所有属性和方法，使用时可以省略 window</p>
-<h3 id="定时器-延时函数"><a href="#定时器-延时函数" class="headerlink" title="定时器-延时函数"></a>定时器-延时函数</h3><p>JavaScript 内置的一个用来让代码延迟执行的函数，叫 setTimeout</p>
-<pre><code class="js">// 语法：
-setTimeout(回调函数，等待的毫秒数)
+                        <h1 id="DOM-节点操作"><a href="#DOM-节点操作" class="headerlink" title="DOM 节点操作"></a>DOM 节点操作</h1><h2 id="一、节点操作"><a href="#一、节点操作" class="headerlink" title="一、节点操作"></a>一、节点操作</h2><h3 id="1-DOM-节点"><a href="#1-DOM-节点" class="headerlink" title="1.DOM 节点"></a>1.DOM 节点</h3><p><strong>概念</strong>：DOM 树里每一个内容都称之为节点</p>
+<p>​ <strong>节点类型</strong>：</p>
+<p>​ <strong>元素节点</strong> ：所有的标签 比如 body、 div | html 是根节点</p>
+<p>​ <strong>属性节点</strong> ：所有的属性 比如 href</p>
+<p>​ <strong>文本节点</strong> ：所有的文本</p>
+<p>​ <strong>其他</strong></p>
+<h3 id="2-查找节点"><a href="#2-查找节点" class="headerlink" title="2.查找节点"></a>2.查找节点</h3><p><strong>父节点查找</strong>：</p>
+<p>语法：</p>
+<pre><code class="js">子元素.parentNode
 </code></pre>
-<p>setTimeout 仅仅只执行一次，所以可以理解为就是把一段代码延迟执行, 平时省略 window</p>
-<p><strong>清除延时函数</strong>：</p>
-<pre><code class="js">// 语法：
-let timer = setTimeout(回调函数，等待的毫秒数)
-clearTimeout(timer) // 清除操作
+<p>注意：该方式会返回最近一级的父节点 找不到返回为 null</p>
+<p><strong>子节点查找：</strong></p>
+<p>语法：</p>
+<pre><code class="js">父元素.children
 </code></pre>
-<p><strong>结合递归函数可以使用 setTimeout 实现 setInterval 一样的功能</strong></p>
-<img src="https://cdn.jsdelivr.net/gh/3-ygd/image-hosting@master/1648484053(1).11f3ojnjbrgw.webp">
+<p>注意：该方式可以获得所有元素节点，并且返回的还是一个伪数组</p>
+<p><strong>兄弟关系查找</strong></p>
+<p>语法：</p>
+<pre><code class="js">// 下一个兄弟元素节点
+dom元素.nextElementSibling
 
-<p><strong>两种定时器对比：</strong></p>
-<ul>
-<li>setInterval 的特征是重复执行，首次执行会延时</li>
-<li>setTimeout 的特征是延时执行，只执行 1 次</li>
-<li>setTimeout 结合递归函数，能模拟 setInterval 重复执行</li>
-<li>clearTimeout 清除由 setTimeout 创建的定时任务</li>
-</ul>
-<h3 id="location-对象"><a href="#location-对象" class="headerlink" title="location 对象"></a>location 对象</h3><p>location 的数据类型是对象，它拆分并保存了 URL 地址的各个组成部分</p>
-<p><strong>常用属性和方法：</strong></p>
-<ul>
-<li>href 属性获取完整的 URL 地址，对其赋值时用于地址的跳转</li>
-</ul>
-<img src="https://cdn.jsdelivr.net/gh/3-ygd/image-hosting@master/1648484228(1).28dyzfbpmqtc.webp">
-
-<ul>
-<li>reload 方法用来刷新当前页面，传入参数 true 时表示强制刷新</li>
-</ul>
-<img src="https://cdn.jsdelivr.net/gh/3-ygd/image-hosting@master/1648484291(1).1y7oon8x7fts.webp">
-
-<h3 id="histroy-对象"><a href="#histroy-对象" class="headerlink" title="histroy 对象"></a>histroy 对象</h3><p>history 的数据类型是对象，该对象与浏览器地址栏的操作相对应，如前进、后退、历史记录等</p>
-<p><strong>常用属性和方法：</strong></p>
-<img src="https://cdn.jsdelivr.net/gh/3-ygd/image-hosting@master/1648484385(1).3ybl9j8q6h40.webp">
-
-<h3 id="本地存储"><a href="#本地存储" class="headerlink" title="本地存储"></a>本地存储</h3><p>1、生命周期永久生效，除非手动删除 否则关闭页面也会存在</p>
-<p>2、可以多窗口（页面）共享（同一浏览器可以共享）</p>
-<p>3、以键值对的形式存储使用</p>
-<pre><code class="js">// 存储数据
-localStorage.setItem(key, value)
-
-// 获取数据
-localStorage.getItem(key)
-
-// 删除数据
-localStorage.removeItem(key)
+// 获取上一个兄弟元素节点
+dom元素.previousElementSibling
 </code></pre>
-<p><strong>存储复杂</strong> 数据类型存储</p>
-<p>本地只能存储字符串,无法存储复杂数据类型.需要将复杂数据类型转换成 JSON 字符串,在存储到本地</p>
-<p><strong>JSON.stringify</strong>(复杂数据类型)</p>
-<p>​ 将复杂数据转换成 JSON 字符串 <strong>存储</strong> 本地存储中</p>
-<p><strong>JSON.parse</strong>(JSON 字符串)</p>
-<p>​ 将 JSON 字符串转换成对象 <strong>取出</strong> 时候使用</p>
+<h3 id="3-增加节点"><a href="#3-增加节点" class="headerlink" title="3.增加节点"></a>3.增加节点</h3><p><strong>创建节点</strong></p>
+<p>语法：</p>
+<pre><code class="js">document.createElement(&#39;标签名&#39;)
+</code></pre>
+<p>说明：即创造出一个新的网页元素，再添加到网页内，一般先创建节点，然后插入节点</p>
+<p><strong>追加节点</strong></p>
+<p>语法：</p>
+<pre><code class="js">// 插入到父元素的最后一个子元素
+父元素.appendChild(要插入的元素)
+
+// 插入到父元素中某个子元素的前面
+父元素.insertBefore(要插入的元素，在那个元素前面)
+</code></pre>
+<p><strong>克隆节点</strong></p>
+<p>语法：</p>
+<pre><code class="js">// 克隆一个已有的元素节点
+dom元素.cloneNode(布尔值)
+</code></pre>
+<p>说明：该方法会克隆出一个跟原标签一样的元素，括号内传入布尔值</p>
+<p>​ 若为 true，则代表克隆时会包含后代节点一起克隆</p>
+<p>​ 若为 false, 则代表克隆时不好含后代节点</p>
+<p>​ 默认为 false</p>
+<h3 id="4-删除节点"><a href="#4-删除节点" class="headerlink" title="4.删除节点"></a>4.删除节点</h3><p>语法：</p>
+<pre><code class="js">父元素.removeChild(要删除的元素)
+</code></pre>
+<p>注意：</p>
+<p>​ 如不存在父子关系则删除不成功</p>
+<p>​ 删除节点和隐藏节点（display:none） 有区别的： 隐藏节点还是存在的，但是删除，则从 html 中删除节点</p>
+<h2 id="二、时间对象"><a href="#二、时间对象" class="headerlink" title="二、时间对象"></a>二、时间对象</h2><h3 id="1-实例化"><a href="#1-实例化" class="headerlink" title="1.实例化"></a>1.实例化</h3><p>说明：</p>
+<p>​ 在代码中发现了 new 关键字时，一般将这个操作称为<strong>实例化</strong></p>
+<p>​ 创建一个时间对象并获取时间</p>
+<p>语法：</p>
+<pre><code class="js">// 获取当前的时间
+let date = new Date()
+
+// 获取指定时间
+let date = new Date(&#39;1966-10-01&#39;)
+</code></pre>
+<h3 id="2-时间对象方法"><a href="#2-时间对象方法" class="headerlink" title="2.时间对象方法"></a>2.时间对象方法</h3><p>说明： 因为时间对象返回的数据我们不能直接使用，所以需要转换为实际开发中常用的格式</p>
+<p><strong>以下为常用的一些方法：</strong></p>
+<img src="https://cdn.jsdelivr.net/gh/3-ygd/image-hosting@master/1648481367(1).vkvql1yec2o.webp">
+
+<h3 id="3-时间戳"><a href="#3-时间戳" class="headerlink" title="3.时间戳"></a>3.时间戳</h3><p>概念：是指 1970 年 01 月 01 日 00 时 00 分 00 秒起至现在的毫秒数，它是一种特殊的计量时间的方式</p>
+<p><strong>使用 getTime() 方法</strong> 获取</p>
+<pre><code class="js">// 实例化时间对象
+let date = new Date()
+// 获取时间戳
+console.log(date.getTime())
+</code></pre>
+<p><strong>简写 + new Date()</strong> 获取</p>
+<pre><code class="js">// 获取时间戳
+console.log(+new Date())
+</code></pre>
+<p><strong>使用 Date.now()</strong> 获取</p>
+<pre><code class="js">// 获取时间戳
+console.log(Date.now())
+
+// 注意：
+// 该方法无需实例化
+// 该方法只能得到当前的时间戳，而前面两种可以返回指定时间的时间戳
+</code></pre>
 
                     </div>
 
@@ -334,15 +346,7 @@ localStorage.removeItem(key)
                                         </li>
                                         
                                         <li class="tag-item">
-                                            <a href="/blog/tags/window/">#window</a>&nbsp;
-                                        </li>
-                                        
-                                        <li class="tag-item">
-                                            <a href="/blog/tags/setTimeout/">#setTimeout</a>&nbsp;
-                                        </li>
-                                        
-                                        <li class="tag-item">
-                                            <a href="/blog/tags/histroy%E5%AF%B9%E8%B1%A1/">#histroy对象</a>&nbsp;
+                                            <a href="/blog/tags/%E8%8A%82%E7%82%B9%E6%93%8D%E4%BD%9C/">#节点操作</a>&nbsp;
                                         </li>
                                         
                                 </ul>
@@ -352,13 +356,13 @@ localStorage.removeItem(key)
                                         <div class="article-nav">
                                             
                                                 <div class="article-prev">
-                                                    <a class="prev" rel="prev" href="/blog/2022/03/28/DOM%20%E8%8A%82%E7%82%B9%E6%93%8D%E4%BD%9C/">
+                                                    <a class="prev" rel="prev" href="/blog/2020/02/06/DOM-%20%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1%E3%80%81%E4%BA%8B%E4%BB%B6%E6%B5%81%E3%80%81%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/">
                                                         <span class="left arrow-icon flex-center">
                                                             <i class="fas fa-chevron-left"></i>
                                                         </span>
                                                         <span class="title flex-center">
                                                             <span class="post-nav-title-item">
-                                                                
+                                                                DOM- 事件对象、事件流、事件委托
                                                             </span>
                                                             <span class="post-nav-item">
                                                                 Prev posts
@@ -370,10 +374,10 @@ localStorage.removeItem(key)
                                                     
                                                         <div class="article-next">
                                                             <a class="next" rel="next"
-                                                                href="/blog/2020/02/13/%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%A4%A7%E5%B0%8F%E5%92%8C%E4%BD%8D%E7%BD%AE/">
+                                                                href="/blog/2020/01/16/DOM-%E8%8E%B7%E5%8F%96DOM%E5%85%83%E7%B4%A0%E3%80%81%E4%BF%AE%E6%94%B9%E5%B1%9E%E6%80%A7/">
                                                                 <span class="title flex-center">
                                                                     <span class="post-nav-title-item">
-                                                                        获取元素大小和位置
+                                                                        DOM-获取DOM元素、修改属性
                                                                     </span>
                                                                     <span class="post-nav-item">
                                                                         Next posts
@@ -489,7 +493,7 @@ localStorage.removeItem(key)
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#BOM-%E6%93%8D%E4%BD%9C%E6%B5%8F%E8%A7%88%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text">BOM- 操作浏览器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#window-%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.1.</span> <span class="nav-text">window 对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#BOM-%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.1.1.</span> <span class="nav-text">BOM(浏览器对象模型)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E6%97%B6%E5%99%A8-%E5%BB%B6%E6%97%B6%E5%87%BD%E6%95%B0"><span class="nav-number">1.1.2.</span> <span class="nav-text">定时器-延时函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#location-%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.1.3.</span> <span class="nav-text">location 对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#histroy-%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.1.4.</span> <span class="nav-text">histroy 对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8"><span class="nav-number">1.1.5.</span> <span class="nav-text">本地存储</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM-%E8%8A%82%E7%82%B9%E6%93%8D%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">DOM 节点操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E8%8A%82%E7%82%B9%E6%93%8D%E4%BD%9C"><span class="nav-number">1.1.</span> <span class="nav-text">一、节点操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-DOM-%E8%8A%82%E7%82%B9"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.DOM 节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%9F%A5%E6%89%BE%E8%8A%82%E7%82%B9"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.查找节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%A2%9E%E5%8A%A0%E8%8A%82%E7%82%B9"><span class="nav-number">1.1.3.</span> <span class="nav-text">3.增加节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9"><span class="nav-number">1.1.4.</span> <span class="nav-text">4.删除节点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%97%B6%E9%97%B4%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.2.</span> <span class="nav-text">二、时间对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%AE%9E%E4%BE%8B%E5%8C%96"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.实例化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%97%B6%E9%97%B4%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.时间对象方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%97%B6%E9%97%B4%E6%88%B3"><span class="nav-number">1.2.3.</span> <span class="nav-text">3.时间戳</span></a></li></ol></li></ol></li></ol>
     </div>
 </div>
         </aside>

@@ -677,19 +677,19 @@ score &gt;= 60 ? console.log(&#39;中午吃点好的&#39;) : console.log(&#39;�
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/blog/2022/03/28/DOM%20%E8%8A%82%E7%82%B9%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<h1 id="DOM-节点操作"><a href="#DOM-节点操作" class="headerlink" title="DOM 节点操作"></a>DOM 节点操作</h1><h2 id="一、节点操作"><a href="#一、节点操作" class="headerlink" title="一、节点操作"></a>一、节点操作</h2><h3 id="1-DOM节点"><a href="#1-DOM节点" class="headerlink" title="1.DOM节点"></a>1.DOM节点</h3><p><strong>概念</strong>：DOM树里每一个内容都称之为节点</p>
-<p>​    <strong>节点类型</strong>：</p>
-<p>​        <strong>元素节点</strong>   ：所有的标签 比如 body、 div   |    html 是根节点</p>
-<p>​        <strong>属性节点</strong>   ：所有的属性 比如 href</p>
-<p>​        <strong>文本节点</strong>   ：所有的文本 </p>
-<p>​        <strong>其他</strong></p>
+    <title>DOM 节点操作</title>
+    <url>/blog/2020/01/27/DOM%20%E8%8A%82%E7%82%B9%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<h1 id="DOM-节点操作"><a href="#DOM-节点操作" class="headerlink" title="DOM 节点操作"></a>DOM 节点操作</h1><h2 id="一、节点操作"><a href="#一、节点操作" class="headerlink" title="一、节点操作"></a>一、节点操作</h2><h3 id="1-DOM-节点"><a href="#1-DOM-节点" class="headerlink" title="1.DOM 节点"></a>1.DOM 节点</h3><p><strong>概念</strong>：DOM 树里每一个内容都称之为节点</p>
+<p>​ <strong>节点类型</strong>：</p>
+<p>​ <strong>元素节点</strong> ：所有的标签 比如 body、 div | html 是根节点</p>
+<p>​ <strong>属性节点</strong> ：所有的属性 比如 href</p>
+<p>​ <strong>文本节点</strong> ：所有的文本</p>
+<p>​ <strong>其他</strong></p>
 <h3 id="2-查找节点"><a href="#2-查找节点" class="headerlink" title="2.查找节点"></a>2.查找节点</h3><p><strong>父节点查找</strong>：</p>
-<p> 语法：</p>
+<p>语法：</p>
 <pre><code class="js">子元素.parentNode
 </code></pre>
-<p>注意：该方式会返回最近一级的父节点 找不到返回为null</p>
+<p>注意：该方式会返回最近一级的父节点 找不到返回为 null</p>
 <p><strong>子节点查找：</strong></p>
 <p>语法：</p>
 <pre><code class="js">父元素.children
@@ -722,18 +722,18 @@ dom元素.previousElementSibling
 dom元素.cloneNode(布尔值)
 </code></pre>
 <p>说明：该方法会克隆出一个跟原标签一样的元素，括号内传入布尔值</p>
-<p>​            若为true，则代表克隆时会包含后代节点一起克隆</p>
-<p>​            若为false, 则代表克隆时不好含后代节点</p>
-<p>​            默认为false</p>
+<p>​ 若为 true，则代表克隆时会包含后代节点一起克隆</p>
+<p>​ 若为 false, 则代表克隆时不好含后代节点</p>
+<p>​ 默认为 false</p>
 <h3 id="4-删除节点"><a href="#4-删除节点" class="headerlink" title="4.删除节点"></a>4.删除节点</h3><p>语法：</p>
 <pre><code class="js">父元素.removeChild(要删除的元素)
 </code></pre>
 <p>注意：</p>
-<p>​        如不存在父子关系则删除不成功</p>
-<p>​        删除节点和隐藏节点（display:none） 有区别的： 隐藏节点还是存在的，但是删除，则从html中删除节点</p>
+<p>​ 如不存在父子关系则删除不成功</p>
+<p>​ 删除节点和隐藏节点（display:none） 有区别的： 隐藏节点还是存在的，但是删除，则从 html 中删除节点</p>
 <h2 id="二、时间对象"><a href="#二、时间对象" class="headerlink" title="二、时间对象"></a>二、时间对象</h2><h3 id="1-实例化"><a href="#1-实例化" class="headerlink" title="1.实例化"></a>1.实例化</h3><p>说明：</p>
-<p>​        在代码中发现了 new 关键字时，一般将这个操作称为<strong>实例化</strong></p>
-<p>​        创建一个时间对象并获取时间</p>
+<p>​ 在代码中发现了 new 关键字时，一般将这个操作称为<strong>实例化</strong></p>
+<p>​ 创建一个时间对象并获取时间</p>
 <p>语法：</p>
 <pre><code class="js">// 获取当前的时间
 let date = new Date()
@@ -745,32 +745,37 @@ let date = new Date(&#39;1966-10-01&#39;)
 <p><strong>以下为常用的一些方法：</strong></p>
 <img src="https://cdn.jsdelivr.net/gh/3-ygd/image-hosting@master/1648481367(1).vkvql1yec2o.webp">
 
-
-
-<h3 id="3-时间戳"><a href="#3-时间戳" class="headerlink" title="3.时间戳"></a>3.时间戳</h3><p>概念：是指1970年01月01日00时00分00秒起至现在的毫秒数，它是一种特殊的计量时间的方式</p>
-<p><strong>使用 getTime() 方法</strong>  获取</p>
+<h3 id="3-时间戳"><a href="#3-时间戳" class="headerlink" title="3.时间戳"></a>3.时间戳</h3><p>概念：是指 1970 年 01 月 01 日 00 时 00 分 00 秒起至现在的毫秒数，它是一种特殊的计量时间的方式</p>
+<p><strong>使用 getTime() 方法</strong> 获取</p>
 <pre><code class="js">// 实例化时间对象
 let date = new Date()
 // 获取时间戳
 console.log(date.getTime())
 </code></pre>
-<p><strong>简写 + new Date()</strong>  获取</p>
+<p><strong>简写 + new Date()</strong> 获取</p>
 <pre><code class="js">// 获取时间戳
-console.log( +new Date() )
+console.log(+new Date())
 </code></pre>
-<p><strong>使用 Date.now()</strong>   获取</p>
+<p><strong>使用 Date.now()</strong> 获取</p>
 <pre><code class="js">// 获取时间戳
-console.log( Date.now() )
+console.log(Date.now())
 
 // 注意：
 // 该方法无需实例化
 // 该方法只能得到当前的时间戳，而前面两种可以返回指定时间的时间戳
 </code></pre>
 ]]></content>
+      <categories>
+        <category>WebAPI</category>
+      </categories>
+      <tags>
+        <tag>WebAPI</tag>
+        <tag>节点操作</tag>
+      </tags>
   </entry>
   <entry>
     <title>BOM- 操作浏览器</title>
-    <url>/blog/2020/02/20/BOM-%20%E6%93%8D%E4%BD%9C%E6%B5%8F%E8%A7%88%E5%99%A8/</url>
+    <url>/blog/2020/02/26/BOM-%20%E6%93%8D%E4%BD%9C%E6%B5%8F%E8%A7%88%E5%99%A8/</url>
     <content><![CDATA[<h1 id="BOM-操作浏览器"><a href="#BOM-操作浏览器" class="headerlink" title="BOM- 操作浏览器"></a>BOM- 操作浏览器</h1><h2 id="window-对象"><a href="#window-对象" class="headerlink" title="window 对象"></a>window 对象</h2><h3 id="BOM-浏览器对象模型"><a href="#BOM-浏览器对象模型" class="headerlink" title="BOM(浏览器对象模型)"></a>BOM(浏览器对象模型)</h3><p>BOM(Browser Object Model ) 是浏览器对象模型</p>
 <img src="https://cdn.jsdelivr.net/gh/3-ygd/image-hosting@master/图片1.2m9rwhel15q0.webp">
 
@@ -845,7 +850,7 @@ localStorage.removeItem(key)
   </entry>
   <entry>
     <title>获取元素大小和位置</title>
-    <url>/blog/2020/02/13/%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%A4%A7%E5%B0%8F%E5%92%8C%E4%BD%8D%E7%BD%AE/</url>
+    <url>/blog/2020/02/20/%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%A4%A7%E5%B0%8F%E5%92%8C%E4%BD%8D%E7%BD%AE/</url>
     <content><![CDATA[<h1 id="获取元素大小和位置"><a href="#获取元素大小和位置" class="headerlink" title="获取元素大小和位置"></a>获取元素大小和位置</h1><h2 id="一、scroll-家族"><a href="#一、scroll-家族" class="headerlink" title="一、scroll 家族"></a>一、scroll 家族</h2><p>获取宽高：</p>
 <ul>
 <li>获取元素的<strong>内容</strong>总宽高（不包含滚动条）返回值不带单位</li>
@@ -919,7 +924,7 @@ div.addEventListener(&#39;scroll&#39;, function () &#123;
   </entry>
   <entry>
     <title>滚动事件和加载事件</title>
-    <url>/blog/2020/02/06/%E6%BB%9A%E5%8A%A8%E4%BA%8B%E4%BB%B6%E5%92%8C%E5%8A%A0%E8%BD%BD%E4%BA%8B%E4%BB%B6/</url>
+    <url>/blog/2020/02/13/%E6%BB%9A%E5%8A%A8%E4%BA%8B%E4%BB%B6%E5%92%8C%E5%8A%A0%E8%BD%BD%E4%BA%8B%E4%BB%B6/</url>
     <content><![CDATA[<h1 id="滚动事件和加载事件"><a href="#滚动事件和加载事件" class="headerlink" title="滚动事件和加载事件"></a>滚动事件和加载事件</h1><h2 id="一、滚动事件"><a href="#一、滚动事件" class="headerlink" title="一、滚动事件"></a>一、滚动事件</h2><p>触发时机：当页面进行滚动时触发的事件</p>
 <p>为什么要使用？</p>
 <p>​ 因为很多网页需要检测用户把页面滚动到某个区域后做一些处理， 比如固定导航栏，比如返回顶部</p>
@@ -961,7 +966,7 @@ window.addEventListener(&#39;load&#39;, function () &#123;
   </entry>
   <entry>
     <title>DOM- 事件对象、事件流、事件委托</title>
-    <url>/blog/2020/01/27/DOM-%20%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1%E3%80%81%E4%BA%8B%E4%BB%B6%E6%B5%81%E3%80%81%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/</url>
+    <url>/blog/2020/02/06/DOM-%20%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1%E3%80%81%E4%BA%8B%E4%BB%B6%E6%B5%81%E3%80%81%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/</url>
     <content><![CDATA[<h1 id="DOM-事件对象、事件流、事件委托"><a href="#DOM-事件对象、事件流、事件委托" class="headerlink" title="**DOM- 事件对象、事件流、事件委托"></a>**DOM- 事件对象、事件流、事件委托</h1><h2 id="一、事件对象"><a href="#一、事件对象" class="headerlink" title="一、事件对象"></a>一、事件对象</h2><h3 id="1-获取事件对象"><a href="#1-获取事件对象" class="headerlink" title="1.获取事件对象"></a>1.获取事件对象</h3><p><strong>事件对象是什么：</strong></p>
 <ul>
 <li>也是个对象，这个对象里有事件触发时的相关信息</li>
