@@ -2103,7 +2103,6 @@ $(&#39;.box&#39;).off(&#39;click&#39;, &#39;.one&#39;)
       </categories>
       <tags>
         <tag>jq</tag>
-        <tag>$</tag>
       </tags>
   </entry>
   <entry>
