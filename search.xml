@@ -1047,4 +1047,1345 @@ window.addEventListener(&#39;load&#39;, function () &#123;
         <tag>事件委托</tag>
       </tags>
   </entry>
+  <entry>
+    <title>ES6-类-继承</title>
+    <url>/blog/2020/04/10/ES6-%E7%B1%BB-%E7%BB%A7%E6%89%BF/</url>
+    <content><![CDATA[<h1 id="ES6-类-继承"><a href="#ES6-类-继承" class="headerlink" title="ES6-类-继承"></a>ES6-类-继承</h1><h2 id="1、类"><a href="#1、类" class="headerlink" title="1、类"></a>1、类</h2><p><strong>概念:</strong> 将对象中公共的方法或者属性封装成一个模板 (es5 中的构造函数)</p>
+<p><strong>作用:</strong> 创建对象</p>
+<pre><code class="js">// 语法
+class 自定义类名 &#123;&#125;
+let 实例对象 = new 类名()
+</code></pre>
+<p><strong>注意事项:</strong></p>
+<ul>
+<li>通过类创建对象必须使用 new 关键字</li>
+<li>类的命名规范与构造函数的命名规范一样(帕斯卡命名法)</li>
+<li>创建对象后类名后面必须加()</li>
+</ul>
+<pre><code class="js">// 设置属性语法
+class 自定义类名 &#123;
+      constructor(形参,形参) &#123;
+         this.属性 = 形参;
+         this.属性 = 形参;
+     &#125;
+&#125;
+
+// 类设置方法
+class 类名 &#123;
+    constructor() &#123;&#125;
+    方法名() &#123;&#125;
+&#125;
+注意事项:
+1. 类中设置方法名,不能添加function关键字
+2. 类中方法之间不需要任何的分割符
+</code></pre>
+<p><strong>constructor 介绍:</strong></p>
+<ul>
+<li>类中默认的构造函数,用来初始化操作</li>
+<li>constructor 构造函数用来接收创建对象时候传递的参数,创建对象并返回</li>
+<li>通过 new + 类名创建对象的时候,程序就会自动调用类中 constructor’</li>
+<li>如果我们在类中没有定义 constructor 函数,程序在执行的时候也会自动创建的</li>
+</ul>
+<p><strong>继承(子类继承父类)</strong></p>
+<pre><code class="js">// 语法:
+
+class 子类 extends 父类 &#123;&#125;
+</code></pre>
+<pre><code class="js">// 例如
+//父类
+class Student &#123;
+  ks(ksName) &#123;
+    alert(ksName)
+  &#125;
+&#125;
+//子类继承父类
+class C_student extends Student &#123;&#125;
+class A_student extends Student &#123;&#125;
+var zs = new C_student()
+var ls = new A_student()
+zs.ks(&#39;汉语&#39;)
+ls.ks(&#39;英语&#39;)
+</code></pre>
+<p><strong>super 关键字</strong></p>
+<pre><code class="js">作用：子类继承父类时候,如果子类中设置了构造函数,则通过super关键字调用父类中的构造函数
+
+语法:  super(参数)
+
+子类中如果要执行父类中的方法,可以通过super调用父类中的方法
+super.方法名()
+</code></pre>
+<p><strong>call,bind,apply</strong></p>
+<p><strong>作用：</strong>修改 this 指向</p>
+<pre><code class="js">call作用: 调用函数 + 修改this指向
+call语法: 函数.call(对象,参数1,参数2...)
+
+apply作用: 调用函数 + 修改this指向
+apply语法:函数.apply(对象,[值,值]);
+
+bind作用: 不调用函数 + 修改this指向
+bind语法: 函数.bind(对象,参数1,参数2...)
+bind返回值: 返回当前函数
+</code></pre>
+]]></content>
+      <categories>
+        <category>javaScript</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+        <tag>继承</tag>
+        <tag>class</tag>
+        <tag>ES6</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JQuery-动画-操作元素</title>
+    <url>/blog/2020/05/02/JQuery-%E5%8A%A8%E7%94%BB-%E6%93%8D%E4%BD%9C%E5%85%83%E7%B4%A0/</url>
+    <content><![CDATA[<h1 id="JQuery-动画-操作元素"><a href="#JQuery-动画-操作元素" class="headerlink" title="JQuery-动画-操作元素"></a>JQuery-动画-操作元素</h1><h3 id="1-JQuery-动画"><a href="#1-JQuery-动画" class="headerlink" title="1. JQuery 动画"></a>1. JQuery 动画</h3><h4 id="1-1-显示-隐藏动画"><a href="#1-1-显示-隐藏动画" class="headerlink" title="1.1 显示-隐藏动画"></a>1.1 显示-隐藏动画</h4><ul>
+<li><p><code>show()</code></p>
+<pre><code class="js">语法:
+$(对象).show([speed, [easing], [fn]])
+//参数介绍:
+1. show() 方法中的3个参数可以不用设置, 显示元素没有动画效果
+2. 第一个参数表示动画速度,可以设置 &#39;slow&#39; , &#39;normal&#39;, &#39;fast&#39; 或者表示动画的时长毫秒
+3. 第二个参数表示动画切换效果, 默认 &#39;swing[摇动摆动,由快到慢]&#39; 或者 设置 &#39;linear&#39;
+4. 第三个参数表示动画完成后执行的函数(回调函数)
+
+//代码演示1,未设置任何参数,控制元素显示,没有动画效果
+var btn = $(&#39;input&#39;);
+var div = $(&#39;div&#39;);
+btn.click(function()&#123;
+    div.show();
+&#125;)
+
+//代码演示2,设置第一个参数,元素按照动画显示
+var btn = $(&#39;input&#39;);
+var div = $(&#39;div&#39;);
+btn.click(function()&#123;
+    div.show(&#39;fast&#39;);
+&#125;)
+
+//代码演示3,设置两个参数,元素实现切换效果
+btn.click(function()&#123;
+    div.show(&#39;normal&#39;,&#39;swing&#39;);
+&#125;)
+
+//代码4演示,设置第三个参数,动画执行完后回调函数
+btn.click(function()&#123;
+    div.show(&#39;normal&#39;,&#39;swing&#39;, function()&#123;
+        alert(&#39;动画完成&#39;);
+    &#125;);
+&#125;)
+</code></pre>
+</li>
+<li><p><code>hide()</code></p>
+<pre><code class="js">语法:
+$(对象).hide([speed, [easing], [fn]);
+//参数介绍:
+1. 参数可以省略,隐藏元素没有动画效果
+2. 第一个参数表示动画速度,可以设置 &#39;fast&#39;, &#39;normal&#39;, &#39;slow&#39; 或者自定义毫秒时间
+3. 第二个参数表示动切换效果, 默认值 &#39;swing&#39; 或者 设置 &#39;linear&#39;
+4. 第三个参数表示回调函数,动画完成后执行
+//代码演示同上
+</code></pre>
+</li>
+<li><p><strong>课堂案例-好友列表案例</strong></p>
+</li>
+</ul>
+<h4 id="1-2-滑动动画"><a href="#1-2-滑动动画" class="headerlink" title="1.2 滑动动画"></a>1.2 滑动动画</h4><ul>
+<li><p><code>slideDown()</code></p>
+<pre><code class="js">介绍: slideDown()  显示元素(通过改变元素高度)
+语法:
+// $(对象).slideDown([speed],[easing],[fn]);
+
+参数介绍:
+1. 参数可以省略
+2. 第一个参数表示动画速度,可以设置 &#39;fast&#39;, &#39;normal&#39;, &#39;slow&#39; 或者自定义毫秒时间
+3. 第二个参数表示动切换效果, 默认值 &#39;swing&#39; 或者 设置 &#39;linear&#39;
+4. 第三个参数表示回调函数,动画完成后执行
+
+//代码演示1:
+$(&#39;input&#39;).click(function()&#123;
+    $(&#39;div&#39;).slideDown();
+&#125;)
+
+//代码演示2
+$(&#39;input&#39;).click(function()&#123;
+    $(&#39;div&#39;).slideDown(&#39;fast&#39;);
+&#125;)
+
+//代码演示3
+$(&#39;input&#39;).click(function()&#123;
+    $(&#39;div&#39;).slideDown(&#39;fast&#39;, &#39;linear&#39;);
+&#125;)
+
+//代码演示4
+$(&#39;input&#39;).click(function()&#123;
+    $(&#39;div&#39;).slideDown(&#39;fast&#39;, &#39;linear&#39;, function()&#123;
+        alert(&#39;动画完成&#39;)
+    &#125;);
+&#125;)
+</code></pre>
+</li>
+<li><p><code>slideUp()</code></p>
+<pre><code class="js">介绍: 通过高度变化（向上减小）来动态地隐藏所有匹配的元素
+语法:
+// $(对象).slideUp([speed,[easing],[fn]])
+
+参数介绍:
+1. 参数可以省略
+2. 第一个参数表示动画速度,可以设置 &#39;fast&#39;, &#39;normal&#39;, &#39;slow&#39; 或者自定义毫秒时间
+3. 第二个参数表示动切换效果, 默认值 &#39;swing&#39; 或者 设置 &#39;linear&#39;
+4. 第三个参数表示回调函数,动画完成后执行
+
+//代码演示:
+$(&#39;input&#39;).click(function()&#123;
+    $(&#39;div&#39;).slideUp(&#39;fast&#39;, &#39;linear&#39;, function()&#123;
+        console.log(&#39;动画完成&#39;)
+    &#125;);
+&#125;)
+</code></pre>
+</li>
+<li><p><strong>小米课堂案例</strong></p>
+<pre><code class="js">//1. 鼠标进入大盒子显示内容区域,鼠标离开隐藏内容区域
+$(&#39;.nav&#39;).hover(
+  function () &#123;
+    $(&#39;.content&#39;).slideDown(&#39;fast&#39;)
+    //2.给每一项设置鼠标进入事件
+    $(this)
+      .find(&#39;a&#39;)
+      .mouseenter(function () &#123;
+        $(this).css(&#39;color&#39;, &#39;red&#39;).parent().siblings().find(&#39;a&#39;).css(&#39;color&#39;, &#39;#888&#39;)
+        //获取索引
+        var index = $(this).parent().index()
+        //显示内容区域
+        $(&#39;.item&#39;).eq(index).show().siblings().hide()
+      &#125;)
+  &#125;,
+  function () &#123;
+    $(&#39;.content&#39;).slideUp()
+    $(&#39;a&#39;).css(&#39;color&#39;, &#39;#888&#39;)
+  &#125;
+)
+</code></pre>
+</li>
+</ul>
+<h4 id="1-3-淡入淡出动画"><a href="#1-3-淡入淡出动画" class="headerlink" title="1.3 淡入淡出动画"></a>1.3 淡入淡出动画</h4><ul>
+<li><p><code>fadeIn()</code></p>
+<pre><code class="js">介绍: 通过透明度的变化来实现所有匹配元素的淡入效果[显示]
+语法:
+// $(对象).fadeIn([speed],[easing],[fn])
+
+参数介绍:
+1. 参数可以不用设置
+2. 第一个参数表示动画速度,可以设置 &#39;fast&#39;, &#39;normal&#39;, &#39;slow&#39; 或者自定义毫秒时间
+3. 第二个参数表示动切换效果, 默认值 &#39;swing&#39; 或者 设置 &#39;linear&#39;
+4. 第三个参数表示回调函数,动画完成后执行
+
+//代码演示1:
+$(&#39;input&#39;).click(function()&#123;
+    $(&#39;div&#39;).fadeIn();
+&#125;)
+
+//代码演示2
+$(&#39;input&#39;).click(function()&#123;
+    $(&#39;div&#39;).fadeIn(&#39;fast&#39;);
+&#125;)
+
+//代码演示3
+$(&#39;input&#39;).click(function()&#123;
+     $(&#39;div&#39;).fadeIn(&#39;fast&#39;, &#39;linear&#39;);
+&#125;)
+
+//代码演示4
+$(&#39;input&#39;).click(function()&#123;
+    $(&#39;div&#39;).fadeIn(&#39;fast&#39;, &#39;linear&#39;, function() &#123;
+         alert(&#39;动画完成&#39;);
+    &#125;);
+&#125;)
+</code></pre>
+</li>
+<li><p><code>fadeOut()</code></p>
+<pre><code class="js">介绍: 通过透明度的变化来实现所有匹配元素的淡出效果[隐藏]
+语法:
+// $(对象).fadeOut([speed],[easing],[fn])
+
+参数介绍:
+1. 参数可以不用设置
+2. 第一个参数表示动画速度,可以设置 &#39;fast&#39;, &#39;normal&#39;, &#39;slow&#39; 或者自定义毫秒时间
+3. 第二个参数表示动切换效果, 默认值 &#39;swing&#39; 或者 设置 &#39;linear&#39;
+4. 第三个参数表示回调函数,动画完成后执行
+</code></pre>
+</li>
+<li><p><code>fadeTo()</code></p>
+<pre><code class="js">介绍:  可以自定义透明度动画效果
+语法:
+//  $(对象).fadeTo([[speed],opacity,[easing],[fn]])
+
+参数介绍:
+1. speed 表示动画速度,可以设置 &#39;fast&#39;, &#39;normal&#39;, &#39;slow&#39; 或者自定义毫秒时间  [必须设置]
+2. opacity 表示透明度, 0 - 1 之间必须设置
+3. easing 表示动切换效果, 默认值 &#39;swing&#39; 或者 设置 &#39;linear&#39;
+4. fn 表示回调函数,动画完成后执行
+
+//代码演示:
+$(&#39;input&#39;).click(function()&#123;
+    $(&#39;div&#39;).fadeTo(1000, 0.1);
+&#125;)
+</code></pre>
+</li>
+<li><p><strong>课堂高亮显示案例</strong></p>
+<pre><code class="js">$(&#39;.item&#39;).hover(
+  function () &#123;
+    $(this).fadeTo(&#39;fast&#39;, 1, &#39;linear&#39;).siblings().fadeTo(&#39;fast&#39;, 0.5, &#39;linear&#39;)
+  &#125;,
+  function () &#123;
+    $(&#39;.item&#39;).fadeTo(&#39;fast&#39;, 1)
+  &#125;
+)
+// 问题: 当鼠标无限次晃动,动画会一直排队执行
+
+// 解决: 通过stop()停止动画排队,必须写到动画前
+$(&#39;.item&#39;).hover(
+  function () &#123;
+    $(this).stop().fadeTo(&#39;fast&#39;, 1, &#39;linear&#39;).siblings().stop().fadeTo(&#39;fast&#39;, 0.5, &#39;linear&#39;)
+  &#125;,
+  function () &#123;
+    $(&#39;.item&#39;).stop().fadeTo(&#39;fast&#39;, 1)
+  &#125;
+)
+</code></pre>
+</li>
+</ul>
+<h4 id="1-5-自定义动画"><a href="#1-5-自定义动画" class="headerlink" title="1.5 自定义动画"></a>1.5 自定义动画</h4><ul>
+<li><p><code>animate()</code></p>
+<pre><code class="js">介绍: 用于创建自定义动画的函数。
+语法:
+// $(对象).animate(params,[speed],[easing],[fn]);
+
+参数介绍:
+1.params 一组包含作为动画属性和终值的样式属性和及其值的集合   [必须设置]
+2.speed  三种预定速度之一的字符串(&quot;slow&quot;,&quot;normal&quot;, or &quot;fast&quot;)或表示动画时长的毫秒数值(如：1000)
+3.easing 默认jQuery提供&quot;linear&quot; 和 &quot;swing&quot;.
+4.fn:在动画完成时执行的函数
+
+//代码演示1
+$(&#39;input&#39;).click(function()&#123;
+    $(&#39;div&#39;).animate(&#123;
+        &#39;left&#39;: &#39;500px&#39;
+    &#125;)
+&#125;)
+
+//代码演示2
+$(&#39;input&#39;).click(function()&#123;
+    $(&#39;div&#39;).animate(&#123;
+        &#39;left&#39;: &#39;500px&#39;
+    &#125;, &#39;fast&#39;)
+&#125;)
+
+//代码演示3
+$(&#39;input&#39;).click(function()&#123;
+    $(&#39;div&#39;).animate(&#123;
+        &#39;left&#39;: &#39;500px&#39;
+    &#125;, &#39;fast&#39;, &#39;linear&#39;)
+&#125;)
+
+//代码演示4
+$(&#39;input&#39;).click(function()&#123;
+    $(&#39;div&#39;).animate(&#123;
+        &#39;left&#39;: &#39;500px&#39;
+    &#125;, &#39;fast&#39;, &#39;linear&#39;, function()&#123;
+        alert(&#39;动画完成&#39;)
+    &#125;)
+&#125;)
+
+//注意:
+1. animate自定义动画,无法实现颜色动画效果,如果需要改变颜色,需要单独下载插件实现
+2. 无法直接实现css中转化效果,如果需要实现,则可以通过添加类名得的方式实现
+3. 单独的属性,可以使用驼峰命名法 (&#39;marginLeft&#39; 替代 &#39;margin-left&#39;)
+
+https://www.runoob.com/jquery/eff-animate.html
+</code></pre>
+</li>
+<li><p><strong>课堂案例-手风琴案例</strong></p>
+<ul>
+<li><p>步骤</p>
+<ol>
+<li><p>搭建 HTML 结构</p>
+<pre><code class="html">&lt;div class=&quot;box&quot;&gt;
+  &lt;ul&gt;
+    &lt;!--注意这里写结构的时候不需要加类名current--&gt;
+    &lt;li class=&quot;current&quot;&gt;
+      &lt;img src=&quot;imgs/c1.jpg&quot; alt=&quot;&quot; class=&quot;small&quot; /&gt;
+      &lt;img src=&quot;imgs/c.png&quot; alt=&quot;&quot; class=&quot;big&quot; /&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;img src=&quot;imgs/h1.jpg&quot; alt=&quot;&quot; class=&quot;small&quot; /&gt;
+      &lt;img src=&quot;imgs/h.png&quot; alt=&quot;&quot; class=&quot;big&quot; /&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+</li>
+<li><p>设置 CSS 样式</p>
+<pre><code class="css">.box &#123;
+  width: 773px;
+  background: url(&#39;imgs/bg.png&#39;) no-repeat;
+  padding: 10px;
+  margin: 50px auto;
+&#125;
+.box ul &#123;
+  overflow: hidden;
+&#125;
+.box li &#123;
+  width: 70px;
+  height: 70px;
+  float: left;
+  position: relative;
+  margin-right: 5px;
+&#125;
+.box li img &#123;
+  position: absolute;
+&#125;
+.small &#123;
+  width: 70px;
+  height: 70px;
+&#125;
+.big &#123;
+  display: none;
+&#125;
+.box .current .big &#123;
+  display: block;
+&#125;
+.box .current .small &#123;
+  display: none;
+&#125;
+.box .current &#123;
+  width: 224px;
+&#125;
+</code></pre>
+</li>
+<li><p>设置 JS 代码</p>
+<ul>
+<li><p>鼠标移动到当前元素(li)上,修改当前 li 的宽度及兄弟元素的宽度</p>
+<pre><code class="js">$(this).animate(&#123; width: 224 &#125;).siblings().animate(&#123; width: 70 &#125;)
+</code></pre>
+</li>
+<li><p>设置当前元素中的大图片显示,小图片隐藏</p>
+<pre><code class="js">$(this).find(&#39;.big&#39;).fadeIn().siblings().fadeOut()
+</code></pre>
+</li>
+<li><p>设置当前元素兄弟元素中大图片隐藏,小图片显示</p>
+<pre><code class="js">$(this).siblings().find(&#39;.big&#39;).fadeOut().siblings().fadeIn()
+</code></pre>
+</li>
+<li><p><strong>注意: 在所有动画前加 stop()方法停止动画排队</strong></p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-JQ-操作元素属性"><a href="#3-JQ-操作元素属性" class="headerlink" title="3.JQ 操作元素属性"></a>3.JQ 操作元素属性</h3><h4 id="1-1-回顾-webAPI-中操作标签属性"><a href="#1-1-回顾-webAPI-中操作标签属性" class="headerlink" title="1.1 回顾 webAPI 中操作标签属性"></a>1.1 回顾 webAPI 中操作标签属性</h4><ul>
+<li><p>操作标签内置系统属性</p>
+<ul>
+<li><code>getAttribute(属性名)</code></li>
+<li><code>setAttribute(属性名, 值)</code></li>
+</ul>
+</li>
+<li><p>操作标签自定义属性</p>
+<ul>
+<li><p><code>getAttribute(属性名)</code> <code>setAttribute(属性名, 值)</code></p>
+</li>
+<li><p><code>DOM.dataset</code></p>
+<pre><code class="js">DOM.dataset  返回的是一个对象
+☞ 获取自定义属性值:   DOM.dataset.属性名
+☞ 设置自定义属性值:   DOM.dataset.自定义属性名 = 值;
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-2-JQ-操作元素属性"><a href="#1-2-JQ-操作元素属性" class="headerlink" title="1.2 JQ 操作元素属性"></a>1.2 JQ 操作元素属性</h4><ul>
+<li><p><strong>获取标签内置系统属性</strong></p>
+<pre><code class="js">语法: $(对象).prop(&#39;属性名&#39;)
+
+//代码演示:
+var div = $(&#39;div&#39;)
+var res = div.prop(&#39;class&#39;)
+console.log(res)
+</code></pre>
+</li>
+<li><p><strong>设置标签内置系统属性</strong></p>
+<pre><code class="js">语法: $(对象).prop(&#39;属性名&#39;, 值)
+
+//代码演示:
+var div = $(&#39;div&#39;)
+var res = div.prop(&#39;class&#39;, 123)
+
+//备注如果设置多个可以通过对象的方式设置,例如:
+$(&#39;input&#39;).prop(&#123;
+  id: &#39;test&#39;,
+  name: &#39;abc&#39;
+&#125;)
+</code></pre>
+</li>
+<li><p><strong>获取标签自定义属性</strong></p>
+<pre><code class="js">语法: $(对象).attr(自定义属性名)
+
+//代码演示:
+var div = $(&#39;div&#39;)
+var res = div.attr(&#39;data-myname&#39;)
+</code></pre>
+</li>
+<li><p><strong>设置标签自定义属性</strong></p>
+<pre><code class="js">语法: $(对象).attr(自定义属性名, 值)
+
+//代码演示:
+var div = $(&#39;div&#39;)
+var res = div.attr(&#39;myAge&#39;, 18)
+</code></pre>
+</li>
+<li><p><strong>备注</strong></p>
+<pre><code class="js">$(对象).attr() 既可以操作标签自定义属性也可以操作标签内置属性
+</code></pre>
+</li>
+</ul>
+<h3 id="4-JQ-操作标签中的值"><a href="#4-JQ-操作标签中的值" class="headerlink" title="4. JQ 操作标签中的值"></a>4. JQ 操作标签中的值</h3><h4 id="1-1-获取-x2F-设置表单控件中的值"><a href="#1-1-获取-x2F-设置表单控件中的值" class="headerlink" title="1.1 获取&#x2F;设置表单控件中的值"></a>1.1 获取&#x2F;设置表单控件中的值</h4><ul>
+<li><p><strong>获取</strong></p>
+<pre><code class="js">语法: $(对象).val()
+</code></pre>
+</li>
+<li><p><strong>设置</strong></p>
+<pre><code class="js">语法: $(对象).val(值)
+</code></pre>
+</li>
+</ul>
+<h4 id="1-2-获取-x2F-设置普通标签中的值"><a href="#1-2-获取-x2F-设置普通标签中的值" class="headerlink" title="1.2 获取&#x2F;设置普通标签中的值"></a>1.2 获取&#x2F;设置普通标签中的值</h4><ul>
+<li><p><strong>获取</strong></p>
+<pre><code class="js">语法: $(对象).text() // 特点与原生js中的innerText一样
+
+$(对象).html() // 特点与原生js中的innerHTML一样
+</code></pre>
+</li>
+<li><p><strong>设置</strong></p>
+<pre><code class="js">语法: $(对象).text(值) // 特点与原生js中的innerText一样
+
+$(对象).html(值) // 特点与原生js中的innerHTML一样
+</code></pre>
+</li>
+</ul>
+<h4 id="1-3-课堂案例-小计功能"><a href="#1-3-课堂案例-小计功能" class="headerlink" title="1.3 课堂案例-小计功能"></a>1.3 课堂案例-小计功能</h4><ul>
+<li><p>步骤:</p>
+<ol>
+<li><p>设置 HTML 结构</p>
+</li>
+<li><p>设置 CSS 样式</p>
+</li>
+<li><p>实现具体功能</p>
+<ol>
+<li><p>点击<code>加号/减号</code>修改输入框中的值</p>
+<pre><code class="js">//获取输入框中的值: 当前按钮的兄弟元素
+var num_v = $(this).siblings(&#39;input&#39;).val()
+
+// 将当前值增加1
+num_v++
+
+//将当前值赋值给输入框
+$(this).siblings(&#39;input&#39;).val(num_v)
+</code></pre>
+</li>
+<li><p>点击<code>加号/减号</code>计算小计总价</p>
+<pre><code class="js">补充: 价格保留2位小数  toFixed(2)
+
+例如:  var num = 123;
+      num = num.toFixed(2);
+</code></pre>
+<pre><code class="js">//计算总价: 当前商品数量 * 商品单价
+var money = num_v * $(this).parent().siblings(&#39;.sprice&#39;).find(&#39;strong&#39;).text()
+
+//将当前总价设置给总价标签
+$(this).parent().siblings(&#39;.t_price&#39;).find(&#39;strong&#39;).text(money.toFixed(2))
+</code></pre>
+</li>
+<li><p>用户修改输入框中的值计算小计总结</p>
+<pre><code class="js">$(&#39;.num1 input&#39;).change(function () &#123;
+  //获取当前输入框中的值
+  var num_v = $(this).val()
+
+  //计算总价: 当前商品数量 * 商品单价
+  var money = num_v * $(this).parent().siblings(&#39;.sprice&#39;).find(&#39;strong&#39;).text()
+
+  //将当前总价设置给总价标签
+  $(this).parent().siblings(&#39;.t_price&#39;).find(&#39;strong&#39;).text(money.toFixed(2))
+&#125;)
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+<p>####1.4 课堂案例-商品总数-总价功能</p>
+<ul>
+<li><p>步骤</p>
+<ol>
+<li><p>设置 HTML 结构</p>
+</li>
+<li><p>设置 CSS 样式</p>
+</li>
+<li><p>实现功能</p>
+<ol>
+<li><p><strong>JQ 遍历对象,获取对象中的值</strong></p>
+<pre><code class="js">&lt;ul&gt;
+  &lt;li&gt;12&lt;/li&gt;
+  &lt;li&gt;12&lt;/li&gt;
+  &lt;li&gt;12&lt;/li&gt;
+&lt;/ul&gt;
+如何获取li标签中的值?
+
+语法:
+$对象.each(function(index, item)&#123; &#125;)
+
+参数介绍:
+1. index 伪数组中的索引值
+2. item 伪数组中的每一个DOM对象
+
+注意:
+1. each遍历后item是一个dom对象不是JQ对象
+</code></pre>
+</li>
+<li><p><strong>JQ 遍历方式二</strong></p>
+<pre><code class="js">//语法:
+$.each(数组对象, function(index, item)&#123; &#125;)
+
+//参数介绍:
+index  数组中索引值
+item   数组中的每一个值
+</code></pre>
+</li>
+<li><p>实现总数求和功能</p>
+<pre><code class="js">var num_sum = 0
+//数量求和: 获取页面中的每一个input标签中的值累加
+$(&#39;.num1 input&#39;).each(function (index, item) &#123;
+  num_sum += parseInt($(item).val())
+&#125;)
+//将总和设置给对应的标签
+$(&#39;.product_num strong&#39;).text(num_sum)
+</code></pre>
+</li>
+<li><p>实现总计求和功能</p>
+<pre><code class="js">var money_sum = 0
+$(&#39;.t_price strong&#39;).each(function (i, item) &#123;
+  money_sum += Number($(item).text())
+&#125;)
+//将总价设置给对应的标签
+$(&#39;.product_money strong&#39;).text(money_sum.toFixed(2))
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="5-JQ-删除元素"><a href="#5-JQ-删除元素" class="headerlink" title="5. JQ 删除元素"></a>5. JQ 删除元素</h3><h4 id="1-1-删除元素-x2F-元素中内容"><a href="#1-1-删除元素-x2F-元素中内容" class="headerlink" title="1.1 删除元素&#x2F;元素中内容"></a>1.1 删除元素&#x2F;元素中内容</h4><ul>
+<li><p><code>remove()</code></p>
+<pre><code class="js">语法: $对象.remove()
+
+// 特点: 从页面中将当前标签删除
+</code></pre>
+</li>
+<li><p><code>empty()</code></p>
+<pre><code class="js">语法: $对象.empty()
+// 特点: 将标签中的所有内容清空
+</code></pre>
+</li>
+<li><p><code>html()</code></p>
+<pre><code class="js">语法: $对象.html(&#39;&#39;)
+//特点: 将标签中的所有内容清空,当标签标签依然保留
+</code></pre>
+</li>
+</ul>
+<h4 id="1-2-课堂案例-删除功能"><a href="#1-2-课堂案例-删除功能" class="headerlink" title="1.2 课堂案例-删除功能"></a>1.2 课堂案例-删除功能</h4><h3 id="6-JQ-创建元素"><a href="#6-JQ-创建元素" class="headerlink" title="6.JQ 创建元素"></a>6.JQ 创建元素</h3><h4 id="1-1-创建元素"><a href="#1-1-创建元素" class="headerlink" title="1.1 创建元素"></a>1.1 创建元素</h4><ul>
+<li><p><code>$对象.html(标签)</code></p>
+<pre><code class="js">语法:
+$对象.html(&#39;html标签名&#39;);
+
+例如:
+$(&#39;div&#39;).html(&#39;&lt;h1&gt;我是标题标签&lt;/h1&gt;&#39;);
+
+特点:
+与原生js中 innerHTML的效果一样
+</code></pre>
+</li>
+<li><p><code>$(html标签)</code></p>
+<pre><code class="js">语法: $(&#39;html标签&#39;)
+
+返回: JQ标签对象
+
+例如: var span = $(&#39;&lt;span&gt;&lt;/span&gt;&#39;)
+</code></pre>
+</li>
+</ul>
+<h4 id="1-2-添加元素"><a href="#1-2-添加元素" class="headerlink" title="1.2 添加元素"></a>1.2 添加元素</h4><ul>
+<li><p>父元素末尾添加元素</p>
+<pre><code class="js">语法: $父元素.append(元素)
+
+例如: var p = $(&#39;&lt;p&gt;我是创建的p&lt;/p&gt;&#39;)
+$(&#39;div&#39;).append(p)
+</code></pre>
+</li>
+<li><p>父元素开始位置添加元素</p>
+<pre><code class="js">语法
+$父元素.prepend(元素)
+
+例如: var p = $(&#39;&lt;p&gt;我是创建的p&lt;/p&gt;&#39;)
+$(&#39;div&#39;).prepend(p)
+</code></pre>
+</li>
+</ul>
+<p>​</p>
+]]></content>
+      <categories>
+        <category>jQuery</category>
+      </categories>
+      <tags>
+        <tag>jq</tag>
+        <tag>jq动画</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JQuery-获取元素大小和位置-事件-表单</title>
+    <url>/blog/2020/05/11/JQuery-%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%A4%A7%E5%B0%8F%E5%92%8C%E4%BD%8D%E7%BD%AE-%E4%BA%8B%E4%BB%B6-%E8%A1%A8%E5%8D%95/</url>
+    <content><![CDATA[<h1 id="JQuery-获取元素大小和位置-事件-表单"><a href="#JQuery-获取元素大小和位置-事件-表单" class="headerlink" title="JQuery-获取元素大小和位置-事件-表单"></a>JQuery-获取元素大小和位置-事件-表单</h1><h3 id="1-JQ-方式获取元素大小和位置"><a href="#1-JQ-方式获取元素大小和位置" class="headerlink" title="1.JQ 方式获取元素大小和位置"></a>1.JQ 方式获取元素大小和位置</h3><h4 id="1-1-JQ-获取元素大小"><a href="#1-1-JQ-获取元素大小" class="headerlink" title="1.1 JQ 获取元素大小"></a>1.1 JQ 获取元素大小</h4><ul>
+<li><p><strong>获取元素大小</strong></p>
+<ul>
+<li><p><code>$对象.width()</code></p>
+<pre><code class="js">语法: $对象.width() //获取当前元素大小,只包含内容区域大小
+
+代码演示: console.log($(&#39;div&#39;).width())
+</code></pre>
+</li>
+<li><p><code>$对象.height()</code></p>
+<pre><code class="js">语法: $对象.height() //获取当前元素高度,只包含内容区域高度
+
+代码演示: console.log($(&#39;div&#39;).height())
+</code></pre>
+</li>
+<li><p><code>$对象.innerWidth()</code></p>
+<pre><code class="js">语法: $对象.innerWidth() //获取当前元素宽度 = 内容区域大小 + 内边距
+
+代码演示: console.log($(&#39;div&#39;).innerWidth())
+</code></pre>
+</li>
+<li><p><code>$对象.innerHeight()</code></p>
+<pre><code class="js">语法: $对象.innerHeight() //获取当前元素高度 = 内容区域大小 + 内边距
+
+代码演示: console.log($(&#39;div&#39;).innerHeight())
+</code></pre>
+</li>
+<li><p><code>$对象.outerWidth()</code></p>
+<pre><code class="js">语法:
+$对象.outerWidth();   //获取当前元素宽度 = 内容区域大小 + 内边距 +边框
+
+代码演示:
+console.log($(&#39;div&#39;).outerWidth();
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p><strong>设置元素大小</strong></p>
+<ul>
+<li><p><code>$对象.width(值)</code> <code>$对象.height(值)</code></p>
+<pre><code class="js">代码演示:
+$(&#39;div&#39;).width(&#39;200&#39;).height(&#39;200&#39;);
+
+//注意:
+1. 在设置值的时候可以带单位px也可以不用带单位px
+</code></pre>
+</li>
+<li><p><code>$对象.innerWidth(值)</code> <code>$对象.innerHeight(值)</code></p>
+<pre><code class="js">代码演示:
+$(&#39;div&#39;).innerWidth(&#39;200&#39;).innerHeight(&#39;200&#39;);
+
+//注意:
+1. 此时设置的值中已经包含内边距,内边距默认为0,如果在css中给当前元素设置内边距,则元素大内容区域大小会发生改变
+</code></pre>
+</li>
+<li><p><code>$对象.outerWidth(值)</code> <code>$对象.outerHeight(值)</code></p>
+<pre><code class="js">代码演示:
+$(&#39;div&#39;).outerWidth(&#39;200&#39;, true).outerHeight(&#39;200&#39;, true);
+
+//注意
+1. 此时设置的值是包含外边距的,如果通过css给当前元素设置外边距,则元素内容区域大小会发生改变
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-2JQ-获取元素位置"><a href="#1-2JQ-获取元素位置" class="headerlink" title="1.2JQ 获取元素位置"></a>1.2JQ 获取元素位置</h4><ul>
+<li><p><code>offset()</code></p>
+<pre><code class="js">语法:
+$(对象).offset();
+
+//总结:
+1. $对象.offset() 返回的是一个对象
+2. $对象.offset() 返回对象中包含 left 属性 和 top属性
+3. 获取当前元素的位置是相对整个页面
+4. 类似于固定定位
+
+//代码演示:
+$(&#39;.one&#39;).offset().left
+$(&#39;.one&#39;).offset().top
+</code></pre>
+</li>
+<li><p><code>position()</code></p>
+<pre><code class="js">语法:
+$(对象).position();
+
+//总结:
+1. $对象.position() 返回的是一个对象
+2. $对象.position() 返回对象中包含 left 属性和 top属性
+3. 获取当前元素的位置,如果当前父元素没有定位,相对整个页面,如果父元素有定位,参照父元素
+4. 类似于绝对定位
+
+//代码演示:
+$(&#39;.one&#39;).position().left
+$(&#39;.one&#39;).position().top
+</code></pre>
+</li>
+<li><p><code>scrollTop()</code></p>
+<pre><code class="js">语法:
+$(对象).scrollTop();
+//总结:
+1. 获取当前元素(内容)滚动出去的距离
+2. 如果希望在程序中获取当前距离大小,需要在scroll事件中获取
+//代码演示:
+$(&#39;.box&#39;).scroll(function()&#123;
+    console.log($(this).scrollTop());
+&#125;);
+</code></pre>
+</li>
+</ul>
+<h4 id="1-3-课堂案例-返回顶部案例"><a href="#1-3-课堂案例-返回顶部案例" class="headerlink" title="1.3 课堂案例-返回顶部案例"></a>1.3 课堂案例-返回顶部案例</h4><h3 id="2-JQ-方式注册事件"><a href="#2-JQ-方式注册事件" class="headerlink" title="2.JQ 方式注册事件"></a>2.JQ 方式注册事件</h3><h4 id="1-1-通过常规方式注册事件"><a href="#1-1-通过常规方式注册事件" class="headerlink" title="1.1 通过常规方式注册事件"></a>1.1 通过常规方式注册事件</h4><pre><code class="js">事件源.事件类型(function()&#123;&#125;);
+
+//代码演示:
+
+$(&#39;.box&#39;).click(function()&#123;
+    $(this).css(&#39;background&#39;,&#39;pink&#39;);
+&#125;);
+$(&#39;.box&#39;).mouseenter(function()&#123;
+    $(this).css(&#39;background&#39;,&#39;blue&#39;);
+&#125;);
+$(&#39;.box&#39;).mouseleave(function()&#123;
+    $(this).css(&#39;background&#39;, &#39;red&#39;)
+&#125;);
+
+特点:
+1. 只能给事件源注册一个事件
+2. 如果注册多个事件,重复设置,不符合JQ的特性(do more do less)
+</code></pre>
+<h4 id="1-2-通过-on-方式注册事件"><a href="#1-2-通过-on-方式注册事件" class="headerlink" title="1.2 通过 on 方式注册事件"></a>1.2 通过 on 方式注册事件</h4><pre><code class="js">事件源.on(&#39;事件类型&#39;, function () &#123;&#125;)
+
+//代码演示:
+$(&#39;.box&#39;).on(&#39;click&#39;, function () &#123;
+  console.log(123)
+&#125;)
+
+事件源.on(&#123;
+  事件类型: function () &#123;&#125;,
+  事件类型: function () &#123;&#125;
+&#125;)
+
+//代码演示:
+$(&#39;.box&#39;).on(&#123;
+  click: function () &#123;
+    $(this).css(&#39;background&#39;, &#39;blue&#39;)
+  &#125;,
+  mouseenter: function () &#123;
+    $(this).css(&#39;background&#39;, &#39;pink&#39;)
+  &#125;
+&#125;)
+</code></pre>
+<h4 id="1-3-通过委托方式注册事件"><a href="#1-3-通过委托方式注册事件" class="headerlink" title="1.3 通过委托方式注册事件"></a>1.3 通过委托方式注册事件</h4><pre><code class="js">父事件源.on(&#39;事件类型&#39;, &#39;子选择器&#39;, function () &#123;&#125;)
+
+// 代码演示:
+$(&#39;.box&#39;).on(&#39;click&#39;, &#39;.one&#39;, function () &#123;
+  console.log(123)
+&#125;)
+// 注意:
+// 1. 如果页面中的元素是动态创建的,给元素注册事件,需要使用委托的方式
+//代码演示:
+$(&#39;.box&#39;).on(&#39;click&#39;, &#39;.one&#39;, function () &#123;
+  console.log(123)
+&#125;)
+$(&#39;&lt;div class=&quot;one&quot;&gt;&lt;/div&gt;&#39;).appendTo(&#39;.box&#39;)
+</code></pre>
+<h4 id="1-4-课堂案例-发布微博案例"><a href="#1-4-课堂案例-发布微博案例" class="headerlink" title="1.4 课堂案例-发布微博案例"></a>1.4 课堂案例-发布微博案例</h4><p>![1594695224614](D:&#x2F;前端_资料&#x2F;就业班&#x2F;JQuery&#x2F;JQuery 第三天&#x2F;03&#x2F;01-课堂笔记&#x2F;img&#x2F;1594695224614.png)</p>
+<h4 id="1-5-解绑事件"><a href="#1-5-解绑事件" class="headerlink" title="1.5 解绑事件"></a>1.5 解绑事件</h4><ul>
+<li><p><code>off()</code></p>
+<pre><code class="js">$对象.off([事件名]);
+
+//代码演示1:
+$(&#39;.box&#39;).click(function()&#123;
+    alert(123);
+&#125;)
+$(&#39;.box&#39;).off();
+
+//代码演示2:
+$(&#39;div&#39;).on(&#39;click&#39;, function()&#123;
+    alert(123);
+&#125;)
+$(&#39;.box&#39;).off();
+
+// 如果元素身上有很多事件如何解绑?
+$(&#39;.box&#39;).on(&#123;
+    click: function() &#123;
+        alert(123);
+    &#125;,
+    mouseenter: function() &#123;
+        alert(789);
+    &#125;
+&#125;)
+$(&#39;.box&#39;).off();
+或者:
+$(&#39;.box&#39;).off(&#39;mouseenter&#39;);
+// 总结
+1. 如果off() 中没有设置任何参数,代表将所有的事件移除
+2. 如果要移除对应的事件,在off方法中设置对应的方法名称即可
+</code></pre>
+</li>
+<li><p><code>off()解绑委托事件</code></p>
+<pre><code class="js">$父元素对象.off(&#39;事件类型&#39;, &#39;选择器&#39;)
+
+// 代码演示:
+$(&#39;.box&#39;).on(&#39;click&#39;, &#39;.one&#39;, function () &#123;
+  console.log(123)
+&#125;)
+$(&#39;.box&#39;).off(&#39;click&#39;, &#39;.one&#39;)
+</code></pre>
+</li>
+</ul>
+<h3 id="3-表单"><a href="#3-表单" class="headerlink" title="3.表单"></a>3.表单</h3><h4 id="3-1-通过-jQuery-监听表单提交"><a href="#3-1-通过-jQuery-监听表单提交" class="headerlink" title="3.1 通过 jQuery 监听表单提交"></a>3.1 通过 jQuery 监听表单提交</h4><pre><code class="js">HTML 标签本身具有数据提交的能力，然而现实中更常见的是通过监听 DOM 事件获取表单的数据，然后通过 Ajax 将表单的数据提交至服务端。
+&lt;form&gt;
+  昵称: &lt;input type=&quot;text&quot; name=&quot;nickname&quot;&gt;
+  &lt;br&gt;
+  密码: &lt;input type=&quot;password&quot; name=&quot;password&quot;&gt;
+  &lt;br&gt;
+  &lt;button&gt;提交&lt;/button&gt;
+&lt;/form&gt;
+&lt;script src=&quot;your/path/jquery-版本号.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+ // 监听表单的 submit 事件
+  $(&#39;form&#39;).submit(function (ev) &#123;
+    // 表单提交的相关逻辑...
+
+    // 阻止 HTML 表单的默认提交
+    // ev.preventDefault();
+
+    // ev.preventDefault() 在 jQuery 中可以
+    // 被简写成 return false
+    return false;
+  &#125;)
+&lt;/script&gt;
+</code></pre>
+<h4 id="3-2-表单序列化"><a href="#3-2-表单序列化" class="headerlink" title="3.2 表单序列化"></a>3.2 表单序列化</h4><pre><code class="js">HTML 标签默认提交表单时会自动根据表单项的 name 属性将用户在表单中填写的数据提交至服务端，然而采用监听 DOM 事件对表单提交时，需要开发者自行获取表单项中用户填写的数据，其用户如下代码所示：
+
+&lt;form&gt;
+  昵称: &lt;input type=&quot;text&quot; name=&quot;nickname&quot;&gt;
+  &lt;br&gt;
+  密码: &lt;input type=&quot;password&quot; name=&quot;password&quot;&gt;
+  &lt;br&gt;
+  &lt;button&gt;提交&lt;/button&gt;
+&lt;/form&gt;
+&lt;script src=&quot;your/path/jquery-版本号.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  // 监听表单的 submit 事件
+  $(&#39;form&#39;).on(&#39;submit&#39;, function () &#123;
+
+    // 通过 jQuery 对象的 serialize 方法，获取所有表单元素的数据
+    $(this).serialize();
+
+    // 阻止表单默认提交
+    return false;
+  &#125;)
+&lt;/script&gt;
+</code></pre>
+]]></content>
+      <categories>
+        <category>jQuery</category>
+      </categories>
+      <tags>
+        <tag>jq</tag>
+        <tag>jq表单</tag>
+        <tag>jq事件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git-操作命令</title>
+    <url>/blog/2020/05/22/git-%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h1 id="git-操作命令"><a href="#git-操作命令" class="headerlink" title="git-操作命令"></a>git-操作命令</h1><p><strong>git init</strong><br>本地初始化仓库<br><strong>git add .</strong><br>将项目提交到缓存区<br><strong>git commit -m “备注说明”</strong><br>将项目提交到本地仓库<br><strong>git branch “新分支名称”</strong><br><strong>git checkout master</strong><br>切换主分支<br><strong>git branch -d 分支名称</strong><br>删除分支(切换到主分支，并且合并完之后)<br><strong>git remote add origin SSH 地址</strong><br>关联远程（与远程建立联系）<br><strong>git push -u origin master</strong><br>执行远程同步<br>多次同步 git push<br><strong>git clone SSSH 地址</strong><br>克隆项目<br><strong>git pull origin master</strong><br>更新远程代码（下拉）<br><strong>git log &#x2F; git log –oneline</strong><br>查看本地有几次提交记录<br><strong>git resset –hard 序号</strong><br>回滚（查看之前提交过的存档文件）<br><strong>git branch</strong><br>查看本地所有分支<br><strong>git remote show origin</strong><br>查看远程仓储分支<br><strong>git status (-s)</strong><br>查看文件状态<br><strong>git checkout 新分支名</strong><br>切换新分支<br><strong>git merge 分支名</strong><br>合并分支</p>
+]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jQuery-基本操作</title>
+    <url>/blog/2020/04/21/jQuery-%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<h1 id="jQuery-基本操作"><a href="#jQuery-基本操作" class="headerlink" title="jQuery-基本操作"></a>jQuery-基本操作</h1><h2 id="1、入口函数"><a href="#1、入口函数" class="headerlink" title="1、入口函数"></a>1、入口函数</h2><p>DOM 中如果在 HTML 结构之前写 JS 代码,需要设置加载事件,获取 HTML 元素</p>
+<pre><code class="js">window.onload = function () &#123;
+  var div = document.querySelector(&#39;div&#39;)
+  console.log(div)
+&#125;
+</code></pre>
+<p>JQ 如果在 HTML 结构之前写 js 代码,需要设置加载事件(入口函数)</p>
+<pre><code class="js">$(function () &#123;
+  var div = document.querySelector(&#39;div&#39;)
+  console.log(div)
+&#125;)
+</code></pre>
+<h2 id="2、-符号介绍"><a href="#2、-符号介绍" class="headerlink" title="2、$符号介绍"></a>2、$符号介绍</h2><p>1.就是 JQuer 的一个别名</p>
+<p>$(function(){})</p>
+<p>2.可以如下写法:</p>
+<pre><code class="js">jQuery(function () &#123;&#125;)
+</code></pre>
+<p>3.是 JQ 中的顶级对象</p>
+<pre><code class="js">$(function () &#123;
+  console.dir($)
+&#125;)
+</code></pre>
+<h2 id="3、DOM-对象和-jQuery-对象转化"><a href="#3、DOM-对象和-jQuery-对象转化" class="headerlink" title="3、DOM 对象和 jQuery 对象转化"></a>3、DOM 对象和 jQuery 对象转化</h2><p><strong>DOM 对象:</strong></p>
+<p>​ 通过 document 方式获取到的元素都叫 DOM 对象</p>
+<p><strong>jQuery 对象</strong></p>
+<p>​ 通过 $ 方式获取到的元素都叫 JQ 对象</p>
+<p><strong>将 JQ 对象转为 DOM 对象方式:</strong></p>
+<ul>
+<li>JQ 对象[索引]</li>
+<li>JQ 对象.get(索引)</li>
+<li>将 DOM 对象转化为 JQ 对象:</li>
+<li>$(dom 对象)</li>
+</ul>
+<h2 id="4、获取元素"><a href="#4、获取元素" class="headerlink" title="4、获取元素"></a>4、获取元素</h2><p>1.<strong>语法:</strong> $(‘选择器’);</p>
+<p>2.选择器可以是 CSS 中的选择器</p>
+<p>3.选择器可以是 jQ 中提供的: :first :last :odd (获取索引是奇数的元素) :even (获取索引是偶数的元素) :eq(index)</p>
+<p>4.通过方法找对应的元素</p>
+<p>5.parent() 或者 parents(选择器)</p>
+<p>6.children([选择器])</p>
+<p>7.find(选择器)</p>
+<p>8.siblings(选择器)</p>
+<p>9.nextAll([选择器])</p>
+<p>10.prevAll([选择器])</p>
+<p>11.eq(值)</p>
+<h2 id="5、注册事件"><a href="#5、注册事件" class="headerlink" title="5、注册事件"></a>5、注册事件</h2><p><strong>语法:</strong></p>
+<pre><code class="js">JQ对象.事件名称(function () &#123;
+  处理程序
+&#125;)
+</code></pre>
+<p><strong>事件:</strong></p>
+<ul>
+<li>点击事件: click</li>
+<li>鼠标进入事件: mouseenter</li>
+<li>鼠标离开事件: mouseleave</li>
+</ul>
+<h2 id="6、设置样式"><a href="#6、设置样式" class="headerlink" title="6、设置样式"></a>6、设置样式</h2><p>$(‘元素’).css(‘属性’, 值); 设置单个属性样式</p>
+<p>$(‘元素’).css({‘属性’: ‘值’,’属性’: ‘值’}) 设置多个属性样式</p>
+<p>$(‘元素’).addClass(‘类名 类名’);</p>
+<p>$(‘元素’).removeClass(‘类名’);</p>
+<p>$(‘元素’).toggleClass(‘类名’);</p>
+]]></content>
+      <categories>
+        <category>jQuery</category>
+      </categories>
+      <tags>
+        <tag>jq</tag>
+        <tag>$</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>node-操作命令</title>
+    <url>/blog/2020/05/30/node-%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h1 id="node-操作命令"><a href="#node-操作命令" class="headerlink" title="node-操作命令"></a>node-操作命令</h1><img src="https://cdn.jsdelivr.net/gh/3-ygd/image-hosting@master/1648561357(1).4q52g88dmns0.webp">
+]]></content>
+      <categories>
+        <category>node</category>
+      </categories>
+      <tags>
+        <tag>node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>作用域</title>
+    <url>/blog/2020/02/27/%E4%BD%9C%E7%94%A8%E5%9F%9F/</url>
+    <content><![CDATA[<h1 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h1><h2 id="1、全局作用域"><a href="#1、全局作用域" class="headerlink" title="1、全局作用域"></a>1、全局作用域</h2><p><strong>全局作用域:</strong> 在 javaScript 中,函数外部的所有作用范围都称为全局作用域</p>
+<p><strong>全局变量:</strong> 在全局作用域中定义的变量,叫全局变量</p>
+<p><strong>全局变量特点:</strong> 在全局作用域中的全局变量可以在任何地方被访问到</p>
+<pre><code class="js">// 例如：
+&lt;script&gt;
+
+  变量a是一个全局变量
+
+  let a = 123;
+
+  函数fn是一个全局变量
+
+  function fn() &#123;&#125;
+
+  数组ary是一个全局变量
+
+  let ary = []
+&lt;script&gt;
+</code></pre>
+<h2 id="2、局部作用域"><a href="#2、局部作用域" class="headerlink" title="2、局部作用域"></a>2、局部作用域</h2><p><strong>局部作用域:</strong> 在函数内部形成的作用范围称为局部作用域或者函数作用域</p>
+<p><strong>局部变量:</strong> 在局部作用域中定义的变量称为局部变量</p>
+<p><strong>局部变量特点:</strong> 局部变量只能在当前作用域中被访问</p>
+<p><strong>局部作用域和全局作用域之间的关系</strong></p>
+<img src="https://cdn.jsdelivr.net/gh/3-ygd/image-hosting@master/1648557530(1).3nhkowhdmpa0.webp">
+
+<h2 id="3、块级作用域"><a href="#3、块级作用域" class="headerlink" title="3、块级作用域"></a>3、块级作用域</h2><p><strong>块级作用域:</strong> 在 javaScript 中,通过 let 关键字&#x2F;const 关键字 定义变量且位于{}中,就会形成块级作用域</p>
+<p><strong>块级作用域特点:</strong> 变量只能在当前块级作用域中被访问</p>
+<pre><code class="js">&lt;script&gt;
+      &#123;let a = 123; console.log(a)&#125;
+
+      if(true) &#123;
+          let userName = &#39;dhl&#39;;
+      &#125;
+&lt;script&gt;
+</code></pre>
+<h2 id="4、作用域链"><a href="#4、作用域链" class="headerlink" title="4、作用域链"></a>4、作用域链</h2><p><strong>作用域链:</strong> 在 javaScript 中,多个作用域嵌套形成的一个链状结构</p>
+<p><strong>作用域链作用:</strong> 通过作用域链进行变量查找</p>
+<img src="https://cdn.jsdelivr.net/gh/3-ygd/image-hosting@master/1648557734(1).44hmkm9i3ry0.webp">
+
+<h2 id="5、const-关键字"><a href="#5、const-关键字" class="headerlink" title="5、const 关键字"></a>5、const 关键字</h2><p><strong>const 关键字:</strong> 在程序中定义常量的关键字</p>
+<p><strong>const 关键字注意事项:</strong></p>
+<ul>
+<li>const 定义常量时候必须设置初始值</li>
+<li>const 定义常量后,常量的值不能被修改</li>
+<li>const 定义常量名不能重复</li>
+<li>const 可以产生块级作用域</li>
+</ul>
+<pre><code class="js">&lt;script&gt;
+    const  a = 123;
+    const  b = 456;
+   &#123;const c = 678&#125;;
+&lt;script&gt;
+</code></pre>
+<h2 id="6、闭包"><a href="#6、闭包" class="headerlink" title="6、闭包"></a>6、闭包</h2><p><strong>闭包:</strong> 闭包就是能够读取其他函数内部变量的函数(简单理解的就是：一个函数定义到了另一个函数的内部，并且还可以使用这个函数内部 定义的变量)</p>
+<p><strong>闭包作用:</strong> 可以延长变量的使用生命周期</p>
+<p><strong>闭包总结:</strong></p>
+<ul>
+<li>闭包本质上就是一个函数</li>
+<li>闭包函数就是在一个函数中访问另外一个函数中的变量</li>
+<li>闭包函数的作用延长了变量的使用生命周期</li>
+</ul>
+<h2 id="7、变量提升"><a href="#7、变量提升" class="headerlink" title="7、变量提升"></a>7、变量提升</h2><p><strong>变量提升:</strong> 使用 var 关键字定义变量的时候,程序会先将变量的声明提升到当前作用域的开始,不包括赋值</p>
+<p><strong>函数提升:</strong> 定义函数的时候,程序会将函数的声明提升到当前作用域的开始位置,不包括函数的调用</p>
+<p><strong>let 不存在变量提升</strong></p>
+<p><strong>注意:</strong></p>
+<p>当程序中同时出现变量和函数的时候,先提升函数,再提升变量(前提是通过 var 定义的变量才可以)</p>
+]]></content>
+      <categories>
+        <category>javaScript</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+        <tag>全局作用域</tag>
+        <tag>局部作用域</tag>
+        <tag>块级作用域</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>函数</title>
+    <url>/blog/2020/03/15/%E5%87%BD%E6%95%B0/</url>
+    <content><![CDATA[<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="1、默认值参数"><a href="#1、默认值参数" class="headerlink" title="1、默认值参数"></a>1、默认值参数</h2><ol>
+<li><p>函数中的形参可以设置默认值,函数中的形参本质就是一个变量,可以直接默认赋值</p>
+</li>
+<li><p>函数中的形参如果设置了默认值,在没有设置实参的情况下,就是默认值,否则就是实参的值</p>
+<pre><code class="js">&lt;script&gt;
+function fn(a,b) &#123;
+    console.log(a, b);
+&#125;
+fn()
+function fn2(a = 1, b = 2) &#123;
+    console.log(a, b);
+&#125;
+fn2()
+&lt;script&gt;
+</code></pre>
+</li>
+</ol>
+<h2 id="2、动态参数"><a href="#2、动态参数" class="headerlink" title="2、动态参数"></a>2、动态参数</h2><p>​ 1.<strong>arguments</strong>是函数中用来保存实参信息的一个数组</p>
+<p>​ 2.当函数中实参个数不确定的时候,可以通过 arguments 获取实参信息</p>
+<pre><code class="js">&lt;script&gt;
+    function fn() &#123;
+        console.log(arguments);
+    &#125;
+   fn(1, 2, 3, 4);
+&lt;script&gt;
+</code></pre>
+<h2 id="3、剩余参数"><a href="#3、剩余参数" class="headerlink" title="3、剩余参数"></a>3、剩余参数</h2><ol>
+<li><p>语法: **…**自定义参数名</p>
+</li>
+<li><p>作用: 用来获取多余的实参值 (类似于 arguments)</p>
+</li>
+<li><p>注意事项:</p>
+<p>3.1 剩余参数必须写到函数形参的最后</p>
+<p>3.2 剩余参数的名字是自定义的</p>
+<p>3.3 剩余参数保存的值是以数组形式保存的</p>
+<pre><code class="js">&lt;script&gt;
+function fn(a, b, ...c) &#123;
+   console.log(a, b, c);
+&#125;
+ fn(1,2,3);
+ fn(1,2,3,4,5);
+&lt;script&gt;
+</code></pre>
+</li>
+</ol>
+<h2 id="4、箭头函数"><a href="#4、箭头函数" class="headerlink" title="4、箭头函数"></a>4、箭头函数</h2><p>1.<strong>箭头函数语法</strong>: () &#x3D;&gt; {} 等价于 function() {}</p>
+<p>2.<strong>函数的组成</strong></p>
+<p>​ 2.1 函数名</p>
+<p>​ 2.2 参数</p>
+<p>​ 2.3 函数体</p>
+<p>​ 2.4 返回值</p>
+<p><strong>3.箭头函数注意事项</strong>:</p>
+<p>​ 3.1 如果只有且只有一个参数,可以省略()</p>
+<p>​ 3.2 如果函数体只有一行代码,可以省略{}</p>
+<p>​ 3.3 如果函数只有一行代码,返回值 return 可以省略</p>
+<p>​ 3.4 箭头函数中不能使用 arguments,只能使用剩余参数</p>
+<p>​ 3.5 箭头函数中没有自己的 this,this 是父级作用域中的<strong>this</strong></p>
+]]></content>
+      <categories>
+        <category>javaScript</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+        <tag>function</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解构赋值 | 内置对象</title>
+    <url>/blog/2020/03/26/%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC-%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/</url>
+    <content><![CDATA[<h1 id="解构赋值-内置对象"><a href="#解构赋值-内置对象" class="headerlink" title="解构赋值 | 内置对象"></a>解构赋值 | 内置对象</h1><h2 id="一、解构赋值"><a href="#一、解构赋值" class="headerlink" title="一、解构赋值"></a>一、解构赋值</h2><h3 id="1-数组解构"><a href="#1-数组解构" class="headerlink" title="1.数组解构"></a>1.数组解构</h3><p><strong>解构:</strong> ES6 允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构</p>
+<p><strong>数组解构:</strong> 将数组中的值一一对应的方式取出赋值给变量</p>
+<p><strong>数组解构本质:</strong> 将数组中的值获取到赋值给变量</p>
+<p><strong>数组解构语法:</strong> let [变量 1, 变量 2, 变量 3] &#x3D; 数组;</p>
+<p><strong>数组解构特点:</strong></p>
+<ol>
+<li><p>数组解构是将数组中的值一一对应取出分别赋值给变量</p>
+</li>
+<li><p>如果被赋值的变量个数大于数组中的值,则多余的变量值为 undefined</p>
+</li>
+<li><p>在数组解构中可以为变量设置默认值</p>
+<pre><code class="js">&lt;script&gt;
+   let [name1, name2, name3] = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;];
+   console.log(name1, name2, name3);
+&lt;script&gt;
+</code></pre>
+</li>
+</ol>
+<h3 id="2-对象解构"><a href="#2-对象解构" class="headerlink" title="2.对象解构"></a>2.对象解构</h3><p><strong>对象解构:</strong> 将对象中的属性或方法取出赋值给变量</p>
+<p><strong>语法 1:</strong> let {属性名:变量名 1, 属性名:变量名 2 …} &#x3D; 对象</p>
+<p><strong>语法 2:</strong> let {属性名,属性名} &#x3D; 对象</p>
+<p><strong>对象解构总结</strong></p>
+<ol>
+<li><p>对象解构中,属性名和对象中的属性必须保持一致,否则值为 undefined</p>
+</li>
+<li><p>对象解构中,如果属性名和变量名一样,则可以省略变量名,但属性名必须与对象中的属性一样</p>
+<pre><code class="js">&lt;script&gt;
+   let persone = &#123;uname: &#39;zs&#39;, uage: 23&#125;
+   let &#123;uname: n1, uage: n2&#125; = persone;
+   let &#123;uname, uage&#125; = persone;
+&lt;script&gt;
+</code></pre>
+</li>
+</ol>
+<h2 id="二、内置对象-js-内部提供的对象"><a href="#二、内置对象-js-内部提供的对象" class="headerlink" title="二、内置对象 (js 内部提供的对象)"></a>二、内置对象 (js 内部提供的对象)</h2><h3 id="1-数组对象"><a href="#1-数组对象" class="headerlink" title="1.数组对象"></a>1.数组对象</h3><ol>
+<li><p>数组内置对象: Array()</p>
+</li>
+<li><p>Array 中的实例方法</p>
+<p>- reverse() 翻转数组</p>
+<p>- indexOf() 检索数组中的值</p>
+<p>- lastIndexOf() 检索数组中的值</p>
+<p>- splice() 删除或其他数组中的值</p>
+<p>- concat()合并两个数组的值</p>
+<p>- join() 将数组中的值拼接为字符串</p>
+<p>- forEach(function(item, index){}) 遍历数组</p>
+<p>- filter(function(item, index){}) 过滤筛选数组,返回一个新数组</p>
+<p>- map(function(item, index){})迭代原数组,生成新数组</p>
+</li>
+</ol>
+<h3 id="2-字符串对象"><a href="#2-字符串对象" class="headerlink" title="2.字符串对象"></a>2.字符串对象</h3><p>1.Array 内置对象中的静态方法</p>
+<p>2.Array.from(对象) 将伪数组转换为数组</p>
+<h3 id="3-包装类型"><a href="#3-包装类型" class="headerlink" title="3.包装类型"></a>3.包装类型</h3><p><strong>String 构造函数</strong></p>
+<p>- 属性 : length 属性</p>
+<p>- 方法: 拼接字符串 concat()</p>
+<p>- 方法: split()分割字符串 toUpperCase()转大写 toLowerCase()转小写</p>
+<p>- substring(indexStart, indexEnd) - substr(start[,length])</p>
+<p>- 方法: startsWith() 检测是否以某个字母开始 endsWith()检测是否以某个字母结束</p>
+<p>- 方法: replace(‘被替换的字符’, ‘替换后的字符’)替换 indexOf()</p>
+<p>- 方法: padStart(位数, ‘值’), 是否够几位数,如果不够在前面添加对应的内容</p>
+<p>- 方法: padEnd(‘位数’, ‘值’),是否够几位数,如果不够在后面添加对应的内容</p>
+<p><strong>Number 构造函数</strong></p>
+<p>- 方法: toFixed()保留几位小数</p>
+<p><strong>Boolean 构造函数</strong></p>
+<p><strong>包装类型:</strong> 一个简单类型可以通过 js 内部的构造函数包装成一个对象</p>
+]]></content>
+      <categories>
+        <category>javaScript</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+        <tag>解构赋值，内置对象</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>面向对象</title>
+    <url>/blog/2020/04/03/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</url>
+    <content><![CDATA[<h1 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h1><h2 id="1、封装"><a href="#1、封装" class="headerlink" title="1、封装"></a>1、封装</h2><p><strong>封装:</strong> 将一段功能代码封装成一个函数</p>
+<p>封装一个构造函数创建对象</p>
+<pre><code class="js">function People(uname) &#123;
+  this.uname = uname
+
+  this.eat = function () &#123;&#125;
+&#125;
+</code></pre>
+<p>通过构造函数封装后,创建多个对象,对象调用同一个方法,在内存中执行的并不是同一个方法</p>
+<h2 id="2、原型对象"><a href="#2、原型对象" class="headerlink" title="2、原型对象"></a>2、原型对象</h2><p><strong>prototype:</strong> 叫原型,是每一个构造函数身上的一个属性,该属性是以对象的形式存在的(原型对象)</p>
+<img src="https://cdn.jsdelivr.net/gh/3-ygd/image-hosting@master/1648559112(1).5zhb0ex1q7k0.webp">
+
+<p><strong>作用:</strong> 通过原型对象设置构造函数中功能的方法</p>
+<p><strong>语法:</strong> 构造函数.prototype.方法名 &#x3D; function(){}</p>
+<p><strong>构造函数与 prototype 之间的关系:</strong></p>
+<img src="https://cdn.jsdelivr.net/gh/3-ygd/image-hosting@master/1648559174(1).3l4p5n5gemm0.webp">
+
+<h2 id="3、对象原型"><a href="#3、对象原型" class="headerlink" title="3、对象原型"></a>3、对象原型</h2><p><strong>什么是 proto</strong> : 每一个实例对象身上的一个属性,该属性是以对象的形式存在的(对象原型)</p>
+<img src="https://cdn.jsdelivr.net/gh/3-ygd/image-hosting@master/1648559283(1).30dukq6xfpa0.webp">
+
+<p>*<strong>*proto</strong>作用:** <strong>proto</strong>指向了原型对象 prototype,可以让实例对象访问构造函数中的公共方法</p>
+<p><strong>prototype 与 proto 之间的关系</strong></p>
+<img src="https://cdn.jsdelivr.net/gh/3-ygd/image-hosting@master/图片1.2wfynnkwmyw0.webp">
+
+<h2 id="4、原型链"><a href="#4、原型链" class="headerlink" title="4、原型链"></a>4、原型链</h2><p><strong>原型链:</strong> 多个原型对象之间形成的一个链状结构</p>
+<p><strong>作用:</strong> 通过原型链可以确定方法的执行顺序</p>
+<img src="https://cdn.jsdelivr.net/gh/3-ygd/image-hosting@master/图片2.6v5blgn2wh40.webp">
+
+<h2 id="5、继承"><a href="#5、继承" class="headerlink" title="5、继承"></a>5、继承</h2><p><strong>什么是继承:</strong> 子类中使用父类中的属性或方法</p>
+<p><strong>继承的作用:</strong> 继承可以减少重复代码</p>
+<p><strong>继承分类:</strong> 属性继承 + 方法继承</p>
+<p><strong>属性继承语法:</strong> 构造函数.call(对象,参数 1,参数 2…)</p>
+<img src="https://cdn.jsdelivr.net/gh/3-ygd/image-hosting@master/图片3.58c1tmd10gg0.webp">
+]]></content>
+      <categories>
+        <category>javaScript</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+        <tag>原型对象</tag>
+      </tags>
+  </entry>
 </search>

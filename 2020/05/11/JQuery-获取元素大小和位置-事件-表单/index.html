@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="苑木木">
+    
+    <title>
+        
+            JQuery-获取元素大小和位置-事件-表单 |
+        
+        苑木木的博客
+    </title>
+    
+<link rel="stylesheet" href="/blog/css/style.css">
+
+    <link rel="shortcut icon" href="/blog/images/log.png">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"3-ygd.github.io","root":"/blog/","language":"en","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":false,"init_open":true},"style":{"primary_color":"#33CCCC","avatar":"/images/xx.png","favicon":"/images/log.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"https://raw.githubusercontent.com/3-ygd/image-hosting/master/9.6cv6skgtsuk0.webp","description":"改变想法 | 找到方法."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                苑木木的博客
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/blog/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/blog/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/blog/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/blog/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/blog/about"
+                            >
+                                关于我
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/blog/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/blog/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/blog/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/blog/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/blog/about">关于我</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">
+                JQuery-获取元素大小和位置-事件-表单
+            </span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/blog/images/xx.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">
+                            苑木木
+                        </span>
+                        
+                            <span class="author-label">
+                                Lv3
+                            </span>
+                            
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <!-- <i class="fas fa-edit"></i>&nbsp; -->
+        <span class="pc">
+            2020-05-11 18:53:19
+        </span>
+        <span class="mobile">
+            2020-05-11 18:53
+        </span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/blog/categories/jQuery/">
+                                jQuery
+                            </a>&nbsp;
+                    </li>
+                    
+            </ul>
+        </span>
+        
+            
+                <span class="article-tags article-meta-item">
+                    <i class="fas fa-tags"></i>&nbsp;
+                    <ul>
+                        
+                            <li>
+                                <a href="/blog/tags/jq/">
+                                        jq
+                                    </a>&nbsp;
+                            </li>
+                            
+                            <li>
+                                | <a href="/blog/tags/jq%E8%A1%A8%E5%8D%95/">
+                                        jq表单
+                                    </a>&nbsp;
+                            </li>
+                            
+                            <li>
+                                | <a href="/blog/tags/jq%E4%BA%8B%E4%BB%B6/">
+                                        jq事件
+                                    </a>&nbsp;
+                            </li>
+                            
+                    </ul>
+                </span>
+                
+
+                    
+                        
+                            <span class="article-wordcount article-meta-item">
+                                <i class="fas fa-file-word"></i>&nbsp;<span>
+                                    1.7k
+                                        Words
+                                </span>
+                            </span>
+                            
+                                
+                                        
+</div>
+                    </div>
+                </div>
+            </div>
+            
+
+                    <div class="article-content markdown-body">
+                        <h1 id="JQuery-获取元素大小和位置-事件-表单"><a href="#JQuery-获取元素大小和位置-事件-表单" class="headerlink" title="JQuery-获取元素大小和位置-事件-表单"></a>JQuery-获取元素大小和位置-事件-表单</h1><h3 id="1-JQ-方式获取元素大小和位置"><a href="#1-JQ-方式获取元素大小和位置" class="headerlink" title="1.JQ 方式获取元素大小和位置"></a>1.JQ 方式获取元素大小和位置</h3><h4 id="1-1-JQ-获取元素大小"><a href="#1-1-JQ-获取元素大小" class="headerlink" title="1.1 JQ 获取元素大小"></a>1.1 JQ 获取元素大小</h4><ul>
+<li><p><strong>获取元素大小</strong></p>
+<ul>
+<li><p><code>$对象.width()</code></p>
+<pre><code class="js">语法: $对象.width() //获取当前元素大小,只包含内容区域大小
+
+代码演示: console.log($(&#39;div&#39;).width())
+</code></pre>
+</li>
+<li><p><code>$对象.height()</code></p>
+<pre><code class="js">语法: $对象.height() //获取当前元素高度,只包含内容区域高度
+
+代码演示: console.log($(&#39;div&#39;).height())
+</code></pre>
+</li>
+<li><p><code>$对象.innerWidth()</code></p>
+<pre><code class="js">语法: $对象.innerWidth() //获取当前元素宽度 = 内容区域大小 + 内边距
+
+代码演示: console.log($(&#39;div&#39;).innerWidth())
+</code></pre>
+</li>
+<li><p><code>$对象.innerHeight()</code></p>
+<pre><code class="js">语法: $对象.innerHeight() //获取当前元素高度 = 内容区域大小 + 内边距
+
+代码演示: console.log($(&#39;div&#39;).innerHeight())
+</code></pre>
+</li>
+<li><p><code>$对象.outerWidth()</code></p>
+<pre><code class="js">语法:
+$对象.outerWidth();   //获取当前元素宽度 = 内容区域大小 + 内边距 +边框
+
+代码演示:
+console.log($(&#39;div&#39;).outerWidth();
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p><strong>设置元素大小</strong></p>
+<ul>
+<li><p><code>$对象.width(值)</code> <code>$对象.height(值)</code></p>
+<pre><code class="js">代码演示:
+$(&#39;div&#39;).width(&#39;200&#39;).height(&#39;200&#39;);
+
+//注意:
+1. 在设置值的时候可以带单位px也可以不用带单位px
+</code></pre>
+</li>
+<li><p><code>$对象.innerWidth(值)</code> <code>$对象.innerHeight(值)</code></p>
+<pre><code class="js">代码演示:
+$(&#39;div&#39;).innerWidth(&#39;200&#39;).innerHeight(&#39;200&#39;);
+
+//注意:
+1. 此时设置的值中已经包含内边距,内边距默认为0,如果在css中给当前元素设置内边距,则元素大内容区域大小会发生改变
+</code></pre>
+</li>
+<li><p><code>$对象.outerWidth(值)</code> <code>$对象.outerHeight(值)</code></p>
+<pre><code class="js">代码演示:
+$(&#39;div&#39;).outerWidth(&#39;200&#39;, true).outerHeight(&#39;200&#39;, true);
+
+//注意
+1. 此时设置的值是包含外边距的,如果通过css给当前元素设置外边距,则元素内容区域大小会发生改变
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-2JQ-获取元素位置"><a href="#1-2JQ-获取元素位置" class="headerlink" title="1.2JQ 获取元素位置"></a>1.2JQ 获取元素位置</h4><ul>
+<li><p><code>offset()</code></p>
+<pre><code class="js">语法:
+$(对象).offset();
+
+//总结:
+1. $对象.offset() 返回的是一个对象
+2. $对象.offset() 返回对象中包含 left 属性 和 top属性
+3. 获取当前元素的位置是相对整个页面
+4. 类似于固定定位
+
+//代码演示:
+$(&#39;.one&#39;).offset().left
+$(&#39;.one&#39;).offset().top
+</code></pre>
+</li>
+<li><p><code>position()</code></p>
+<pre><code class="js">语法:
+$(对象).position();
+
+//总结:
+1. $对象.position() 返回的是一个对象
+2. $对象.position() 返回对象中包含 left 属性和 top属性
+3. 获取当前元素的位置,如果当前父元素没有定位,相对整个页面,如果父元素有定位,参照父元素
+4. 类似于绝对定位
+
+//代码演示:
+$(&#39;.one&#39;).position().left
+$(&#39;.one&#39;).position().top
+</code></pre>
+</li>
+<li><p><code>scrollTop()</code></p>
+<pre><code class="js">语法:
+$(对象).scrollTop();
+//总结:
+1. 获取当前元素(内容)滚动出去的距离
+2. 如果希望在程序中获取当前距离大小,需要在scroll事件中获取
+//代码演示:
+$(&#39;.box&#39;).scroll(function()&#123;
+    console.log($(this).scrollTop());
+&#125;);
+</code></pre>
+</li>
+</ul>
+<h4 id="1-3-课堂案例-返回顶部案例"><a href="#1-3-课堂案例-返回顶部案例" class="headerlink" title="1.3 课堂案例-返回顶部案例"></a>1.3 课堂案例-返回顶部案例</h4><h3 id="2-JQ-方式注册事件"><a href="#2-JQ-方式注册事件" class="headerlink" title="2.JQ 方式注册事件"></a>2.JQ 方式注册事件</h3><h4 id="1-1-通过常规方式注册事件"><a href="#1-1-通过常规方式注册事件" class="headerlink" title="1.1 通过常规方式注册事件"></a>1.1 通过常规方式注册事件</h4><pre><code class="js">事件源.事件类型(function()&#123;&#125;);
+
+//代码演示:
+
+$(&#39;.box&#39;).click(function()&#123;
+    $(this).css(&#39;background&#39;,&#39;pink&#39;);
+&#125;);
+$(&#39;.box&#39;).mouseenter(function()&#123;
+    $(this).css(&#39;background&#39;,&#39;blue&#39;);
+&#125;);
+$(&#39;.box&#39;).mouseleave(function()&#123;
+    $(this).css(&#39;background&#39;, &#39;red&#39;)
+&#125;);
+
+特点:
+1. 只能给事件源注册一个事件
+2. 如果注册多个事件,重复设置,不符合JQ的特性(do more do less)
+</code></pre>
+<h4 id="1-2-通过-on-方式注册事件"><a href="#1-2-通过-on-方式注册事件" class="headerlink" title="1.2 通过 on 方式注册事件"></a>1.2 通过 on 方式注册事件</h4><pre><code class="js">事件源.on(&#39;事件类型&#39;, function () &#123;&#125;)
+
+//代码演示:
+$(&#39;.box&#39;).on(&#39;click&#39;, function () &#123;
+  console.log(123)
+&#125;)
+
+事件源.on(&#123;
+  事件类型: function () &#123;&#125;,
+  事件类型: function () &#123;&#125;
+&#125;)
+
+//代码演示:
+$(&#39;.box&#39;).on(&#123;
+  click: function () &#123;
+    $(this).css(&#39;background&#39;, &#39;blue&#39;)
+  &#125;,
+  mouseenter: function () &#123;
+    $(this).css(&#39;background&#39;, &#39;pink&#39;)
+  &#125;
+&#125;)
+</code></pre>
+<h4 id="1-3-通过委托方式注册事件"><a href="#1-3-通过委托方式注册事件" class="headerlink" title="1.3 通过委托方式注册事件"></a>1.3 通过委托方式注册事件</h4><pre><code class="js">父事件源.on(&#39;事件类型&#39;, &#39;子选择器&#39;, function () &#123;&#125;)
+
+// 代码演示:
+$(&#39;.box&#39;).on(&#39;click&#39;, &#39;.one&#39;, function () &#123;
+  console.log(123)
+&#125;)
+// 注意:
+// 1. 如果页面中的元素是动态创建的,给元素注册事件,需要使用委托的方式
+//代码演示:
+$(&#39;.box&#39;).on(&#39;click&#39;, &#39;.one&#39;, function () &#123;
+  console.log(123)
+&#125;)
+$(&#39;&lt;div class=&quot;one&quot;&gt;&lt;/div&gt;&#39;).appendTo(&#39;.box&#39;)
+</code></pre>
+<h4 id="1-4-课堂案例-发布微博案例"><a href="#1-4-课堂案例-发布微博案例" class="headerlink" title="1.4 课堂案例-发布微博案例"></a>1.4 课堂案例-发布微博案例</h4><p>![1594695224614](D:&#x2F;前端_资料&#x2F;就业班&#x2F;JQuery&#x2F;JQuery 第三天&#x2F;03&#x2F;01-课堂笔记&#x2F;img&#x2F;1594695224614.png)</p>
+<h4 id="1-5-解绑事件"><a href="#1-5-解绑事件" class="headerlink" title="1.5 解绑事件"></a>1.5 解绑事件</h4><ul>
+<li><p><code>off()</code></p>
+<pre><code class="js">$对象.off([事件名]);
+
+//代码演示1:
+$(&#39;.box&#39;).click(function()&#123;
+    alert(123);
+&#125;)
+$(&#39;.box&#39;).off();
+
+//代码演示2:
+$(&#39;div&#39;).on(&#39;click&#39;, function()&#123;
+    alert(123);
+&#125;)
+$(&#39;.box&#39;).off();
+
+// 如果元素身上有很多事件如何解绑?
+$(&#39;.box&#39;).on(&#123;
+    click: function() &#123;
+        alert(123);
+    &#125;,
+    mouseenter: function() &#123;
+        alert(789);
+    &#125;
+&#125;)
+$(&#39;.box&#39;).off();
+或者:
+$(&#39;.box&#39;).off(&#39;mouseenter&#39;);
+// 总结
+1. 如果off() 中没有设置任何参数,代表将所有的事件移除
+2. 如果要移除对应的事件,在off方法中设置对应的方法名称即可
+</code></pre>
+</li>
+<li><p><code>off()解绑委托事件</code></p>
+<pre><code class="js">$父元素对象.off(&#39;事件类型&#39;, &#39;选择器&#39;)
+
+// 代码演示:
+$(&#39;.box&#39;).on(&#39;click&#39;, &#39;.one&#39;, function () &#123;
+  console.log(123)
+&#125;)
+$(&#39;.box&#39;).off(&#39;click&#39;, &#39;.one&#39;)
+</code></pre>
+</li>
+</ul>
+<h3 id="3-表单"><a href="#3-表单" class="headerlink" title="3.表单"></a>3.表单</h3><h4 id="3-1-通过-jQuery-监听表单提交"><a href="#3-1-通过-jQuery-监听表单提交" class="headerlink" title="3.1 通过 jQuery 监听表单提交"></a>3.1 通过 jQuery 监听表单提交</h4><pre><code class="js">HTML 标签本身具有数据提交的能力，然而现实中更常见的是通过监听 DOM 事件获取表单的数据，然后通过 Ajax 将表单的数据提交至服务端。
+&lt;form&gt;
+  昵称: &lt;input type=&quot;text&quot; name=&quot;nickname&quot;&gt;
+  &lt;br&gt;
+  密码: &lt;input type=&quot;password&quot; name=&quot;password&quot;&gt;
+  &lt;br&gt;
+  &lt;button&gt;提交&lt;/button&gt;
+&lt;/form&gt;
+&lt;script src=&quot;your/path/jquery-版本号.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+ // 监听表单的 submit 事件
+  $(&#39;form&#39;).submit(function (ev) &#123;
+    // 表单提交的相关逻辑...
+
+    // 阻止 HTML 表单的默认提交
+    // ev.preventDefault();
+
+    // ev.preventDefault() 在 jQuery 中可以
+    // 被简写成 return false
+    return false;
+  &#125;)
+&lt;/script&gt;
+</code></pre>
+<h4 id="3-2-表单序列化"><a href="#3-2-表单序列化" class="headerlink" title="3.2 表单序列化"></a>3.2 表单序列化</h4><pre><code class="js">HTML 标签默认提交表单时会自动根据表单项的 name 属性将用户在表单中填写的数据提交至服务端，然而采用监听 DOM 事件对表单提交时，需要开发者自行获取表单项中用户填写的数据，其用户如下代码所示：
+
+&lt;form&gt;
+  昵称: &lt;input type=&quot;text&quot; name=&quot;nickname&quot;&gt;
+  &lt;br&gt;
+  密码: &lt;input type=&quot;password&quot; name=&quot;password&quot;&gt;
+  &lt;br&gt;
+  &lt;button&gt;提交&lt;/button&gt;
+&lt;/form&gt;
+&lt;script src=&quot;your/path/jquery-版本号.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  // 监听表单的 submit 事件
+  $(&#39;form&#39;).on(&#39;submit&#39;, function () &#123;
+
+    // 通过 jQuery 对象的 serialize 方法，获取所有表单元素的数据
+    $(this).serialize();
+
+    // 阻止表单默认提交
+    return false;
+  &#125;)
+&lt;/script&gt;
+</code></pre>
+
+                    </div>
+
+                    
+
+                            
+                                <ul class="post-tags-box">
+                                    
+                                        <li class="tag-item">
+                                            <a href="/blog/tags/jq/">#jq</a>&nbsp;
+                                        </li>
+                                        
+                                        <li class="tag-item">
+                                            <a href="/blog/tags/jq%E8%A1%A8%E5%8D%95/">#jq表单</a>&nbsp;
+                                        </li>
+                                        
+                                        <li class="tag-item">
+                                            <a href="/blog/tags/jq%E4%BA%8B%E4%BB%B6/">#jq事件</a>&nbsp;
+                                        </li>
+                                        
+                                </ul>
+                                
+
+                                    
+                                        <div class="article-nav">
+                                            
+                                                <div class="article-prev">
+                                                    <a class="prev" rel="prev" href="/blog/2020/05/22/git-%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4/">
+                                                        <span class="left arrow-icon flex-center">
+                                                            <i class="fas fa-chevron-left"></i>
+                                                        </span>
+                                                        <span class="title flex-center">
+                                                            <span class="post-nav-title-item">
+                                                                git-操作命令
+                                                            </span>
+                                                            <span class="post-nav-item">
+                                                                Prev posts
+                                                            </span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                
+                                                    
+                                                        <div class="article-next">
+                                                            <a class="next" rel="next"
+                                                                href="/blog/2020/05/02/JQuery-%E5%8A%A8%E7%94%BB-%E6%93%8D%E4%BD%9C%E5%85%83%E7%B4%A0/">
+                                                                <span class="title flex-center">
+                                                                    <span class="post-nav-title-item">
+                                                                        JQuery-动画-操作元素
+                                                                    </span>
+                                                                    <span class="post-nav-item">
+                                                                        Next posts
+                                                                    </span>
+                                                                </span>
+                                                                <span class="right arrow-icon flex-center">
+                                                                    <i class="fas fa-chevron-right"></i>
+                                                                </span>
+                                                            </a>
+                                                        </div>
+                                                        
+                                        </div>
+                                        
+
+                                            
+    </div>
+</div>
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>
+                    2019
+                </span>
+                -
+                
+                    2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">
+                            苑木木
+                        </a>
+        </div>
+        
+                <div class="theme-info info-item">
+                    Powered by -&nbsp;|&nbsp;believe oneself v-ygd</a>
+                </div>
+                
+                        
+    </div>
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JQuery-%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%A4%A7%E5%B0%8F%E5%92%8C%E4%BD%8D%E7%BD%AE-%E4%BA%8B%E4%BB%B6-%E8%A1%A8%E5%8D%95"><span class="nav-number">1.</span> <span class="nav-text">JQuery-获取元素大小和位置-事件-表单</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-JQ-%E6%96%B9%E5%BC%8F%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%A4%A7%E5%B0%8F%E5%92%8C%E4%BD%8D%E7%BD%AE"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.JQ 方式获取元素大小和位置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-JQ-%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%A4%A7%E5%B0%8F"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">1.1 JQ 获取元素大小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2JQ-%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E4%BD%8D%E7%BD%AE"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">1.2JQ 获取元素位置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-%E8%AF%BE%E5%A0%82%E6%A1%88%E4%BE%8B-%E8%BF%94%E5%9B%9E%E9%A1%B6%E9%83%A8%E6%A1%88%E4%BE%8B"><span class="nav-number">1.0.1.3.</span> <span class="nav-text">1.3 课堂案例-返回顶部案例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-JQ-%E6%96%B9%E5%BC%8F%E6%B3%A8%E5%86%8C%E4%BA%8B%E4%BB%B6"><span class="nav-number">1.0.2.</span> <span class="nav-text">2.JQ 方式注册事件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-%E9%80%9A%E8%BF%87%E5%B8%B8%E8%A7%84%E6%96%B9%E5%BC%8F%E6%B3%A8%E5%86%8C%E4%BA%8B%E4%BB%B6"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">1.1 通过常规方式注册事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-%E9%80%9A%E8%BF%87-on-%E6%96%B9%E5%BC%8F%E6%B3%A8%E5%86%8C%E4%BA%8B%E4%BB%B6"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">1.2 通过 on 方式注册事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-%E9%80%9A%E8%BF%87%E5%A7%94%E6%89%98%E6%96%B9%E5%BC%8F%E6%B3%A8%E5%86%8C%E4%BA%8B%E4%BB%B6"><span class="nav-number">1.0.2.3.</span> <span class="nav-text">1.3 通过委托方式注册事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-%E8%AF%BE%E5%A0%82%E6%A1%88%E4%BE%8B-%E5%8F%91%E5%B8%83%E5%BE%AE%E5%8D%9A%E6%A1%88%E4%BE%8B"><span class="nav-number">1.0.2.4.</span> <span class="nav-text">1.4 课堂案例-发布微博案例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-%E8%A7%A3%E7%BB%91%E4%BA%8B%E4%BB%B6"><span class="nav-number">1.0.2.5.</span> <span class="nav-text">1.5 解绑事件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E8%A1%A8%E5%8D%95"><span class="nav-number">1.0.3.</span> <span class="nav-text">3.表单</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-%E9%80%9A%E8%BF%87-jQuery-%E7%9B%91%E5%90%AC%E8%A1%A8%E5%8D%95%E6%8F%90%E4%BA%A4"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">3.1 通过 jQuery 监听表单提交</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-%E8%A1%A8%E5%8D%95%E5%BA%8F%E5%88%97%E5%8C%96"><span class="nav-number">1.0.3.2.</span> <span class="nav-text">3.2 表单序列化</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/code-copy.js"></script>
+
+
+
+
+<div class="post-scripts">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/toc.js"></script>
+    
+</div>
+
+
+
+</body>
+</html>

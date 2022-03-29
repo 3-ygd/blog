@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="苑木木">
+    
+    <title>
+        
+            解构赋值 | 内置对象 |
+        
+        苑木木的博客
+    </title>
+    
+<link rel="stylesheet" href="/blog/css/style.css">
+
+    <link rel="shortcut icon" href="/blog/images/log.png">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"3-ygd.github.io","root":"/blog/","language":"en","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":false,"init_open":true},"style":{"primary_color":"#33CCCC","avatar":"/images/xx.png","favicon":"/images/log.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"https://raw.githubusercontent.com/3-ygd/image-hosting/master/9.6cv6skgtsuk0.webp","description":"改变想法 | 找到方法."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                苑木木的博客
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/blog/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/blog/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/blog/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/blog/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/blog/about"
+                            >
+                                关于我
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/blog/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/blog/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/blog/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/blog/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/blog/about">关于我</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">
+                解构赋值 | 内置对象
+            </span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/blog/images/xx.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">
+                            苑木木
+                        </span>
+                        
+                            <span class="author-label">
+                                Lv3
+                            </span>
+                            
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <!-- <i class="fas fa-edit"></i>&nbsp; -->
+        <span class="pc">
+            2020-03-26 13:56:28
+        </span>
+        <span class="mobile">
+            2020-03-26 13:56
+        </span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/blog/categories/javaScript/">
+                                javaScript
+                            </a>&nbsp;
+                    </li>
+                    
+            </ul>
+        </span>
+        
+            
+                <span class="article-tags article-meta-item">
+                    <i class="fas fa-tags"></i>&nbsp;
+                    <ul>
+                        
+                            <li>
+                                <a href="/blog/tags/js/">
+                                        js
+                                    </a>&nbsp;
+                            </li>
+                            
+                            <li>
+                                | <a href="/blog/tags/%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC%EF%BC%8C%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/">
+                                        解构赋值，内置对象
+                                    </a>&nbsp;
+                            </li>
+                            
+                    </ul>
+                </span>
+                
+
+                    
+                        
+                            <span class="article-wordcount article-meta-item">
+                                <i class="fas fa-file-word"></i>&nbsp;<span>
+                                    718
+                                        Words
+                                </span>
+                            </span>
+                            
+                                
+                                        
+</div>
+                    </div>
+                </div>
+            </div>
+            
+
+                    <div class="article-content markdown-body">
+                        <h1 id="解构赋值-内置对象"><a href="#解构赋值-内置对象" class="headerlink" title="解构赋值 | 内置对象"></a>解构赋值 | 内置对象</h1><h2 id="一、解构赋值"><a href="#一、解构赋值" class="headerlink" title="一、解构赋值"></a>一、解构赋值</h2><h3 id="1-数组解构"><a href="#1-数组解构" class="headerlink" title="1.数组解构"></a>1.数组解构</h3><p><strong>解构:</strong> ES6 允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构</p>
+<p><strong>数组解构:</strong> 将数组中的值一一对应的方式取出赋值给变量</p>
+<p><strong>数组解构本质:</strong> 将数组中的值获取到赋值给变量</p>
+<p><strong>数组解构语法:</strong> let [变量 1, 变量 2, 变量 3] &#x3D; 数组;</p>
+<p><strong>数组解构特点:</strong></p>
+<ol>
+<li><p>数组解构是将数组中的值一一对应取出分别赋值给变量</p>
+</li>
+<li><p>如果被赋值的变量个数大于数组中的值,则多余的变量值为 undefined</p>
+</li>
+<li><p>在数组解构中可以为变量设置默认值</p>
+<pre><code class="js">&lt;script&gt;
+   let [name1, name2, name3] = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;];
+   console.log(name1, name2, name3);
+&lt;script&gt;
+</code></pre>
+</li>
+</ol>
+<h3 id="2-对象解构"><a href="#2-对象解构" class="headerlink" title="2.对象解构"></a>2.对象解构</h3><p><strong>对象解构:</strong> 将对象中的属性或方法取出赋值给变量</p>
+<p><strong>语法 1:</strong> let {属性名:变量名 1, 属性名:变量名 2 …} &#x3D; 对象</p>
+<p><strong>语法 2:</strong> let {属性名,属性名} &#x3D; 对象</p>
+<p><strong>对象解构总结</strong></p>
+<ol>
+<li><p>对象解构中,属性名和对象中的属性必须保持一致,否则值为 undefined</p>
+</li>
+<li><p>对象解构中,如果属性名和变量名一样,则可以省略变量名,但属性名必须与对象中的属性一样</p>
+<pre><code class="js">&lt;script&gt;
+   let persone = &#123;uname: &#39;zs&#39;, uage: 23&#125;
+   let &#123;uname: n1, uage: n2&#125; = persone;
+   let &#123;uname, uage&#125; = persone;
+&lt;script&gt;
+</code></pre>
+</li>
+</ol>
+<h2 id="二、内置对象-js-内部提供的对象"><a href="#二、内置对象-js-内部提供的对象" class="headerlink" title="二、内置对象 (js 内部提供的对象)"></a>二、内置对象 (js 内部提供的对象)</h2><h3 id="1-数组对象"><a href="#1-数组对象" class="headerlink" title="1.数组对象"></a>1.数组对象</h3><ol>
+<li><p>数组内置对象: Array()</p>
+</li>
+<li><p>Array 中的实例方法</p>
+<p>- reverse() 翻转数组</p>
+<p>- indexOf() 检索数组中的值</p>
+<p>- lastIndexOf() 检索数组中的值</p>
+<p>- splice() 删除或其他数组中的值</p>
+<p>- concat()合并两个数组的值</p>
+<p>- join() 将数组中的值拼接为字符串</p>
+<p>- forEach(function(item, index){}) 遍历数组</p>
+<p>- filter(function(item, index){}) 过滤筛选数组,返回一个新数组</p>
+<p>- map(function(item, index){})迭代原数组,生成新数组</p>
+</li>
+</ol>
+<h3 id="2-字符串对象"><a href="#2-字符串对象" class="headerlink" title="2.字符串对象"></a>2.字符串对象</h3><p>1.Array 内置对象中的静态方法</p>
+<p>2.Array.from(对象) 将伪数组转换为数组</p>
+<h3 id="3-包装类型"><a href="#3-包装类型" class="headerlink" title="3.包装类型"></a>3.包装类型</h3><p><strong>String 构造函数</strong></p>
+<p>- 属性 : length 属性</p>
+<p>- 方法: 拼接字符串 concat()</p>
+<p>- 方法: split()分割字符串 toUpperCase()转大写 toLowerCase()转小写</p>
+<p>- substring(indexStart, indexEnd) - substr(start[,length])</p>
+<p>- 方法: startsWith() 检测是否以某个字母开始 endsWith()检测是否以某个字母结束</p>
+<p>- 方法: replace(‘被替换的字符’, ‘替换后的字符’)替换 indexOf()</p>
+<p>- 方法: padStart(位数, ‘值’), 是否够几位数,如果不够在前面添加对应的内容</p>
+<p>- 方法: padEnd(‘位数’, ‘值’),是否够几位数,如果不够在后面添加对应的内容</p>
+<p><strong>Number 构造函数</strong></p>
+<p>- 方法: toFixed()保留几位小数</p>
+<p><strong>Boolean 构造函数</strong></p>
+<p><strong>包装类型:</strong> 一个简单类型可以通过 js 内部的构造函数包装成一个对象</p>
+
+                    </div>
+
+                    
+
+                            
+                                <ul class="post-tags-box">
+                                    
+                                        <li class="tag-item">
+                                            <a href="/blog/tags/js/">#js</a>&nbsp;
+                                        </li>
+                                        
+                                        <li class="tag-item">
+                                            <a href="/blog/tags/%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC%EF%BC%8C%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/">#解构赋值，内置对象</a>&nbsp;
+                                        </li>
+                                        
+                                </ul>
+                                
+
+                                    
+                                        <div class="article-nav">
+                                            
+                                                <div class="article-prev">
+                                                    <a class="prev" rel="prev" href="/blog/2020/04/03/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+                                                        <span class="left arrow-icon flex-center">
+                                                            <i class="fas fa-chevron-left"></i>
+                                                        </span>
+                                                        <span class="title flex-center">
+                                                            <span class="post-nav-title-item">
+                                                                面向对象
+                                                            </span>
+                                                            <span class="post-nav-item">
+                                                                Prev posts
+                                                            </span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                
+                                                    
+                                                        <div class="article-next">
+                                                            <a class="next" rel="next"
+                                                                href="/blog/2020/03/15/%E5%87%BD%E6%95%B0/">
+                                                                <span class="title flex-center">
+                                                                    <span class="post-nav-title-item">
+                                                                        函数
+                                                                    </span>
+                                                                    <span class="post-nav-item">
+                                                                        Next posts
+                                                                    </span>
+                                                                </span>
+                                                                <span class="right arrow-icon flex-center">
+                                                                    <i class="fas fa-chevron-right"></i>
+                                                                </span>
+                                                            </a>
+                                                        </div>
+                                                        
+                                        </div>
+                                        
+
+                                            
+    </div>
+</div>
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>
+                    2019
+                </span>
+                -
+                
+                    2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">
+                            苑木木
+                        </a>
+        </div>
+        
+                <div class="theme-info info-item">
+                    Powered by -&nbsp;|&nbsp;believe oneself v-ygd</a>
+                </div>
+                
+                        
+    </div>
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC-%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.</span> <span class="nav-text">解构赋值 | 内置对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC"><span class="nav-number">1.1.</span> <span class="nav-text">一、解构赋值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%95%B0%E7%BB%84%E8%A7%A3%E6%9E%84"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.数组解构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%AF%B9%E8%B1%A1%E8%A7%A3%E6%9E%84"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.对象解构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1-js-%E5%86%85%E9%83%A8%E6%8F%90%E4%BE%9B%E7%9A%84%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.2.</span> <span class="nav-text">二、内置对象 (js 内部提供的对象)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%95%B0%E7%BB%84%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.数组对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.字符串对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%8C%85%E8%A3%85%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.2.3.</span> <span class="nav-text">3.包装类型</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/code-copy.js"></script>
+
+
+
+
+<div class="post-scripts">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/toc.js"></script>
+    
+</div>
+
+
+
+</body>
+</html>
