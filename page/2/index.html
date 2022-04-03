@@ -165,30 +165,37 @@
                 
 
                         <h3 class="home-article-title">
-                            <a href="/blog/2020/02/26/BOM-%20%E6%93%8D%E4%BD%9C%E6%B5%8F%E8%A7%88%E5%99%A8/">
-                                BOM- 操作浏览器
+                            <a href="/blog/2021/10/20/react-%E7%BB%84%E4%BB%B6%E9%80%9A%E8%AE%AF/">
+                                react-组件通讯
                             </a>
                         </h3>
 
                         <div class="home-article-content markdown-body">
                             
-                                        BOM- 操作浏览器window 对象BOM(浏览器对象模型)BOM(Browser Object Model ) 是浏览器对象模型
+                                        react-组件通讯父传子还是基于一下几点来理解
 
+确定组件关系：即谁是父组件？
+组件间通讯数据来自于哪里？（state、props）
+通讯的数据类型是什么？
 
-window 是浏览器内置中的全局对象，我们所学习的所有 Web APIs 的知识内容都是基于 window 对...
+步骤：
+
+确定组件的父子关系，父组件可以直接传递数据到子组件
+
+父组件可以传递给子组件的...
                                             
                         </div>
 
                         <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <!-- <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Feb 26 2020 19:13:56 GMT+0800"> -->
-        2020-02-26 19:13:56
+        <!-- <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Oct 20 2021 21:23:47 GMT+0800"> -->
+        2021-10-20 21:23:47
             </span></span>
             
                     
     </div>
 
-    <a href="/blog/2020/02/26/BOM-%20%E6%93%8D%E4%BD%9C%E6%B5%8F%E8%A7%88%E5%99%A8/">
+    <a href="/blog/2021/10/20/react-%E7%BB%84%E4%BB%B6%E9%80%9A%E8%AE%AF/">
         开启阅读&nbsp;<i class="fas fa-angle-right"></i>
     </a>
 </div>
@@ -199,36 +206,27 @@ window 是浏览器内置中的全局对象，我们所学习的所有 Web APIs 
                 
 
                         <h3 class="home-article-title">
-                            <a href="/blog/2020/02/20/%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%A4%A7%E5%B0%8F%E5%92%8C%E4%BD%8D%E7%BD%AE/">
-                                获取元素大小和位置
+                            <a href="/blog/2021/05/06/style%20%E4%B8%8A%E5%8A%A0scoped%20%E5%B1%9E%E6%80%A7%E7%9A%84%E5%8E%9F%E7%90%86/">
+                                style 上加scoped 属性的原理
                             </a>
                         </h3>
 
                         <div class="home-article-content markdown-body">
                             
-                                        获取元素大小和位置一、scroll 家族获取宽高：
-
-获取元素的内容总宽高（不包含滚动条）返回值不带单位
-scrollWidth 和 scrollHeight
-
-获取位置:
-
-获取元素内容往左、往上滚出去看不到的距离
-
-scrollLeft和scro...
+                                        style 上加scoped 属性的原理1、什么是scoped        在Vue 组件中，为了使样式私有化（模块化），不对全局造成污染，可以在style 标签上添加scoped 属性以表示它的只属于当下的模块，局部有效。如果一个项目中的所有vu...
                                             
                         </div>
 
                         <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <!-- <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Feb 20 2020 09:18:16 GMT+0800"> -->
-        2020-02-20 09:18:16
+        <!-- <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu May 06 2021 09:11:25 GMT+0800"> -->
+        2021-05-06 09:11:25
             </span></span>
             
                     
     </div>
 
-    <a href="/blog/2020/02/20/%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%A4%A7%E5%B0%8F%E5%92%8C%E4%BD%8D%E7%BD%AE/">
+    <a href="/blog/2021/05/06/style%20%E4%B8%8A%E5%8A%A0scoped%20%E5%B1%9E%E6%80%A7%E7%9A%84%E5%8E%9F%E7%90%86/">
         开启阅读&nbsp;<i class="fas fa-angle-right"></i>
     </a>
 </div>
@@ -239,32 +237,27 @@ scrollLeft和scro...
                 
 
                         <h3 class="home-article-title">
-                            <a href="/blog/2020/02/13/%E6%BB%9A%E5%8A%A8%E4%BA%8B%E4%BB%B6%E5%92%8C%E5%8A%A0%E8%BD%BD%E4%BA%8B%E4%BB%B6/">
-                                滚动事件和加载事件
+                            <a href="/blog/2021/04/20/Vue%20%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
+                                Vue 项目优化的解决方案
                             </a>
                         </h3>
 
                         <div class="home-article-content markdown-body">
                             
-                                        滚动事件和加载事件一、滚动事件触发时机：当页面进行滚动时触发的事件
-为什么要使用？
-​ 因为很多网页需要检测用户把页面滚动到某个区域后做一些处理， 比如固定导航栏，比如返回顶部
-事件名：scroll
-// 语法
-window.addEventList...
+                                        Vue 项目优化的解决方案1、使用mini-css-extract-plugin 插件抽离css2、配置optimization 把公共的js 代码抽离出来3、通过webpack 处理文件压缩4、不打包框架、库文件，通过cdn 的方式引入5、小图片使...
                                             
                         </div>
 
                         <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <!-- <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Feb 13 2020 10:16:30 GMT+0800"> -->
-        2020-02-13 10:16:30
+        <!-- <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Apr 20 2021 11:38:10 GMT+0800"> -->
+        2021-04-20 11:38:10
             </span></span>
             
                     
     </div>
 
-    <a href="/blog/2020/02/13/%E6%BB%9A%E5%8A%A8%E4%BA%8B%E4%BB%B6%E5%92%8C%E5%8A%A0%E8%BD%BD%E4%BA%8B%E4%BB%B6/">
+    <a href="/blog/2021/04/20/Vue%20%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
         开启阅读&nbsp;<i class="fas fa-angle-right"></i>
     </a>
 </div>
@@ -275,34 +268,28 @@ window.addEventList...
                 
 
                         <h3 class="home-article-title">
-                            <a href="/blog/2020/02/06/DOM-%20%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1%E3%80%81%E4%BA%8B%E4%BB%B6%E6%B5%81%E3%80%81%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/">
-                                DOM- 事件对象、事件流、事件委托
+                            <a href="/blog/2020/12/21/route%E5%92%8Crouter%20%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88/">
+                                route和router 的区别是什么
                             </a>
                         </h3>
 
                         <div class="home-article-content markdown-body">
                             
-                                        **DOM- 事件对象、事件流、事件委托一、事件对象1.获取事件对象事件对象是什么：
-
-也是个对象，这个对象里有事件触发时的相关信息
-例如：鼠标点击事件中，事件对象就存了鼠标点在哪个位置等信息
-
-如何获取：
-
-在事件绑定的回调函数的第一个参数就是事件...
+                                        route和router 的区别是什么route 是“路由信息对象”，包括path，params，hash，query，fullPath，matched，name 等路由            信息参数
+router 为VueRouter 的实例，相...
                                             
                         </div>
 
                         <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <!-- <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Feb 06 2020 09:46:36 GMT+0800"> -->
-        2020-02-06 09:46:36
+        <!-- <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon Dec 21 2020 19:35:51 GMT+0800"> -->
+        2020-12-21 19:35:51
             </span></span>
             
                     
     </div>
 
-    <a href="/blog/2020/02/06/DOM-%20%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1%E3%80%81%E4%BA%8B%E4%BB%B6%E6%B5%81%E3%80%81%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/">
+    <a href="/blog/2020/12/21/route%E5%92%8Crouter%20%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88/">
         开启阅读&nbsp;<i class="fas fa-angle-right"></i>
     </a>
 </div>
@@ -313,31 +300,33 @@ window.addEventList...
                 
 
                         <h3 class="home-article-title">
-                            <a href="/blog/2020/01/27/DOM%20%E8%8A%82%E7%82%B9%E6%93%8D%E4%BD%9C/">
-                                DOM 节点操作
+                            <a href="/blog/2020/11/17/Vue-router%20%E6%80%8E%E4%B9%88%E9%85%8D%E7%BD%AE%E8%B7%AF%E7%94%B1/">
+                                Vue-router 怎么配置路由
                             </a>
                         </h3>
 
                         <div class="home-article-content markdown-body">
                             
-                                        DOM 节点操作一、节点操作1.DOM 节点概念：DOM 树里每一个内容都称之为节点
-​ 节点类型：
-​ 元素节点 ：所有的标签 比如 body、 div | html 是根节点
-​ 属性节点 ：所有的属性 比如 href
-​ 文本节点 ：所有的文本...
+                                        Vue-router 怎么配置路由vue 中配置路由分为5 个步骤，分别是：1、安装
+npm install --save vue-router
+
+2、引用
+import VueRouter from &#39;vue-router&#39;
+
+3、...
                                             
                         </div>
 
                         <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <!-- <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon Jan 27 2020 18:10:29 GMT+0800"> -->
-        2020-01-27 18:10:29
+        <!-- <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Nov 17 2020 11:30:19 GMT+0800"> -->
+        2020-11-17 11:30:19
             </span></span>
             
                     
     </div>
 
-    <a href="/blog/2020/01/27/DOM%20%E8%8A%82%E7%82%B9%E6%93%8D%E4%BD%9C/">
+    <a href="/blog/2020/11/17/Vue-router%20%E6%80%8E%E4%B9%88%E9%85%8D%E7%BD%AE%E8%B7%AF%E7%94%B1/">
         开启阅读&nbsp;<i class="fas fa-angle-right"></i>
     </a>
 </div>
@@ -348,29 +337,30 @@ window.addEventList...
                 
 
                         <h3 class="home-article-title">
-                            <a href="/blog/2020/01/16/DOM-%E8%8E%B7%E5%8F%96DOM%E5%85%83%E7%B4%A0%E3%80%81%E4%BF%AE%E6%94%B9%E5%B1%9E%E6%80%A7/">
-                                DOM-获取DOM元素、修改属性
+                            <a href="/blog/2020/08/19/watch%E3%80%81methods%E3%80%81computed%E7%9A%84%E5%8C%BA%E8%BE%B9/">
+                                watch、methods、computed的区边
                             </a>
                         </h3>
 
                         <div class="home-article-content markdown-body">
                             
-                                        ·DOM-获取 DOM 元素、修改属性一、Web API 的基本认识1、作用和分类​ 作用: 就是使用 JS 去操作 html 和浏览器
-​ 分类：DOM (文档对象模型)、BOM（浏览器对象模型）
-2、什么是 DOM​ DOM（Document O...
+                                        watch、methods、computed的区边methods
+中定义的是具体的方法，根据一些特定的触发条件，调用一次执行一次，每次调用都需重新加载没有缓存，比如说点击事件
+computed
+computed是vue中独有的计算属性，它是基于数据，...
                                             
                         </div>
 
                         <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <!-- <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Jan 16 2020 21:29:57 GMT+0800"> -->
-        2020-01-16 21:29:57
+        <!-- <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Aug 19 2020 21:20:54 GMT+0800"> -->
+        2020-08-19 21:20:54
             </span></span>
             
                     
     </div>
 
-    <a href="/blog/2020/01/16/DOM-%E8%8E%B7%E5%8F%96DOM%E5%85%83%E7%B4%A0%E3%80%81%E4%BF%AE%E6%94%B9%E5%B1%9E%E6%80%A7/">
+    <a href="/blog/2020/08/19/watch%E3%80%81methods%E3%80%81computed%E7%9A%84%E5%8C%BA%E8%BE%B9/">
         开启阅读&nbsp;<i class="fas fa-angle-right"></i>
     </a>
 </div>
@@ -381,37 +371,35 @@ window.addEventList...
                 
 
                         <h3 class="home-article-title">
-                            <a href="/blog/2020/01/06/DOM-%E4%BA%8B%E4%BB%B6%E5%9F%BA%E7%A1%80/">
-                                DOM-事件基础
+                            <a href="/blog/2020/08/11/v-show%E5%92%8Cv-if%E6%8C%87%E4%BB%A4%E7%9A%84%E5%85%B1%E5%90%8C%E7%82%B9%E5%92%8C%E4%B8%8D%E5%90%8C%E7%82%B9/">
+                                v-show和v-if指令的共同点和不同点
                             </a>
                         </h3>
 
                         <div class="home-article-content markdown-body">
                             
-                                        DOM-事件基础一、事件什么是事件？
+                                        v-show和v-if指令的共同点和不同点 一，相同点：
+两者都是控制元素的显示和隐藏，
+初始值都是false
+二，不同点：
+​    1，实现本质方法本质不同
 
-事件是在编程时系统内发生的动作或者发生的事情
-比如用户在网页上单击一个按钮
+v-show本质就是通过设置css中的display设置为none,控制隐藏
 
-什么是事件监听？
-
-​ 就是让程序检测是否有事件产生，一旦有事件触发，就立即调用一个函数做出响应，也称为 注册事件
-
-语法：
-// ...
+v-i...
                                             
                         </div>
 
                         <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <!-- <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon Jan 06 2020 10:34:23 GMT+0800"> -->
-        2020-01-06 10:34:23
+        <!-- <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Aug 11 2020 20:11:52 GMT+0800"> -->
+        2020-08-11 20:11:52
             </span></span>
             
                     
     </div>
 
-    <a href="/blog/2020/01/06/DOM-%E4%BA%8B%E4%BB%B6%E5%9F%BA%E7%A1%80/">
+    <a href="/blog/2020/08/11/v-show%E5%92%8Cv-if%E6%8C%87%E4%BB%A4%E7%9A%84%E5%85%B1%E5%90%8C%E7%82%B9%E5%92%8C%E4%B8%8D%E5%90%8C%E7%82%B9/">
         开启阅读&nbsp;<i class="fas fa-angle-right"></i>
     </a>
 </div>
@@ -422,34 +410,27 @@ window.addEventList...
                 
 
                         <h3 class="home-article-title">
-                            <a href="/blog/2019/12/29/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%BC%95%E5%8F%B7-for%E5%90%8C%E7%B1%BB-%E6%9C%AF%E8%AF%AD%E8%A7%A3%E9%87%8A/">
-                                字符串引号|do while|while
+                            <a href="/blog/2020/07/13/vue%E4%B8%AD%E7%9A%84slot%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">
+                                vue中的slot的使用方法
                             </a>
                         </h3>
 
                         <div class="home-article-content markdown-body">
                             
-                                        一、字符串引号1、类别字符串的字面量表达方式——用引号包起来：
-单引号（ ‘’）
-双引号（ “”）
-反引号 ( `` )
-
-注意事项：
-1、无论单引号或是双引号必须成对使用
-2、单引号或双引号可以互相嵌套，但是不以自已嵌套自已（口诀：外双内单，或者外...
+                                        vue中的slot的使用方法个人理解：是对组件的扩展，通过slot插槽向组件内部指定位置传递内容，通过slot可以父子传参；正常情况下,hello world在组件标签Child中的span标签会被组件模板template内容替换掉，当想让组件标签C...
                                             
                         </div>
 
                         <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <!-- <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sun Dec 29 2019 15:56:19 GMT+0800"> -->
-        2019-12-29 15:56:19
+        <!-- <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon Jul 13 2020 21:35:45 GMT+0800"> -->
+        2020-07-13 21:35:45
             </span></span>
             
                     
     </div>
 
-    <a href="/blog/2019/12/29/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%BC%95%E5%8F%B7-for%E5%90%8C%E7%B1%BB-%E6%9C%AF%E8%AF%AD%E8%A7%A3%E9%87%8A/">
+    <a href="/blog/2020/07/13/vue%E4%B8%AD%E7%9A%84slot%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">
         开启阅读&nbsp;<i class="fas fa-angle-right"></i>
     </a>
 </div>
@@ -460,34 +441,28 @@ window.addEventList...
                 
 
                         <h3 class="home-article-title">
-                            <a href="/blog/2019/12/23/for-%E6%95%B0%E7%BB%84-%E5%AF%B9%E8%B1%A1/">
-                                for循环语法|数组|对象
+                            <a href="/blog/2020/07/05/vue%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84data%E5%BF%85%E9%A1%BB%E6%98%AF%E5%87%BD%E6%95%B0/">
+                                vue组件中的data必须是函数
                             </a>
                         </h3>
 
                         <div class="home-article-content markdown-body">
                             
-                                        for 循环语法语法结构：for（循环条件初始化；循环条件判断；循环迭代）&#123;
-  循环体；
-&#125;
-
-执行规则：第一步：循环条件的初始化（只在最开始执行一次）
-第二步：循环条件判断
-1》若判断条件结果为真：则执行循环体；
-2》若不成立...
+                                        vue组件中的data必须是函数类比引用数据类型Object是引用数据类型,如果不用function 返回,每个组件的data 都是内存的同一个地址,一个数据改变了其他也改变了;
+javascipt只有函数构成作用域(注意理解作用域,只有函数的&#1...
                                             
                         </div>
 
                         <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <!-- <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon Dec 23 2019 13:10:55 GMT+0800"> -->
-        2019-12-23 13:10:55
+        <!-- <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sun Jul 05 2020 20:21:16 GMT+0800"> -->
+        2020-07-05 20:21:16
             </span></span>
             
                     
     </div>
 
-    <a href="/blog/2019/12/23/for-%E6%95%B0%E7%BB%84-%E5%AF%B9%E8%B1%A1/">
+    <a href="/blog/2020/07/05/vue%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84data%E5%BF%85%E9%A1%BB%E6%98%AF%E5%87%BD%E6%95%B0/">
         开启阅读&nbsp;<i class="fas fa-angle-right"></i>
     </a>
 </div>
@@ -498,34 +473,27 @@ window.addEventList...
                 
 
                         <h3 class="home-article-title">
-                            <a href="/blog/2019/12/15/%E8%BF%90%E7%AE%97%E7%AC%A6/">
-                                运算符
+                            <a href="/blog/2020/06/29/vue%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E4%BC%A0%E5%80%BC/">
+                                vue组件之间传值
                             </a>
                         </h3>
 
                         <div class="home-article-content markdown-body">
                             
-                                        运算符分类
-运算符：算术运算符，赋值运算符，比较运算符，逻辑运算符，三目运算符
-表达式：算术表示式，赋值表达式，判断表达式，逻辑表达式
-
-算术运算符+  -   *   /  %取余      自增++    自减--
-
-
-数据在进行运算的时候，会尽...
+                                        vue组件之间传值1、父组件向子组件传递数据        父组件内设置要传的数据，在父组件中引用的子组件上绑定一个自定义属性并把数据        绑定在自定义属性上，在子组件添加参数props 接收即可2、子组件向父组件传递数据        子...
                                             
                         </div>
 
                         <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <!-- <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sun Dec 15 2019 13:27:10 GMT+0800"> -->
-        2019-12-15 13:27:10
+        <!-- <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon Jun 29 2020 15:36:58 GMT+0800"> -->
+        2020-06-29 15:36:58
             </span></span>
             
                     
     </div>
 
-    <a href="/blog/2019/12/15/%E8%BF%90%E7%AE%97%E7%AC%A6/">
+    <a href="/blog/2020/06/29/vue%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E4%BC%A0%E5%80%BC/">
         开启阅读&nbsp;<i class="fas fa-angle-right"></i>
     </a>
 </div>

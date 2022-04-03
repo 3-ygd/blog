@@ -2387,4 +2387,1938 @@ function fn(a, b, ...c) &#123;
         <tag>原型对象</tag>
       </tags>
   </entry>
+  <entry>
+    <title>JSX</title>
+    <url>/blog/2021/09/11/JSX/</url>
+    <content><![CDATA[<h1 id="JSX"><a href="#JSX" class="headerlink" title="JSX"></a>JSX</h1><h2 id="JSX-介绍和使用步骤"><a href="#JSX-介绍和使用步骤" class="headerlink" title="JSX 介绍和使用步骤"></a>JSX 介绍和使用步骤</h2><h3 id="JSX介绍"><a href="#JSX介绍" class="headerlink" title="JSX介绍"></a>JSX介绍</h3><p>JSX 是 XML-like 的 JS 语法拓展。</p>
+<p>就是拓展了 JS 的语法，这个语法和 XML 的语法很像。</p>
+<p>有的时候也被叫做 JavaScript XML。</p>
+<blockquote>
+<p>官方文档：</p>
+<p><a class="link"   href="https://facebook.github.io/jsx/" >https://facebook.github.io/jsx/<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   href="https://en.wikipedia.org/wiki/JSX_(JavaScript)" >https://en.wikipedia.org/wiki/JSX_(JavaScript)<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
+<p>JSX 语法的特点就是，让我们可以在 Javascript 代码中写 XML(HTML) 格式的代码</p>
+<p>这种视图的构建模式一般称之为：声明式视图构建模式。问题：什么是命令式视图构建？</p>
+<p>这种对于开发者来说，语法直观、学习成本低、开发效率高，大大减少了原生DOM操作。</p>
+<p>以前 DOM 操作的效率、水平高低由开发者决定，现在是框架搞定。</p>
+<p> <strong>JSX 是React声明式的视图构建模式的体现，是 React 最大的特点，也是现在流行的前端框架设计理念</strong></p>
+<h3 id="JSX的使用"><a href="#JSX的使用" class="headerlink" title="JSX的使用"></a>JSX的使用</h3><p>直接在 .js 代码中声明一个标签，格式和html标签中相同。</p>
+<pre><code class="jsx">import ReactDOM from &#39;react-dom&#39;
+
+// 创建 react 元素
+// 原来
+// const h1 = React.createElement(&#39;h1&#39;, null, &#39;Hello React&#39;)
+//现在
+const h1 = &lt;h1&gt;Hello React&lt;/h1&gt;;
+
+// 渲染 react 元素
+ReactDOM.render(h1, document.getElementById(&#39;root&#39;));
+</code></pre>
+<p>使用 JSX 完成笔记开头的需求</p>
+<pre><code class="html">&lt;div&gt;
+    &lt;h1&gt;购物列表&lt;/h1&gt;
+    &lt;ul&gt;
+        &lt;li&gt;华为&lt;/li&gt;
+        &lt;li&gt;iPhone&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+<p>使用 JSX 语法代码：</p>
+<pre><code class="jsx">// 创建 react 元素
+const el = (
+  &lt;div&gt;
+    &lt;h1&gt;购物列表&lt;/h1&gt;
+    &lt;ul&gt;
+      &lt;li&gt;华为&lt;/li&gt;
+      &lt;li&gt;iPhone&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+);
+
+// 渲染 react 元素
+ReactDOM.render(el, document.getElementById(&#39;root&#39;));
+</code></pre>
+<p> JSX 不是标准的 JS 语法，是 JS 的语法扩展。</p>
+<p>之所以上面的代码没有报错，是因为我们的 React 脚手架项目中内置了 JSX 语法解析器，用来解析该语法。</p>
+<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
+<p>使用步骤总结</p>
+<ol>
+<li>导入ReactDOM包</li>
+<li>使用 JSX 创建 react 元素</li>
+<li>将 react 元素渲染到页面中</li>
+</ol>
+<p><strong>完整代码</strong></p>
+<pre><code class="jsx">// import React from &#39;react&#39; // React 17之后无需再引入
+import ReactDOM from &#39;react-dom&#39;
+
+// 创建 react 元素
+const h1 = &lt;h1&gt;Hello React&lt;/h1&gt;;
+
+// 渲染 react 元素
+ReactDOM.render(h1, document.getElementById(&#39;root&#39;));
+</code></pre>
+<pre><code class="jsx">// import React from &#39;react&#39; // React 17之后无需再引入
+import ReactDOM from &#39;react-dom&#39;
+
+// 创建 react 元素
+const el = (
+  &lt;div&gt;
+    &lt;h1&gt;购物列表&lt;/h1&gt;
+    &lt;ul&gt;
+      &lt;li&gt;华为&lt;/li&gt;
+      &lt;li&gt;iPhone&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+);
+
+// 渲染 react 元素
+ReactDOM.render(el, document.getElementById(&#39;root&#39;));
+</code></pre>
+<p><strong>说明：</strong></p>
+<p>React 脚手架项目中 .js 文件中可以直接声明 html 标签的背后原因</p>
+<p>在线环境：<a class="link"   href="https://www.babeljs.cn/" >https://www.babeljs.cn/<i class="fas fa-external-link-alt"></i></a></p>
+<p>注意点：</p>
+<img src="D:/前端_资料/就业班/react/React-基础/React-基础/01-笔记/01-笔记/images/jsx-compiler.png" alt="image-20220220233730589" style="zoom:80%;" />
+
+<p>JSX语法转换的两种方式的差异点：</p>
+<p>从 React 17 之后加入的，优点</p>
+<img src="D:/前端_资料/就业班/react/React-基础/React-基础/01-笔记/01-笔记/images/jsx-good.png" alt="image-20220220234223353" style="zoom:80%;" />
+
+
+
+<blockquote>
+<p>官方说明</p>
+<p><a class="link"   href="https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html" >https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
+<hr>
+<h3 id="JSX使用注意点"><a href="#JSX使用注意点" class="headerlink" title="JSX使用注意点"></a>JSX使用注意点</h3><ol>
+<li>React17 版本之后，使用 JSX 不再需要额外导入 React</li>
+<li>在 React 中所有标签都要闭合 &#x2F;&gt;，无论你是不是自闭和标签</li>
+<li>声明的 JSX结构必须要有一个根节点， 如果没有根节点，可以使用<code>&lt;&gt;&lt;/&gt;</code>（幽灵节点）或者<code>&lt;React.Fragment&gt;&lt;/React.Fragment&gt;</code>包裹</li>
+<li>JSX 结构中声明的标签，属性名使用驼峰命名法： onclick &#x3D;&gt; onClick、<code>class</code> &#x3D;&gt; <code>className</code>、<code>for</code> &#x3D;&gt;  <code>htmlFor</code></li>
+<li>JSX可以换行，如果JSX有多行，推荐使用<code>()</code>包裹JSX，防止 JS 自动插入分号陷阱<ul>
+<li><a class="link"   href="https://blog.csdn.net/qq_36391954/article/details/79366383" >https://blog.csdn.net/qq_36391954/article/details/79366383<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="JSX-中使用-JavaScript-表达式"><a href="#JSX-中使用-JavaScript-表达式" class="headerlink" title="JSX 中使用 JavaScript 表达式"></a>JSX 中使用 JavaScript 表达式</h2><p><strong>访问语法：</strong></p>
+<p><code>&#123; JavaScript 表达式 &#125;</code></p>
+<p>JS 表达式：数据类型和运算符的组合（可以单独出现数据类型，也可以数据类型+运算符的组合）</p>
+<p>表达式就是一个值，一个可以在栈内存分配的值。</p>
+<ul>
+<li>字符串、数值、布尔值、null、undefined、object（ [] &#x2F; {} ）</li>
+<li>1 + 2、’abc’.split(‘’)、[‘a’, ‘b’].join(‘-‘)</li>
+<li>function fn() {}、 fn()</li>
+</ul>
+<p><strong>技巧：</strong></p>
+<p>验证是不是 JS 表达式的技巧：看内容能不能作为方法的参数，比如，<code>console.log( 表达式 )</code></p>
+<hr>
+<p>代码举例：</p>
+<p>在 JSX 结构中访问以下数据类型</p>
+<ol>
+<li>字符串类型</li>
+<li>数字类型</li>
+<li>数组类型</li>
+<li>对象类型</li>
+<li>三元表达式</li>
+<li>函数类型</li>
+<li>JSX表达式类型</li>
+<li>渲染一张图片</li>
+</ol>
+<p>代码：</p>
+<pre><code class="jsx">  // 字符串类型
+  const name = &quot;Jack&quot;
+  // 数字类型
+  const age = 18
+  // 数组类型
+  const hobbies = [&#39;吃饭&#39;,&#39;睡觉&#39;,&#39;打豆豆&#39;]
+  // 对象类型
+  const obj = &#123;name: &#39;Rose&#39;, age: 18&#125;
+  // 三元表达式
+  // 问 1 &amp;gt; 0 吗？&#123;1&gt;0 ? &#39;是的&#39;: &#39;不是&#39;&#125;
+  // 函数类型
+  const fun = () =&gt; &#123;
+    return (
+      &lt;div&gt;我是函数返回的内容&lt;/div&gt;
+    )
+  &#125;
+  // JSX表达式类型
+  const jsx = (
+    &lt;div&gt;我是jsx表达式&lt;/div&gt;
+  )
+
+// 创建 react 元素
+const el = (
+  &lt;div&gt;
+    &lt;h1 className=&quot;title&quot;&gt;
+      Hello &#123;name&#125;，我今年&#123;age&#125;岁
+    &lt;/h1&gt;
+    &lt;h1 style=&#123;&#123; color: 'red' &#125;&#125;&gt;&#123;hobbies.join(&#39;,&#39;)&#125;&lt;/h1&gt;
+    &lt;h1&gt;
+      &#123;obj.name&#125; 年龄：&#123;obj.age&#125;
+    &lt;/h1&gt;
+    &lt;h1&gt;问 1 &amp;gt; 0 吗？&#123;1 &gt; 0 ? &#39;是的&#39; : &#39;不是&#39;&#125;&lt;/h1&gt;
+    &lt;h1&gt;&#123;fun()&#125;&lt;/h1&gt;
+    &lt;h1&gt;&#123;jsx&#125;&lt;/h1&gt;
+  &lt;/div&gt;
+);
+</code></pre>
+<p>JSX中的注释</p>
+<pre><code class="jsx">&#123;/* 快键键 ctrl + / */&#125;
+</code></pre>
+<p><strong>总结：</strong></p>
+<ol>
+<li>JSX 中的 {}内，可以出现任意的js表达式（除了object {}）</li>
+<li>JSX 中的 {}内，不能出现 js 语句，比如<code>if</code>、<code>for</code>、<code>while</code>等</li>
+<li>函数不能直接出现在标签内部的{}内，但是函数调用可以。</li>
+<li>函数可以作为标签属性出现在{}内，比如：事件处理程序的绑定。</li>
+</ol>
+<hr>
+<h2 id="条件渲染"><a href="#条件渲染" class="headerlink" title="条件渲染"></a>条件渲染</h2><p>现有如下需求：</p>
+<p>ajax 发起异步请求数据的过程中和数据返回后，页面渲染的UI不同。</p>
+<p>在react中如何实现？</p>
+<p><strong>代码</strong></p>
+<ul>
+<li>通过判断<code>if/else</code>控制</li>
+</ul>
+<pre><code class="jsx">// JSX 中的 条件 渲染
+
+// 条件
+const isLoading = true;
+
+// 渲染（UI）
+const loadingUI = &lt;h1&gt;数据加载中！&lt;/h1&gt;;
+const successUI = &lt;h1&gt;数据请求成功！&lt;/h1&gt;;
+
+// 函数
+const loadData = () =&gt; &#123;
+  // 条件和渲染结合在一起了（对比vue的条件和渲染的结合）
+  if (isLoading) &#123;
+    return loadingUI;
+  &#125; else &#123;
+    return successUI;
+  &#125;
+&#125;;
+
+const jsx = &lt;div&gt;&#123;loadData()&#125;&lt;/div&gt;;
+      
+ReactDOM.render(jsx, document.getElementById(&#39;root&#39;));
+</code></pre>
+<ul>
+<li>通过三元运算符控制</li>
+</ul>
+<pre><code class="jsx">// JSX 中的 条件 渲染
+
+// 条件
+const isLoading = true;
+
+// 渲染（UI）
+const loadingUI = &lt;h1&gt;数据加载中！&lt;/h1&gt;;
+const successUI = &lt;h1&gt;数据请求成功！&lt;/h1&gt;;
+
+// 三元表达式
+const jsx = &lt;div&gt;&#123;isLoading ? loadingUI : successUI&#125;&lt;/div&gt;;
+
+ReactDOM.render(jsx, document.getElementById(&#39;root&#39;));
+</code></pre>
+<ul>
+<li>逻辑与（&amp;&amp;）运算符</li>
+</ul>
+<pre><code class="jsx">// JSX 中的 条件 渲染
+
+// 条件
+const isLoading = true;
+
+// 渲染（UI）
+const loadingUI = &lt;h1&gt;数据加载中！&lt;/h1&gt;;
+const successUI = &lt;h1&gt;数据请求成功！&lt;/h1&gt;;
+
+const isLoading = false
+const jsx = &lt;div&gt;&#123;isLoading &amp;&amp; loadingUI&#125;&lt;/div&gt;
+      
+ReactDOM.render(jsx, document.getElementById(&#39;root&#39;));
+</code></pre>
+<hr>
+<h2 id="列表渲染"><a href="#列表渲染" class="headerlink" title="列表渲染"></a>列表渲染</h2><p>数组内容格式转换，使用数组的 map 方法</p>
+<pre><code class="jsx">const books1 = [&#39;React&#39;, &#39;Vue&#39;, &#39;Angular&#39;]
+
+const books2 = books1.map(book =&gt; &lt;li&gt;&#123;book&#125;&lt;/li&gt;)
+
+const ul = &lt;ul&gt;&#123;books2&#125;&lt;/ul&gt;
+</code></pre>
+<p>或直接在 JSX 中渲染</p>
+<pre><code class="jsx">const books1 = [&#39;React&#39;, &#39;Vue&#39;, &#39;Angular&#39;]
+
+const ul = &lt;ul&gt;&#123;books1.map(book =&gt; &lt;li&gt;&#123;book&#125;&lt;/li&gt;)&#125;&lt;/ul&gt;
+</code></pre>
+<p>最后在遍历时添加 key 属性</p>
+<pre><code class="jsx">const books1 = [&#39;React&#39;, &#39;Vue&#39;, &#39;Angular&#39;]
+
+const ul = &lt;ul&gt;&#123;books1.map((book, index) =&gt; &lt;li key=&#123;index&#125;&gt;&#123;book&#125;&lt;/li&gt;)&#125;&lt;/ul&gt;
+</code></pre>
+<p><strong>总结：</strong></p>
+<ul>
+<li>场景：重复生成相同的 HTML 结构，比如，歌曲列表、商品列表等</li>
+<li>实现：使用数组的 <code>map</code> 方法进行格式转换</li>
+<li>注意：需要为遍历项添加 <code>key</code> 属性<ul>
+<li>key 在 HTML 结构中是看不到的，是 React 内部用来进行性能优化时使用的</li>
+<li>key 在当前列表中要唯一</li>
+<li>如果列表中有像 id 这种的唯一值，就用 id 来作为 key 值</li>
+<li>如果列表中没有像 id 这种的唯一值，就可以使用 index（下标）来作为 key 值</li>
+</ul>
+</li>
+</ul>
+<p><strong>练习：</strong></p>
+<pre><code class="jsx">// 列表渲染如下数据
+const books = [&#123;id: 1, name: &#39;React&#39;&#125;, &#123;id: 2, name: &#39;Vue&#39;&#125;,&#123;id: 3, name: &#39;Angular&#39;&#125;]
+</code></pre>
+<hr>
+<h2 id="样式处理"><a href="#样式处理" class="headerlink" title="样式处理"></a>样式处理</h2><p><strong>内容</strong>：</p>
+<ol>
+<li>行内样式 - style<ol>
+<li>默认情况像 width&#x2F;height 等属性，可以省略 px，直接使用 <code>数值</code> 即可。如果有其它单位显示需求，直接在数值后跟单位即可<code>&#123;widht: &#39;10rem&#39;&#125;</code> ， <code>&#123;widht: &#39;10vw&#39;&#125;</code>。</li>
+<li>如果是需要使用百分比的单位，此时，继续使用字符串的值即可（比如，<code>&quot;60%&quot;</code>）</li>
+</ol>
+</li>
+<li>类名 - className【推荐】</li>
+</ol>
+<p><strong>核心代码：</strong></p>
+<ul>
+<li><p>行内样式-style</p>
+<ul>
+<li><p>浏览器需要的</p>
+</li>
+<li><pre><code class="html">&lt;h1 style=&quot;color: red; background-color: pink; width: 300px;&quot;&gt;Hello React&lt;/h1&gt;
+</code></pre>
+</li>
+<li><p>React 中定义的</p>
+</li>
+<li><pre><code class="jsx">const h1 = &lt;h1 style=&#123;&#123; color: 'red', backgroundColor: 'pink', width: 300 &#125;&#125;&gt;Hello React&lt;/h1&gt;
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>类名-className</p>
+<ul>
+<li><p>浏览器需要的</p>
+</li>
+<li><pre><code class="html">&lt;h1 class=&quot;p-title&quot;&gt;Hello React&lt;/h1&gt;
+</code></pre>
+</li>
+<li><p>React 中定义的</p>
+</li>
+<li><pre><code class="jsx">// 导入样式
+import &#39;./base.css&#39;
+const dv = &lt;div className=&#123;&quot;p-title&quot;&#125;&gt;style样式&lt;/div&gt;
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="JSX-总结"><a href="#JSX-总结" class="headerlink" title="JSX 总结"></a>JSX 总结</h2><ul>
+<li>React 使用 JSX 来编写 UI（HTML）</li>
+<li><strong>React 完全利用 JS 语言自身的能力来增强 UI 的编写</strong> - <strong>能用 JS 来实现的功能绝不会增加一个新的 API</strong></li>
+<li>现在，就可以使用 React 来编写任意 UI 结构了</li>
+</ul>
+<pre><code class="jsx">// JSX
+&lt;div&gt;&#123;JS 表达式&#125;&lt;/div&gt;
+</code></pre>
+<p><strong>一句话总结：</strong></p>
+<p><strong>只要是在 JSX 结构中访问 JS 中的数据加上一个 {} 即可。React 后续所有的处理逻辑基本上都是在这个基础上延伸出来的。</strong></p>
+]]></content>
+      <categories>
+        <category>react</category>
+      </categories>
+      <tags>
+        <tag>react</tag>
+        <tag>jsx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue 项目优化的解决方案</title>
+    <url>/blog/2021/04/20/Vue%20%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<h2 id="Vue-项目优化的解决方案"><a href="#Vue-项目优化的解决方案" class="headerlink" title="Vue 项目优化的解决方案"></a>Vue 项目优化的解决方案</h2><p><strong>1、使用mini-css-extract-plugin 插件抽离css</strong><br><strong>2、配置optimization 把公共的js 代码抽离出来</strong><br><strong>3、通过webpack 处理文件压缩</strong><br><strong>4、不打包框架、库文件，通过cdn 的方式引入</strong><br><strong>5、小图片使用base64</strong><br><strong>6、配置项目文件懒加载</strong><br><strong>7、UI 库配置按需加载</strong><br><strong>8、开启Gzip 压缩</strong></p>
+]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue 怎么实现跨域</title>
+    <url>/blog/2021/03/12/Vue%20%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0%E8%B7%A8%E5%9F%9F/</url>
+    <content><![CDATA[<h2 id="Vue-怎么实现跨域"><a href="#Vue-怎么实现跨域" class="headerlink" title="Vue 怎么实现跨域"></a>Vue 怎么实现跨域</h2><p><strong>1、什么是跨域</strong><br>跨域指浏览器不允许当前页面的所在的源去请求另一个源的数据。源指协议，端口，域名。只要这个3 个中有一个不同就是跨域</p>
+<p><strong>2、使用vue-cli 脚手架搭建项目时proxyTable 解决跨域问题</strong></p>
+<p>打开config&#x2F;index.js,在proxyTable 中添写如下代码：</p>
+<pre><code class="js">proxyTable: &#123;
+&#39;/api&#39;: &#123; //使用&quot;/api&quot;来代替&quot;http://f.apiplus.c&quot;
+target: &#39;http://f.apiplus.cn&#39;, //源地址
+changeOrigin: true, //改变源
+pathRewrite: &#123;
+&#39;^/api&#39;: &#39;http://f.apiplus.cn&#39; //路径重写
+&#125;
+</code></pre>
+<p><strong>3、使用CORS（跨域资源共享</strong></p>
+<p>3.1）前端设置，vue 设置axios 允许跨域携带cookie（默认是不带cookie）axios.defaults.withCredentials &#x3D; true;</p>
+<p>3,2）后端设置：<br>    3.2.1）跨域请求后的响应头中需要设置<br>    3.2.2）Access-Control-Allow-Origin 为发起请求的主机地址<br>    3.2.3）Access-Control-Allow-Credentials，当它被设置为true 时，允许跨域带cookie，但此时Access-Control- Allow-Origin 不能为                通配符*<br>    3.2.4）Access-Control-Allow-Headers，设置跨域请求允许的请求头<br>    3.2.5）Access-Control-Allow-Methods，设置跨域请求允许的请求方式</p>
+<p><strong>4、使用jsonp方式</strong></p>
+<p>原理：利用script标签中的src属性不受同源策略的影响</p>
+]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+        <tag>跨域</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue-router 怎么配置路由</title>
+    <url>/blog/2020/11/17/Vue-router%20%E6%80%8E%E4%B9%88%E9%85%8D%E7%BD%AE%E8%B7%AF%E7%94%B1/</url>
+    <content><![CDATA[<h2 id="Vue-router-怎么配置路由"><a href="#Vue-router-怎么配置路由" class="headerlink" title="Vue-router 怎么配置路由"></a>Vue-router 怎么配置路由</h2><p>vue 中配置路由分为5 个步骤，分别是：<br>1、安装</p>
+<pre><code class="js">npm install --save vue-router
+</code></pre>
+<p>2、引用</p>
+<pre><code class="vue">import VueRouter from &#39;vue-router&#39;
+</code></pre>
+<p>3、配置路由文件</p>
+<pre><code class="vue">var router = new VueRouter(&#123;
+routes:[
+    &#123;
+    path:&quot;/hello&quot;,
+    component:HelloWorld
+    &#125;,
+    &#123;
+    path:&quot;/wen&quot;,
+    component:HelloWen
+new Vue(&#123;
+el: &#39;#app&#39;,
+components: &#123; App &#125;,
+router,
+template: &#39;&lt;App/&gt;&#39;
+&#125;)
+</code></pre>
+<p>4、视图加载的位置<br>默认App.vue 文件中加</p>
+<pre><code class="vue">&lt;router-view&gt;&lt;/router-view&gt;
+</code></pre>
+<p>5、跳转导航</p>
+<pre><code class="vue">&lt;router-link to=&quot;/hello&quot;&gt;helloword&lt;/router-link&gt;（渲染出来的是a 标签）
+</code></pre>
+]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+        <tag>vue-router</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue最大的优势?</title>
+    <url>/blog/2020/06/02/Vue%E6%9C%80%E5%A4%A7%E7%9A%84%E4%BC%98%E5%8A%BF%EF%BC%9F/</url>
+    <content><![CDATA[<h1 id="Vue最大的优势"><a href="#Vue最大的优势" class="headerlink" title="Vue最大的优势?"></a>Vue最大的优势?</h1><p> 根据我对于vue的理解，我总结的vue优势有以下五点：</p>
+<pre><code>    一、vue作为一款轻量级框架，门槛低，上手快，简单易学。
+
+    二、vue可以进行组件化开发，数据与结构相分离，使代码量减少，从而提升开发效率，易于理解
+
+    三、vue最突出的优势在于对数据进行双向绑定，使用虚拟DOM
+
+    四、相较于传统页面通过超链接实现页面跳转，vue会使用路由跳转不会刷新页面
+
+    五、vue是单页面应用，页面局部刷新，不用每次跳转都请求数据，加快了访问速度，提升了用户体验
+</code></pre>
+]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>react-Hooks</title>
+    <url>/blog/2021/10/26/react-Hooks/</url>
+    <content><![CDATA[<h1 id="react-Hooks"><a href="#react-Hooks" class="headerlink" title="react-Hooks"></a>react-Hooks</h1><h2 id="State-Hooks"><a href="#State-Hooks" class="headerlink" title="State Hooks"></a>State Hooks</h2><h3 id="useState-介绍使用"><a href="#useState-介绍使用" class="headerlink" title="useState-介绍使用"></a>useState-介绍使用</h3><ul>
+<li>State-“状态”，Hook-“钩子”，（有把 xxx 连接到 yyy 的含义）</li>
+<li>当组件需要存储和管理状态时，可以使用一个“钩子”，将状态和管理状态的函数“钩入、连接”到当前组件中。</li>
+<li>如何使用一个引入状态的钩子？通过调用 useState() 函数</li>
+</ul>
+<p><strong>步骤：</strong></p>
+<ul>
+<li><p>导入 useState</p>
+<ul>
+<li><pre><code class="jsx">import React, &#123; useState &#125; from &quot;react&quot;
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>调用 useState() 函数</p>
+<ul>
+<li>参数：状态的初始值</li>
+<li>返回值：数组，包含两个元素。第一个是状态。第二个是修改状态的函数。</li>
+</ul>
+</li>
+<li><p>解构 useState() 函数返回的数组</p>
+<ul>
+<li><pre><code class="jsx">// 钩入、链接，一个状态和修改状态的函数到当前组件中
+const [count, setCount] = useState(0);
+
+// 不推荐
+const stateArray = useState(0);
+const count = stateArray[0];
+const setCount = stateArray[1];
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>使用状态值，当前组件（函数）内可见。</p>
+<ul>
+<li><pre><code class="jsx">&lt;button onClick=&#123;handleCount&#125;&gt;按钮被点击了&#123;count&#125;次&lt;/button&gt;
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>使用修改组件状态的函数，当前组件内可见。</p>
+<ul>
+<li><pre><code class="jsx">const handleCount = () =&gt; &#123;
+  setCount(count + 1);
+&#125;;
+return &lt;button onClick=&#123;handleCount&#125;&gt;按钮被点击了&#123;count&#125;次&lt;/button&gt;;
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Effect-Hooks"><a href="#Effect-Hooks" class="headerlink" title="Effect Hooks"></a>Effect Hooks</h2><h3 id="useEffect-基本使用"><a href="#useEffect-基本使用" class="headerlink" title="useEffect-基本使用"></a>useEffect-基本使用</h3><ul>
+<li>Effect-“效果、作用”，Hook-“钩子”。</li>
+<li>当组件需要完成一个 “副作用” 操作时，需要启动一个钩子，将这个“副作用”操作勾入到当前组件中。<ul>
+<li>这个<strong>“副作用”</strong>是指在组件每次渲染完成后，你想执行的操作。比如：<strong>DOM的操作</strong>、<strong>发起异步请求等</strong>。</li>
+<li>任何在渲染完成之后的操作，都称之为<strong>“副作用”</strong></li>
+</ul>
+</li>
+<li>如何执行一个 “副作用” 操作？<ul>
+<li>使用 useEffect() 函数。</li>
+</ul>
+</li>
+</ul>
+<p><strong>需求：</strong></p>
+<p>在前面已经完成的统计按钮点击次数的功能基础上，再添加一个新功能：</p>
+<p><strong>就是将按钮的点击次数同步更新到浏览器 tab 栏上</strong>。</p>
+<p>这是一个典型的可以使用 useEffect 来完成的需求，因为更新浏览器标题栏，不是组件的渲染可以完成的任务。</p>
+<p>这就需要在组件渲染完成之后进行操作。</p>
+<p><strong>步骤：</strong></p>
+<ul>
+<li><p>导入 useEffect</p>
+<ul>
+<li><pre><code class="jsx">import React, &#123;useState, useEffect &#125; from &quot;react&quot;
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>useEffect说明</p>
+<ul>
+<li>useEffect是一个函数，要求传入的参数也是一个函数，在这个传入函数中进行“副作用”操作。</li>
+</ul>
+</li>
+<li><p>传入执行具体业务操作的“副作用”函数</p>
+<ul>
+<li><pre><code class="jsx">useEffect(() =&gt; &#123;
+  // DOM 操作修改浏览器标题栏
+  document.title = `按钮被点击了$&#123;count&#125;次`;
+&#125;);
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="useContext-使用"><a href="#useContext-使用" class="headerlink" title="useContext-使用"></a>useContext-使用</h3><p><strong>需求：</strong></p>
+<ul>
+<li>使用 useContext 实现跨级组件通讯</li>
+</ul>
+<p><strong>语法：</strong></p>
+<ul>
+<li>useContext 的参数：Context 对象，即：通过 createContext 函数创建的对象</li>
+<li>useContext 的返回值：Context.Provider 中提供的 value 数据</li>
+</ul>
+<h2 id="其它-Hooks"><a href="#其它-Hooks" class="headerlink" title="其它 Hooks"></a>其它 Hooks</h2><h3 id="useRef-操作DOM"><a href="#useRef-操作DOM" class="headerlink" title="useRef-操作DOM"></a>useRef-操作DOM</h3><p><strong>需求：</strong></p>
+<ul>
+<li>在 React 中进行 DOM 操作</li>
+<li>使用 useRef 获取和操作DOM</li>
+</ul>
+<p><strong>步骤：</strong></p>
+<ul>
+<li><p>导入 useRef</p>
+</li>
+<li><p>定一个变量，接收调用 useRef(null) 的返回值</p>
+</li>
+<li><p>在组件的 JSX 中通过 ref 属性关联你想获取DOM的元素</p>
+</li>
+</ul>
+<p><strong>代码：</strong></p>
+<pre><code class="JSX">import &#123; useRef &#125; from &#39;react&#39;
+
+const App = () =&gt; &#123;
+  // 1 使用useRef能够创建一个ref对象 createRef
+  const inputRef = useRef(null)
+
+  const add = () =&gt; &#123;
+    // 3 通过 inputRef.current 来访问对应的 DOM
+    console.log(inputRef.current.value)
+    inputRef.current.focus()
+  &#125;
+  
+  return (
+    &lt;section className=&quot;todoapp&quot;&gt;
+      &#123;/* 2 将 ref 对象设置为 input 的 ref 属性值。目的：将 ref 对象关联到 input 对应的 DOM 对象上 */&#125;
+      &lt;input type=&quot;text&quot; placeholder=&quot;请输入内容&quot; ref=&#123;inputRef&#125; /&gt;
+      &lt;button onClick=&#123;add&#125;&gt;添加&lt;/button&gt;
+    &lt;/section&gt;
+  )
+&#125;
+
+export default App
+</code></pre>
+<p><strong>总结：</strong></p>
+<ul>
+<li>参数：在获取 DOM 时，一般都设置为 null（获取 DOM 对象时，如果拿不到 DOM 对象，此时，获取到的值就是 null）<ul>
+<li>因为关联原生 DOM 是在渲染后</li>
+</ul>
+</li>
+<li>返回值：包含 current 属性的对象。</li>
+<li>注意：只要在 React 中进行 DOM 操作，都可以通过 useRef Hook 来获取 DOM（比如，获取 DOM 的宽高等）</li>
+<li>注意：useRef 不仅仅可以用于操作DOM，还可以操作组件（关联一个 React 组件）</li>
+</ul>
+]]></content>
+      <categories>
+        <category>react</category>
+      </categories>
+      <tags>
+        <tag>react</tag>
+        <tag>Hooks</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>route和router 的区别是什么</title>
+    <url>/blog/2020/12/21/route%E5%92%8Crouter%20%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88/</url>
+    <content><![CDATA[<h2 id="route和router-的区别是什么"><a href="#route和router-的区别是什么" class="headerlink" title="route和router 的区别是什么"></a>route和router 的区别是什么</h2><p><strong>route</strong> 是“路由信息对象”，包括path，params，hash，query，fullPath，matched，name 等路由<br>            信息参数</p>
+<p><strong>router</strong> 为VueRouter 的实例，相当于一个全局的路由器对象，里面含有很多属性和子对象，<br>            例如history 对象，经常用的跳转链接就可以用this.router.push 会往history 栈中添加一个新的记<br>            录。返回上一个history 也是使用$router.go 方法</p>
+]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>react-Redux</title>
+    <url>/blog/2021/12/13/react-Redux/</url>
+    <content><![CDATA[<h1 id="react-Redux"><a href="#react-Redux" class="headerlink" title="react-Redux"></a>react-Redux</h1><p>为什么要用 Redux?</p>
+<img src="D:/前端_资料/就业班/react/React-基础/React-基础/01-笔记/01-笔记/images/with-redux.png" style="width: 800px" />
+
+<ul>
+<li>主要的区别：<strong>组件之间的通讯问题</strong></li>
+<li>不使用 Redux (图左边) ：<ul>
+<li>只能使用父子组件通讯、状态提升等 React 自带机制 </li>
+<li>处理远房亲戚(非父子)关系的组件通讯时乏力</li>
+<li>组件之间的数据流混乱，出现 Bug 时难定位</li>
+</ul>
+</li>
+<li>使用 Redux (图右边)：<ul>
+<li><strong>集中式存储和管理应用的状态</strong></li>
+<li>处理组件通讯问题时，<strong>无视组件之间的层级关系</strong> </li>
+<li>简化大型复杂应用中组件之间的通讯问题</li>
+<li>数据流清晰，易于定位 Bug</li>
+</ul>
+</li>
+</ul>
+<h2 id="Redux-开发环境准备"><a href="#Redux-开发环境准备" class="headerlink" title="Redux 开发环境准备"></a>Redux 开发环境准备</h2><p><strong>内容：</strong></p>
+<p>使用 React CLI 来创建项目，并安装 Redux 包即可：</p>
+<ol>
+<li><p>创建 React 项目：<code>npx create-react-app redux-basic</code></p>
+</li>
+<li><p>启动项目：<code>npm start</code> </p>
+</li>
+<li><p>安装 Redux 包：<code>npm i redux</code></p>
+</li>
+</ol>
+<h2 id="Redux-核心概念-概述"><a href="#Redux-核心概念-概述" class="headerlink" title="Redux 核心概念-概述"></a>Redux 核心概念-概述</h2><p><strong>内容：</strong></p>
+<p>在 Redux 的设计中，数据管理的实现，主要被分成了三个概念，分别是：</p>
+<p><code>action</code> ，<code>reducer</code> ，<code>store</code></p>
+<ul>
+<li><p><strong>action</strong>（动作）：描述要做的事情</p>
+</li>
+<li><p><strong>reducer</strong>（函数）：更新状态</p>
+</li>
+<li><p><strong>store</strong>（仓库）：整合 action 和 reducer</p>
+</li>
+</ul>
+<h2 id="Redux核心概念-action"><a href="#Redux核心概念-action" class="headerlink" title="Redux核心概念-action"></a>Redux核心概念-action</h2><p><strong>内容：</strong></p>
+<p>action 行动（名词）、动作</p>
+<p>action：描述要做的事情，对应于项目中的一次数据变化的操作，比如，</p>
+<ul>
+<li>计数器案例：计数器加1、减1</li>
+<li>购物车案例：获取购物车数据、切换商品选中状态</li>
+<li>项目：登录，退出等（token数据的保存删除）</li>
+</ul>
+<p><strong>特点：</strong></p>
+<ul>
+<li>只描述做什么</li>
+<li>是一个 JS 对象，必须带有 <code>type</code> 属性，用于区分动作的类型（你要干啥）</li>
+<li>根据完成功能的不同，通过<code>payload</code> 属性携带额外的数据（我要打印，把纸带上）</li>
+</ul>
+<pre><code class="js">// action
+
+// 计数器案例
+&#123; type： &#39;increment&#39; &#125; // +1
+&#123; type： &#39;decrement&#39; &#125; // -1
+
+&#123; type： &#39;increment&#39;, payload: 10 &#125; // +10
+&#123; type： &#39;decrement&#39;, payload: 10 &#125; // -10
+
+// 购物车案例
+&#123; type: &#39;getGoodsList&#39; &#125;
+&#123; type: &#39;changeGoodsState&#39;, payload: &#123; id: 1, goodsState: true &#125; &#125;
+</code></pre>
+<h2 id="Redux核心概念-action-creator"><a href="#Redux核心概念-action-creator" class="headerlink" title="Redux核心概念-action creator"></a>Redux核心概念-action creator</h2><p><strong>方法：</strong>：</p>
+<ul>
+<li>使用函数创建 action 对象，这种用来创建 action 的函数称之为<code>Action Creator</code></li>
+</ul>
+<p><strong>核心代码</strong>：</p>
+<pre><code class="js">// 不使用 Action Creator
+// 创建多个 action 时，需要重复手动创建 action 对象，很繁琐
+&#123; type: &#39;decrement&#39;, payload: 2 &#125;
+&#123; type: &#39;decrement&#39;, payload: 8 &#125;
+
+// ---
+
+// 使用 Action Creator
+// 1 先创建 Action Creator 函数
+const decrement = payload =&gt; &#123;
+  return &#123; type: &#39;decrement&#39;, payload &#125;
+&#125;
+
+// 2 创建多个 action，只需要调用 Action Creator 函数即可
+decrement(2) // =&gt; &#123; type: &#39;decrement&#39;, payload: 2 &#125;
+decrement(8) // =&gt; &#123; type: &#39;decrement&#39;, payload: 8 &#125;
+
+// 简化：
+const decrement = payload =&gt; (&#123; type: &#39;decrement&#39;, payload &#125;)
+</code></pre>
+<hr>
+<h2 id="Redux核心概念-reducer"><a href="#Redux核心概念-reducer" class="headerlink" title="Redux核心概念-reducer"></a>Redux核心概念-reducer</h2><p><strong>介绍：</strong></p>
+<ul>
+<li>reducer 来自于一个大数据的处理概念 MapReduce 中的 <code>Reduce-规约</code> </li>
+<li>一个<code>Reduce-规约</code> 的具体实现叫 Reducer。是一个数据处理器，基于当前数据，处理输出一个新的数据，这个新的数据作为数据处理器下次处理数据的输入。依次不停的迭代下去的一种数据处理机制。</li>
+<li>reducer 它是一个<strong>纯函数</strong>。接收两个参数：<strong>action（要干啥），和一个给定的状态</strong> 计算出一个新的状态。这个新的状态作为 reducer 下次处理数据（接收到action通知）的输入。</li>
+</ul>
+<p><strong>说明：</strong></p>
+<ul>
+<li><p>函数签名为：<code>(state, action) =&gt; newState</code></p>
+</li>
+<li><p>接收一个的状态（数据）和 action 作为参数，根据 action 的类型，执行对应操作，返回一个新的状态（数据）</p>
+</li>
+<li><p>注意：<strong>该函数一定要有返回值</strong>，如果没有对应 action 的处理，则返回原来的状态。</p>
+</li>
+<li><p>约定：reducer 函数内不要直接修改参数 state 的值，而是根据当前状态 state 创建新的状态值。</p>
+<pre><code class="js">// 当前 state 是一个对象
+let state = &#123;name: &#39;Jack&#39;, age: 18&#125;
+// 新状态要求将年龄修改为20
+// 正确的做法：
+let newState = &#123;...state, age: 20&#125;
+// 错误的做法：
+state.age = 20
+let newState = state
+
+// 同理数组
+</code></pre>
+</li>
+</ul>
+<p><strong>核心代码</strong>：</p>
+<pre><code class="jsx">// 伪代码：
+// state 传入的状态（当前）
+// action 当前要执行的动作
+const reducer = (state, action) =&gt; &#123;
+  return newState
+&#125;
+
+// 示例：
+// state 传入的状态
+// action 当前要执行的动作
+const reducer = (state, action) =&gt; &#123;
+  switch (action.type) &#123;
+    // 计数器增加
+    case &#39;increment&#39;:
+      // 返回新状态
+      // return state + 1
+      // 根据 action 中提供的 payload 来决定到底增加多少
+      return state + action.payload
+    // 注意：一定要有 default，如果将来 reducer 无法处理某个 action，就直接将原来的状态返回即可
+    default:
+      return state
+  &#125;
+&#125;
+
+// 模拟 reducer 的调用
+// 第一次调用 reducer
+// reducer(0, &#123; type: &#39;increment&#39; &#125;) // 本次执行完成后，状态变为：1
+// 再调用，会基于上一次调用处理后的state值处理
+// reducer(1, &#123; type: &#39;increment&#39; &#125;) // 本次执行完成后，状态变为：2
+
+// 基于传入的状态继续调用 reducer
+// reducer(1, &#123; type: &#39;decrement&#39; &#125;) // 本次因为无法处理该 action，所以，直接返回原来的状态：1
+</code></pre>
+<h2 id="Redux核心概念-store"><a href="#Redux核心概念-store" class="headerlink" title="Redux核心概念-store"></a>Redux核心概念-store</h2><p><strong>Store：</strong></p>
+<ul>
+<li><p>创建 store 实例</p>
+<ul>
+<li><pre><code class="jsx">// 导入redux
+import &#123; createStore &#125; from &#39;redux&#39;
+
+// 创建 store, 参数为：reducer 函数(需要一个干活的)
+const store = createStore(reducer)
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>store 分发 action 修改数据（叫人干活）</p>
+<ul>
+<li><pre><code class="jsx">// 直接分发一个action
+store.dispatch( &#123;type: &#39;increment&#39;, payload: 2&#125; )
+// 调用action creator 返回一个action
+store.dispatch( increment(2) )
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>获取 store 中的状态</p>
+<ul>
+<li><pre><code class="jsx">// 获取状态（干完活，取成果）
+const state = store.getState()
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Redux代码执行流程"><a href="#Redux代码执行流程" class="headerlink" title="Redux代码执行流程"></a>Redux代码执行流程</h2><p><strong>流程</strong>：</p>
+<ol>
+<li>创建 store 时，Redux 就会先调用一次 reducer，给开发者设置 state 初始值的机会。</li>
+<li>store 创建完毕后，调用 <code>store.dispatch(action) </code>  修改 state。</li>
+<li>store 接收到 action 后，执行 reducer 函数，计算出新的state。</li>
+<li>这个新的state是基于我们初始化的state的值，和 action 传来的 payload 计算出的。</li>
+<li>调用 <code>store.getState()</code>获取 reducer 中存储的 state。这个 state 是下一次 action 到来之前最新的。</li>
+</ol>
+<h2 id="React-Redux介绍"><a href="#React-Redux介绍" class="headerlink" title="React-Redux介绍"></a>React-Redux介绍</h2><p><strong>说明：</strong></p>
+<p>Redux 库实现的是一种数据管理模式，和UI界面库是没有关系的。</p>
+<p>所以要想在React中使用Redux管理数据，就需要一个<strong>“中介”</strong>，将Redux中管理的数据注入到React组件中。</p>
+<p>实现这个连接注入功能的库就是 “React-Redux”。</p>
+<p><strong>内容</strong>：</p>
+<p>文档：<a class="link"   href="https://react-redux.js.org/introduction/getting-started" >https://react-redux.js.org/introduction/getting-started<i class="fas fa-external-link-alt"></i></a></p>
+<p>react-redux 的使用分为两大步：</p>
+<ul>
+<li>1 全局配置（只需要配置一次） </li>
+<li>2 组件接入（获取状态或修改状态）是按需接入，有状态管理需求的组件接入。</li>
+</ul>
+<p><strong>全局配置步骤：</strong></p>
+<ol>
+<li>安装 react-redux：<code>npm i react-redux</code></li>
+<li>从 react-redux 中导入 Provider 组件</li>
+<li>创建 store 实例</li>
+<li>使用 Provider 包裹整个应用</li>
+<li>通过Provider 的 store 属性，将创建好的store实例注入的组件中</li>
+</ol>
+<h2 id="React-Redux-获取状态-useSelector"><a href="#React-Redux-获取状态-useSelector" class="headerlink" title="React-Redux-获取状态-useSelector"></a>React-Redux-获取状态-useSelector</h2><p><strong>说明：</strong></p>
+<p>凡是被配 <code>&lt;Provider store=&#123;store&#125; /&gt;</code> 包裹的组件，都可以通过<code>useSelector</code>  这个 react-redux 提供的 hooks 函数，将 redux 中存储的状态数据，引入到组件中。</p>
+<p><strong>步骤：</strong></p>
+<ul>
+<li><p>导入 <code>useSelector</code></p>
+<ul>
+<li><pre><code class="jsx">import &#123; useSelector &#125; from &#39;react-redux&#39;
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>调用 <code>useSelector</code> 函数，需要传入一个回调函数， <code>useSelector</code> 在调用这个回调函数的时候会把 state 作为形参传递给回调函数。 回调函数执行完毕后的返回值将作为  <code>useSelector</code> 的返回值返回。</p>
+<ul>
+<li><pre><code class="jsx">useSelector(state =&gt; state)
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>定义变量接收这个返回值，在组件中就获取到了 store 中存储的数据</p>
+<ul>
+<li><pre><code class="jsx">const count = useSelector(state =&gt; state)
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="React-Redux-分发动作useDispatch"><a href="#React-Redux-分发动作useDispatch" class="headerlink" title="React-Redux-分发动作useDispatch"></a>React-Redux-分发动作useDispatch</h2><p><strong>说明：</strong></p>
+<p>如何在 React 组件中分发 action</p>
+<p><strong>步骤：</strong></p>
+<ul>
+<li><p>导入  <code>useDispatch</code></p>
+<ul>
+<li><pre><code class="jsx">import &#123; useDispatch &#125; from &#39;react-redux&#39;
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>调用 <code>useDispatch</code> 获得 <code>dispatch</code> 函数</p>
+<ul>
+<li><pre><code class="jsx">const dispatch = useDispatch()
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>调用  <code>dispatch</code> 分发 action</p>
+<ul>
+<li><pre><code class="jsx">dispatch( action )
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>react</category>
+      </categories>
+      <tags>
+        <tag>react</tag>
+        <tag>Redux</tag>
+        <tag>react-Redux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>react-组件</title>
+    <url>/blog/2021/09/11/react-%E7%BB%84%E4%BB%B6/</url>
+    <content><![CDATA[<h1 id="react-组件"><a href="#react-组件" class="headerlink" title="react-组件"></a>react-组件</h1><p>在 React 中，组件概念是由两部分组成，分别是：</p>
+<ul>
+<li><p>定义规则</p>
+<ul>
+<li>定义一个函数的规则。</li>
+<li>定义一个类（class）的规则。</li>
+</ul>
+</li>
+<li><p>使用规则</p>
+<ul>
+<li>如何使用这个函数或类（class）的规则。</li>
+</ul>
+</li>
+</ul>
+<h3 id="函数组件"><a href="#函数组件" class="headerlink" title="函数组件"></a>函数组件</h3><p>顾名思义，就是以定义一个函数，满足特定规则的函数。</p>
+<p><strong>定义规则：</strong></p>
+<ul>
+<li>符合 JS 的函数定义(函数定义、函数表达式、箭头函数)    </li>
+<li><strong>函数名称必须以大写字母开头</strong>（React 以此区分组件和普通的 HTML标签，对应组件的使用规则）</li>
+<li><strong>函数组件必须有返回值</strong>，表示该组件的 UI 结构。如果不需要渲染任何内容，则返回 <code>null</code></li>
+</ul>
+<p><strong>代码：</strong></p>
+<pre><code class="jsx">// 函数定义组件
+function Hello() &#123;
+  return &lt;div&gt;我是函数定义组件&lt;/div&gt;
+&#125;
+// 函数表达式组件
+const Button = function () &#123;
+  return &lt;button&gt;我是函数表达式组件&lt;/button&gt;
+&#125;
+
+// 箭头函数组件
+const Hello = () =&gt; &lt;div&gt;我是箭头函数组件&lt;/div&gt;
+</code></pre>
+<p><strong>使用规则：</strong></p>
+<ul>
+<li>使用函数名称作为组件标签名称，就是把函数名写在标签里即可<code>&lt;组件名（函数名）/&gt;</code> <code>&lt;Hello/&gt;</code> <code>&lt;Button/&gt;</code></li>
+<li>交给<code>ReactDOM.render(&lt;组件名（函数名）/&gt;)</code>渲染即可。</li>
+</ul>
+<p>代码：</p>
+<pre><code class="jsx">// 使用 双标签形式 渲染组件：
+ReactDOM.render(&lt;Hello&gt;&lt;/Hello&gt;, document.getElementById(&#39;root&#39;))
+
+// 使用 自闭和标签形式 渲染组件：
+ReactDOM.render(&lt;Hello /&gt;, document.getElementById(&#39;root&#39;))
+</code></pre>
+<h3 id="类组件"><a href="#类组件" class="headerlink" title="类组件"></a>类组件</h3><p>顾名思义，就是定一个类，满足特定规则的类。</p>
+<p><strong>定义规则：</strong></p>
+<ul>
+<li>符合 ES6 的 class 定义</li>
+<li><strong>类名称必须以大写字母开头</strong>（React 以此区分组件和普通的 HTML标签，对应组件的使用规则）</li>
+<li>类组件应该继承 React.Component 父类，从而可以使用父类中提供的方法或属性 </li>
+<li>类组件必须提供 render 方法</li>
+<li>render 方法必须有返回值，表示该组件的 UI 结构。如果不需要渲染任何内容，则返回 <code>null</code></li>
+</ul>
+<p><strong>代码：</strong></p>
+<pre><code class="jsx">// 导入 React
+import React from &#39;react&#39;
+
+class Hello extends React.Component &#123;
+  render() &#123;
+    return &lt;div&gt;Hello Class Component!&lt;/div&gt; 
+  &#125;
+&#125;
+
+
+// 解构导入 Component 的方式
+import &#123; Component &#125; from &#39;react&#39;
+
+class Hello extends Component &#123;
+  render() &#123;
+    return &lt;div&gt;Hello Class Component!&lt;/div&gt; 
+  &#125;
+&#125;
+</code></pre>
+<p><strong>使用规则：</strong></p>
+<ul>
+<li>使用类名称作为组件标签名称，就是把类名写在标签里即可<code>&lt;类名/&gt;</code>。</li>
+</ul>
+<h2 id="React-组件-事件处理"><a href="#React-组件-事件处理" class="headerlink" title="React 组件-事件处理"></a>React 组件-事件处理</h2><h3 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h3><p>因为 JSX 语法的原因，就是我们的标签和 JS 代码在一起，所以React中事件处理函数绑定与 HTML 元素的属性事件绑定的语法非常像。</p>
+<p>标签的属性事件绑定：</p>
+<pre><code class="html">&lt;button onclick=&quot;btnClickHandler()&quot;&gt;
+    按钮
+&lt;/button&gt;
+</code></pre>
+<p>React中的事件绑定：</p>
+<pre><code class="jsx">&lt;button onClick=&#123;btnClickHandler&#125;&gt;
+  按钮
+&lt;/button&gt;
+</code></pre>
+<p>不同点：</p>
+<ul>
+<li>React 事件采用驼峰命名法，比如 <code>onClick</code>，其它同理 <code>onMouseEnter</code> <code>onBlur</code> 等等</li>
+<li>React 中传入的是一个 function 对象，而不是字符串</li>
+</ul>
+<p>那这个传入的 function 在 React 组件中是如何定义的呢？</p>
+<p>接下来我们就分别来看一下。</p>
+<p><strong>1-函数组件：</strong></p>
+<pre><code class="jsx">// 1、匿名箭头函数形式
+function App () &#123;
+  return(
+    &lt;div&gt;
+        &lt;button onClick=&#123;() =&gt; console.log(&#39;按钮被点击了&#39;)&#125;&gt;按钮&lt;/button&gt;
+    &lt;/div&gt;
+  )
+&#125;
+export default App
+
+
+// 2、函数定义形式
+function App () &#123;
+    function handleClick()&#123;
+    console.log(&#39;按钮被点击了&#39;)
+  &#125;
+  return(
+    &lt;div&gt;
+        &lt;button onClick=&#123;handleClick&#125;&gt;按钮&lt;/button&gt;
+    &lt;/div&gt;
+  )
+&#125;
+export default App
+
+
+// 具名箭头函数形式
+const App = () =&gt; &#123;
+  const handleClick = () =&gt; &#123;
+    console.log(&#39;按钮被点击了&#39;)
+  &#125;
+  return(
+    &lt;div&gt;
+      &lt;button onClick=&#123;handleClick&#125;&gt;按钮2&lt;/button&gt;
+    &lt;/div&gt;
+  )
+&#125;
+export default App
+</code></pre>
+<p><strong>2-类组件：</strong></p>
+<pre><code class="jsx">import React from &#39;react&#39;
+
+// 匿名箭头函数
+class App extends React.Component &#123;
+  
+  render() &#123;
+    return (
+      &lt;div&gt;
+        &lt;button onClick=&#123;() =&gt; cosole.log(&#39;按钮被点击了&#39;)&#125;&gt;按钮&lt;/button&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+&#125;
+
+// 类的原型方法
+class App extends React.Component &#123;
+  // 事件处理函数
+  handleClick() &#123;
+    console.log(&#39;按钮被点击了&#39;)
+  &#125;
+  
+  render() &#123;
+    return (
+      &lt;div&gt;
+        &lt;button onClick=&#123;this.handleClick&#125;&gt;按钮&lt;/button&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+&#125;
+export default App
+</code></pre>
+<p><strong>总结：</strong></p>
+<ul>
+<li><p>类组件绑定事件处理函数的时候，需要通过this引用事件处理函数，并传递给 DOM 元素。而函数组件中则不需要这样做。</p>
+</li>
+<li><p>背后的原因是类组件需要一个实例化的过程，在类中这个具体的实例化对象是通过 this 代表的。</p>
+</li>
+<li><p>而函数组件是没有实例化过程的，直接函数运行返回对应的UI ，即我们的 React 元素。</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>react</category>
+      </categories>
+      <tags>
+        <tag>react</tag>
+        <tag>react-组件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>react-组件通讯</title>
+    <url>/blog/2021/10/20/react-%E7%BB%84%E4%BB%B6%E9%80%9A%E8%AE%AF/</url>
+    <content><![CDATA[<h1 id="react-组件通讯"><a href="#react-组件通讯" class="headerlink" title="react-组件通讯"></a>react-组件通讯</h1><h3 id="父传子"><a href="#父传子" class="headerlink" title="父传子"></a>父传子</h3><p>还是基于一下几点来理解</p>
+<ol>
+<li>确定组件关系：即谁是父组件？</li>
+<li>组件间通讯数据来自于哪里？（state、props）</li>
+<li>通讯的数据类型是什么？</li>
+</ol>
+<p><strong>步骤：</strong></p>
+<ul>
+<li><p>确定组件的父子关系，父组件可以直接传递数据到子组件</p>
+</li>
+<li><p>父组件可以传递给子组件的数据：</p>
+<ul>
+<li>父组件 state 中定义的数据（父组件私有的、父组件自身的）</li>
+<li>父组件 props 中的数据（父组件的父组件传递进来的）</li>
+</ul>
+</li>
+<li><p>传递数据可以是：string, array, number, bool, object, function, jsx 等</p>
+</li>
+</ul>
+<p><strong>代码：</strong></p>
+<pre><code class="jsx">import React from &#39;react&#39;;
+
+class Parent extends React.Component &#123;
+  state = &#123;
+    lastName: &#39;王&#39;,
+  &#125;;
+
+  render() &#123;
+    return (
+      &lt;div&gt;
+        &lt;div&gt;我是父组件，我姓：&#123;this.state.lastName&#125;&lt;/div&gt;
+        &lt;div&gt;我继承了：&#123;this.props.money&#125;块&lt;/div&gt;
+        &lt;Child lastName=&#123;this.state.lastName&#125; /&gt;
+      &lt;/div&gt;
+    );
+  &#125;
+&#125;
+
+class Child extends React.Component &#123;
+  render() &#123;
+    return (
+      // 显示父组件传递的数据
+      &lt;div&gt;
+        &lt;hr /&gt;
+        &lt;div&gt;我是子组件,我姓&#123;this.props.lastName&#125;&lt;/div&gt;
+      &lt;/div&gt;
+    );
+  &#125;
+&#125;
+
+export default Parent;
+</code></pre>
+<h4 id="父传子练习"><a href="#父传子练习" class="headerlink" title="父传子练习"></a>父传子练习</h4><p><strong>目标：</strong>能够通过父到子组件通讯实现该案例效果</p>
+<img src="D:/前端_资料/就业班/react/React-基础/React-基础/01-笔记/01-笔记/images/demo-父到子.png" style="width: 600px; zoom: 60%;" />
+
+<p><strong>步骤：</strong></p>
+<ul>
+<li>定义父组件、父组件数据</li>
+<li>将数据传递到子组件</li>
+<li>子组件渲染数据</li>
+</ul>
+<p><strong>代码：</strong></p>
+<pre><code class="jsx">// 父组件数据
+state = &#123;
+  list: [
+    &#123;
+      id: 1,
+      name: &#39;超级好吃的棒棒糖&#39;,
+      price: 18.8,
+      info: &#39;开业大酬宾，全场8折&#39;,
+    &#125;,
+    &#123;
+      id: 2,
+      name: &#39;超级好吃的大鸡腿&#39;,
+      price: 34.2,
+      info: &#39;开业大酬宾，全场8折&#39;,
+    &#125;,
+    &#123;
+      id: 3,
+      name: &#39;超级无敌的冰激凌&#39;,
+      price: 14.2,
+      info: &#39;开业大酬宾，全场8折&#39;,
+    &#125;,
+  ],
+&#125;;
+
+// 父组件UI结构
+render() &#123;
+  return (
+    // 父组件
+    &lt;div className=&quot;parent&quot;&gt;
+      &lt;h1&gt;父组件&lt;/h1&gt;
+      &#123;/* 把下面UI抽离为子组件 */&#125;
+      &lt;div className=&quot;child&quot;&gt;
+        &lt;div className=&quot;product&quot;&gt;
+          &lt;h3&gt;标题：&lt;/h3&gt;
+          &lt;div&gt;价格：&lt;/div&gt;
+          &lt;div&gt;开业大酬宾&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+&#125;
+</code></pre>
+<p><strong>组件样式：</strong></p>
+<pre><code class="css">.parent &#123;
+  width: 80%;
+  padding: 10px;
+  border: 2px solid black;
+&#125;
+.child &#123;
+  margin: 10px 0;
+  padding: 10px;
+  border: 2px solid skyblue;
+&#125;
+.product &#123;
+  padding: 20px;
+  border: 2px solid #000;
+  border-radius: 5px;
+  margin: 10px;
+&#125;
+</code></pre>
+<p><strong>总结：</strong></p>
+<p>抽离子组件时，是抽离成函数组件还是类组件？</p>
+<p>一般规则：如果子组件子负责显示则抽离成函数组件，如果子组件还要自身的状态管理需求，则抽离为类组件。</p>
+<p>实际开发中，一律类组件开头，因为后期类组件改函数组件代码变动小，函数组件改为类组件代码变动大</p>
+<hr>
+<h3 id="子传父"><a href="#子传父" class="headerlink" title="子传父"></a>子传父</h3><p>还是基于以下几点来理解</p>
+<ol>
+<li>确定组件关系：即谁是父组件？谁是子？</li>
+<li>组件间通讯数据来自于哪里？（state、props）</li>
+<li>通讯的数据类型是什么？</li>
+</ol>
+<p><strong>思路</strong>：</p>
+<p>父组件传递一个函数给子组件，子组件调用这个函数。</p>
+<p><strong>步骤</strong>：</p>
+<ol>
+<li>父组件提供一个回调函数，供子组件调用</li>
+<li>将该函数，传递给子组件</li>
+<li>子组件调用这个函数</li>
+<li>父组件就会执行这个函数，函数参数就是子组件调用时指定的参数</li>
+<li>这样就实现了子组件向父组件传递数据</li>
+</ol>
+<p><strong>案例：</strong></p>
+<p>实现一个子组件向父组件要钱的案例</p>
+<p><strong>核心代码</strong>：</p>
+<pre><code class="jsx">import React from &#39;react&#39;;
+
+class Parent extends React.Component &#123;
+  state = &#123;
+    lastName: &#39;王&#39;,
+    money: 100,
+  &#125;;
+
+  // 回调函数
+  giveMoney = (money) =&gt; &#123;
+    this.setState(&#123;
+      money: money,
+    &#125;);
+  &#125;;
+
+  render() &#123;
+    return (
+      &lt;div&gt;
+        &lt;div&gt;我是父组件，我姓：&#123;this.state.lastName&#125;&lt;/div&gt;
+        &lt;div&gt;我继承了：&#123;this.props.money&#125;块&lt;/div&gt;
+        &lt;Child
+          lastName=&#123;this.state.lastName&#125;
+          money=&#123;this.state.money&#125;
+          giveMoney=&#123;this.giveMoney&#125;
+        /&gt;
+      &lt;/div&gt;
+    );
+  &#125;
+&#125;
+
+class Child extends React.Component &#123;
+  handleClick = () =&gt; &#123;
+    // 子组件调用父组件传递过来的回调函数
+    this.props.giveMoney(300);
+  &#125;;
+  render() &#123;
+    return (
+      // 显示父组件传递的数据
+      &lt;div&gt;
+        &lt;hr /&gt;
+        &lt;div&gt;我是子组件,我姓&#123;this.props.lastName&#125;&lt;/div&gt;
+        &lt;div&gt;我收到的：&#123;this.props.money&#125;&lt;/div&gt;
+        &lt;button onClick=&#123;this.handleClick&#125;&gt;giveMoney&lt;/button&gt;
+      &lt;/div&gt;
+    );
+  &#125;
+&#125;
+
+export default Parent;
+</code></pre>
+<p><strong>总结</strong>：</p>
+<ol>
+<li><p>父组件如何接收子组件传递过来的数据？ 回调函数的参数</p>
+</li>
+<li><p>子组件如何传递数据给父组件？ 调用回调时传入参数</p>
+</li>
+<li><p>父组件拿到子组件传递的消息后，可以通过修改 state 触发组件重新渲染，来实现类似收到子组件消息后回复子组件消息的需求</p>
+</li>
+</ol>
+<hr>
+<h4 id="子传父练习"><a href="#子传父练习" class="headerlink" title="子传父练习"></a>子传父练习</h4><img src="D:/前端_资料/就业班/react/React-基础/React-基础/01-笔记/01-笔记/images/demo-子到父.png" alt="demo-子到父" style="zoom:50%;" />
+
+
+
+<p><strong>步骤：</strong></p>
+<ul>
+<li>在子组件渲染时添加一个砍价按钮。</li>
+<li>父组件定义砍价函数并传递给子组件</li>
+<li>这个砍价按钮点击时，调用父组件提供的函数，将砍价信息传回给父组件</li>
+<li>父组件修改列表数据，页面重新渲染</li>
+</ul>
+<p><strong>代码：</strong></p>
+<pre><code class="jsx">// 父组件定义一个函数
+kan = (id, money) =&gt; &#123;
+  console.log(&#39;砍了&#39;, money);
+  const newList = this.state.list.map((item) =&gt; &#123;
+    if (item.id === id) &#123;
+      return &#123; ...item, price: parseFloat((item.price - 1).toFixed(2)) &#125;;
+    &#125; else &#123;
+      return item;
+    &#125;
+  &#125;);
+  console.log(newList);
+  this.setState(&#123;
+    list: newList,
+  &#125;);
+&#125;;
+
+// 将这个函数传递到子组件
+&#123;this.state.list.map((item) =&gt; (
+  &lt;Child item=&#123;item&#125; key=&#123;item.id&#125; kan=&#123;this.kan&#125; /&gt;
+))&#125;
+
+// 子组件调用这个函数
+clickHandler = (id) =&gt; &#123;
+  console.log(&#39;开始砍&#39;, id);
+  this.props.kan(id, 1);
+&#125;;
+</code></pre>
+<h3 id="兄弟组件"><a href="#兄弟组件" class="headerlink" title="兄弟组件"></a>兄弟组件</h3><p>还是基于以下几点来理解</p>
+<ol>
+<li><p>确定组件关系：即谁是兄组件？谁是弟组件？</p>
+</li>
+<li><p>组件间通讯数据来自于哪里？（state、props）</p>
+</li>
+<li><p>通讯的数据类型是什么？</p>
+</li>
+<li><p>谁给谁发消息，兄&#x3D;&gt;弟，还是，弟&#x3D;&gt;兄</p>
+</li>
+</ol>
+<p>什么是兄弟组件？</p>
+<p>平级关系组件，有前后关系，但是没有上下关系。</p>
+<pre><code class="jsx">render() &#123;
+  return (
+    // 父组件
+    &lt;div className=&quot;parent&quot;&gt;
+      &lt;Child1 name=&#123;&quot;大毛&quot;&#125; /&gt;
+      &lt;Child2 name=&#123;&quot;二毛&quot;&#125; /&gt;
+    &lt;/div&gt;
+  );
+&#125;
+</code></pre>
+<p>兄弟组件通讯，是父到子和子到父通讯的结合使用，父组件是中介。</p>
+<p><strong>实现思想：状态提升</strong></p>
+<ul>
+<li>提供一个数据存储中介，这个中介就是离兄弟组件最近的公共父组件中的 state 。</li>
+<li>在公共的父组件中：<ol>
+<li>定义共享状态数据（定义在 state 中，用来接收子组件中发送过来的数据，通过调用 setState 发送给准备接收数据的子组件） </li>
+<li>定义操作共享状态数据的函数（用来传递给兄弟组件，准备发送数据的组件）</li>
+</ol>
+</li>
+</ul>
+<p>状态提升前</p>
+<img src="D:/前端_资料/就业班/react/React-基础/React-基础/01-笔记/01-笔记/images/image-20211016171150589.png" style="width: 800px; zoom: 67%;" />
+
+<p>状态提升之后</p>
+<img src="D:/前端_资料/就业班/react/React-基础/React-基础/01-笔记/01-笔记/images/image-20211016171158651.png" style="width: 800px; zoom: 67%;" />
+
+<p><strong>核心代码</strong></p>
+<ul>
+<li><code>App.js</code></li>
+</ul>
+<pre><code class="jsx">import React, &#123; Component &#125; from &#39;react&#39;;
+import &#39;./App.css&#39;;
+
+// 导入两个子组件
+import Child1 from &#39;./Child1&#39;;
+import Child2 from &#39;./Child2&#39;;
+
+// App 是父组件
+export default class App extends Component &#123;
+  state = &#123;
+    // 数据中介（状态提升到父组件）
+    msg: &#39;&#39;,
+  &#125;;
+
+  // 消息传递工具
+  setMsg = (msg) =&gt; &#123;
+    console.log(msg);
+    this.setState(&#123;
+      msg: msg,
+    &#125;);
+  &#125;;
+
+  render() &#123;
+    return (
+      &lt;div className=&quot;app&quot;&gt;
+        &lt;h1&gt;我是App（爹）组件&lt;/h1&gt;
+        &#123;/* 兄弟组件1，接收消息 */&#125;
+        &lt;Child1 msg=&#123;this.state.msg&#125;&gt;&lt;/Child1&gt;
+        &#123;/* 兄弟组件2，发送消息 */&#125;
+        &lt;Child2 setMsg=&#123;this.setMsg&#125;&gt;&lt;/Child2&gt;
+      &lt;/div&gt;
+    );
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li><code>Child1.js</code></li>
+</ul>
+<pre><code class="jsx">import React, &#123; Component &#125; from &#39;react&#39;;
+
+export default class Child1 extends Component &#123;
+  render() &#123;
+    return (
+      &lt;div className=&quot;child1&quot;&gt;
+        &#123;/* 接收消息 */&#125;
+        &lt;h3&gt;我是Child1（哥）组件&lt;/h3&gt;
+        &lt;div&gt;我弟说&#123;this.props.msg&#125;&lt;/div&gt;
+      &lt;/div&gt;
+    );
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li><code>Child2.js</code></li>
+</ul>
+<pre><code class="jsx">import React, &#123; Component &#125; from &#39;react&#39;;
+
+export default class Child2 extends Component &#123;
+  clickHandler = () =&gt; &#123;
+    this.props.setMsg(&#39;弟弟挨打了&#39;);
+  &#125;;
+
+  render() &#123;
+    return (
+      &lt;div className=&quot;child2&quot;&gt;
+        &lt;h3&gt;我是Child2（弟）组件&lt;/h3&gt;
+        &#123;/* 发送消息 */&#125;
+        &lt;button onClick=&#123;this.clickHandler&#125;&gt;说：我挨打了&lt;/button&gt;
+      &lt;/div&gt;
+    );
+  &#125;
+&#125;
+</code></pre>
+<p><strong>总结：</strong></p>
+<p>“状态提升”这种设计思想除了用在兄弟组件之间传递数据，还有一个经典应用场景是，若干组件都需要对同样的数据改变作出响应。</p>
+<hr>
+<h3 id="跨组件通讯"><a href="#跨组件通讯" class="headerlink" title="跨组件通讯"></a>跨组件通讯</h3><p>当出现组件传递数据需要跨越多个组件这种需求时，状态提升，父传子实现就效率比较低了。</p>
+<img src="D:/前端_资料/就业班/react/React-基础/React-基础/01-笔记/01-笔记/images/props层层传递.png" style="width: 800px; zoom: 80%;" />
+
+
+
+<p>为了解决这种数组件跨越层级较多的数据传递需求，React 提供了跨组件通讯的 API，就是：<strong>createContext</strong> 。</p>
+<img src="D:/前端_资料/就业班/react/React-基础/React-基础/01-笔记/01-笔记/images/跨组件传递.png" style="width: 800px; zoom: 70%;" />
+
+
+
+<p>Context 上下文，可以理解一个范围，只要在这个范围内，就可以直接跨组件传递数据。</p>
+<p>步骤：</p>
+<ul>
+<li><p>调用 React.createContext() 创建 Provider（提供数据） 和 Consumer（消费数据） 两个组件</p>
+<ul>
+<li><pre><code class="jsx">const &#123; Provider, Consumer &#125; = React.createContext()
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>使用 Provider 组件作为父节点（范围包裹节点），并设置 value 属性，表示要传递的数据</p>
+<ul>
+<li><pre><code class="jsx">&lt;Provider value=&#123;&quot;pink&quot;&#125;&gt;
+    &lt;div className=&quot;App&quot;&gt;
+        &lt;Child1 /&gt;
+    &lt;/div&gt;
+&lt;/Provider&gt;
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>调用 Consumer 组件消费（接收）数据（组件内定义一个函数，函数的形参就是Provider中 value属性的值）</p>
+<ul>
+<li><pre><code class="jsx">&lt;Consumer&gt;
+    &#123;value =&gt; &lt;span&gt;value参数表示接收到的数据：&#123;value&#125;&lt;/span&gt;&#125;
+&lt;/Consumer&gt;
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>代码</strong></p>
+<pre><code class="jsx">import React, &#123; Component &#125; from &#39;react&#39;;
+import &#39;./App.css&#39;;
+
+const ThemeContext = React.createContext();
+
+const Node = () =&gt; (
+  &lt;div className=&quot;node&quot;&gt;
+    Node
+    &lt;SubNode /&gt;
+  &lt;/div&gt;
+);
+const SubNode = () =&gt; (
+  &lt;div className=&quot;sub-node&quot;&gt;
+    SubNode
+    &lt;Child /&gt;
+  &lt;/div&gt;
+);
+
+const Child = () =&gt; (
+  &lt;div className=&quot;child&quot;&gt;
+    Child
+    &lt;ThemeContext.Consumer&gt;
+      &#123;(value) =&gt; &lt;div style=&#123;&#123; color: value &#125;&#125;&gt;xxx&lt;/div&gt;&#125;
+    &lt;/ThemeContext.Consumer&gt;
+  &lt;/div&gt;
+);
+
+export default class App extends Component &#123;
+  render() &#123;
+    return (
+      &lt;ThemeContext.Provider value=&#123;&#39;red&#39;&#125;&gt;
+        &lt;div className=&quot;app&quot;&gt;
+          &lt;h1&gt;我是App组件&lt;/h1&gt;
+          &lt;Node /&gt;
+        &lt;/div&gt;
+      &lt;/ThemeContext.Provider&gt;
+    );
+  &#125;
+&#125;
+</code></pre>
+<p>说明：</p>
+<p>跨组件传值，也可以传 JSX、传函数</p>
+<pre><code class="jsx">// &lt;ThemeContext.Provider value=&#123;&lt;h1&gt;跨组件传递的标签&lt;/h1&gt;&#125;&gt;
+&lt;ThemeContext.Provider value=&#123;() =&gt; &lt;h1&gt;跨组件传递的标签&lt;/h1&gt;&#125;&gt;
+  &lt;div className=&quot;parent&quot;&gt;
+    &lt;h1&gt;父组件&lt;/h1&gt;
+    &lt;Child1 /&gt;
+  &lt;/div&gt;
+&lt;/ThemeContext.Provider&gt;
+
+&lt;ThemeContext.Consumer&gt;
+  &#123;/* &#123;(value) =&gt; &lt;div&gt;&#123;value&#125;&lt;/div&gt;&#125; */&#125;
+  &#123;(value) =&gt; &lt;div&gt;&#123;value()&#125;&lt;/div&gt;&#125; 
+&lt;/ThemeContext.Consumer&gt;
+</code></pre>
+]]></content>
+      <categories>
+        <category>react</category>
+      </categories>
+      <tags>
+        <tag>react</tag>
+        <tag>react-组件通讯</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>style 上加scoped 属性的原理</title>
+    <url>/blog/2021/05/06/style%20%E4%B8%8A%E5%8A%A0scoped%20%E5%B1%9E%E6%80%A7%E7%9A%84%E5%8E%9F%E7%90%86/</url>
+    <content><![CDATA[<h2 id="style-上加scoped-属性的原理"><a href="#style-上加scoped-属性的原理" class="headerlink" title="style 上加scoped 属性的原理"></a>style 上加scoped 属性的原理</h2><p><strong>1、什么是scoped</strong><br>        在Vue 组件中，为了使样式私有化（模块化），不对全局造成污染，可以在style 标签上添加scoped 属性以表示它的只属于当下的模块，局部有效。如果一个项目中的所有vue 组件style 标签全部加上了scoped，相当于实现了样式的私有化。如果引用了第三方组件，需要在当前组件中局部修改第三方组件的样式，而又不想去除scoped 属性造成组件之间的样式污染。此时只能通过穿透scoped 的方式来解决，选择器。<br><strong>2、scoped 的实现原理</strong></p>
+<p>Vue 中的scoped 属性的效果主要通过PostCSS 转译实现，如下是转译前的Vue 代码：</p>
+<pre><code class="vue">&lt;template&gt;&lt;div&gt;Vue.js scoped&lt;/div&gt;&lt;/template&gt;
+&lt;style scoped&gt;.scoped &#123;font-size:14px;&#125;&lt;/style&gt;
+</code></pre>
+<p>浏览器渲染后的代码</p>
+<pre><code class="vue">&lt;div data-v-fed36922&gt;Vue.js scoped&lt;/div&gt;
+.scoped[data-v-fed36922]&#123;font-size:14px;&#125;
+</code></pre>
+<p>说明：PostCSS 给所有dom 添加了一个唯一不重复的动态属性，然后，给CSS 选择器额外添加一个<br>对应的属性选择器来选择该组件中dom，这种做法使得样式私有化</p>
+]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>v-show和v-if指令的共同点和不同点</title>
+    <url>/blog/2020/08/11/v-show%E5%92%8Cv-if%E6%8C%87%E4%BB%A4%E7%9A%84%E5%85%B1%E5%90%8C%E7%82%B9%E5%92%8C%E4%B8%8D%E5%90%8C%E7%82%B9/</url>
+    <content><![CDATA[<h2 id="v-show和v-if指令的共同点和不同点"><a href="#v-show和v-if指令的共同点和不同点" class="headerlink" title="v-show和v-if指令的共同点和不同点"></a>v-show和v-if指令的共同点和不同点</h2><p> <strong>一，相同点：</strong></p>
+<p>两者都是控制元素的显示和隐藏，</p>
+<p>初始值都是false</p>
+<p><strong>二，不同点：</strong></p>
+<p>​    <strong>1，实现本质方法本质不同</strong></p>
+<ul>
+<li><p>v-show本质就是通过设置css中的display设置为none,控制隐藏</p>
+</li>
+<li><p>v-if是动态向DOM树添加和删除DOM元素</p>
+</li>
+</ul>
+<p>​    <strong>2，编译的区别</strong></p>
+<ul>
+<li><p>v-show 就是控制CSS</p>
+</li>
+<li><p>v-if 切换有一个局部编译和卸载的过程，切换过程中合适地销毁和重建内部事件</p>
+</li>
+</ul>
+<p>​    <strong>3，编译的条件</strong></p>
+<ul>
+<li><p>v-show 会编译，但是只编译一次，后面其实就是控制css，注意点：当css本身就有dislpay：none时，v-show无法显示</p>
+</li>
+<li><p>v-if 就不会编译，就是不停的销毁和创建</p>
+</li>
+</ul>
+<p>​    <strong>4，总结使用场景</strong></p>
+<p>​        如果要频繁切换某节点时，使用v-show(无论是true还是false初始值都会进行渲染，因此通过css来控制显示隐藏，因此切换开销比较小，初始值开销比较大)，如果不需要频繁切换某个节点时，使用v-if（因此懒加载，初始值为false时，不会渲染，但是因为它是通过添加和删除dom元素来控制显示和隐藏的，因此初始渲染开销比较小，切换开销比较大）</p>
+]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+        <tag>v-if</tag>
+        <tag>v-show</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vue中的key值的作用是什么</title>
+    <url>/blog/2020/08/28/vue%E4%B8%AD%E7%9A%84key%E5%80%BC%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88/</url>
+    <content><![CDATA[<h2 id="vue中的key值的作用是什么"><a href="#vue中的key值的作用是什么" class="headerlink" title="vue中的key值的作用是什么"></a>vue中的key值的作用是什么</h2><p>当Vue.js 用v-for 正在更新已渲染过的元素列表时，它默认用“就地复用”策略。如果数据<br>项的顺序被改变，Vue 将不会移动DOM 元素来匹配数据项的顺序， 而是简单复用此处每个元<br>素，并且确保它在特定索引下显示已被渲染过的每个元素，key 的作用主要是为了高效的更新虚<br>拟DOM（增强diff算法）</p>
+<pre><code class="vue">diff算法
+两个相同的组件产生类似的DOM结构，不同的组件产生不同的DOM结构。
+同一层级的一组节点，他们可以通过唯一的id进行区分。
+当页面的数据发生变化时，diff算法只会比较同一成次的节点：
+
+如果节点类型不同，直接干掉前面的节点，在创建并插入新的节点，不会再比较这个节点以后的子节点了
+如果节点类型相同，则会重新设置该节点的属性，从而实现节点的更新
+当某一层有很多相同的节点时，也就是列节点时，diff算法的更新过程默认的遵循以上原则
+所以我们需要使用key来给每个节点做一个唯一标识，Diff算法就可以正确的识别此节点，找到正确的位置区插入新的节点。
+</code></pre>
+]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+        <tag>key</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vue和react区别</title>
+    <url>/blog/2020/06/10/vue%E5%92%8Creact%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<h1 id="vue和react区别"><a href="#vue和react区别" class="headerlink" title="vue和react区别"></a>vue和react区别</h1><h2 id="共同点："><a href="#共同点：" class="headerlink" title="共同点："></a><strong>共同点：</strong></h2><p><strong>Vue和React存在着很多的共同点：</strong></p>
+<ul>
+<li><strong>数据驱动视图</strong></li>
+<li><strong>组件化</strong></li>
+<li><strong>都使用 Virtual DOM</strong></li>
+</ul>
+<ol>
+<li><p><strong>数据驱动视图</strong><br>在jquery时代，我们需要频繁的操作DOM来实现页面效果与交互；而Vue和React 解决了这一痛点，采用数据驱动视图方式，隐藏操作DOM的频繁操作。所以我们在开发时，只需要关注数据变化即可，但是二者实现方式不尽相同。</p>
+</li>
+<li><p><strong>组件化</strong><br>React与Vue都遵循组件化思想，它们把注意力放在UI层，将页面分成一些细块，这些块就是组件，组件之间的组合嵌套就形成最后的网页界面。</p>
+</li>
+</ol>
+<p>所以在开发时都有相同的套路，比如都有父子组件传递， 都有数据状态管理、前端路由、插槽等。</p>
+<ol start="3">
+<li><strong>Virtual DOM</strong><br>Vue与React都使用了 Virtual DOM + Diff算法， 不管是Vue的Template模板+options api 写法， 还是React的Class或者Function写法,最后都是生成render函数，而render函数执行返回VNode(虚拟DOM的数据结构，本质上是棵树)。</li>
+</ol>
+<p>当每一次UI更新时，总会根据render重新生成最新的VNode，然后跟以前缓存起来老的VNode进行比对，再使用Diff算法（框架核心）去真正更新真实DOM（虚拟DOM是JS对象结构，同样在JS引擎中，而真实DOM在浏览器渲染引擎中，所以操作虚拟DOM比操作真实DOM开销要小的多）</p>
+<h2 id="不同点："><a href="#不同点：" class="headerlink" title="不同点："></a><strong>不同点：</strong></h2><p><strong>1.核心思想不同</strong><br>Vue早期开发就尤雨溪大佬，所以定位就是尽可能的降低前端开发的门槛，让更多的人能够更快地上手开发。这就有了vue的主要特点：灵活易用的渐进式框架，进行数据拦截&#x2F;代理，它对侦测数据的变化更敏感、更精确。</p>
+<p>React 从一开始的定位就是提出 UI 开发的新思路。背靠大公司Facebook 的React，从开始起就不缺关注和用户，而且React想要做的是用更好的方式去颠覆前端开发方式。所以React推崇函数式编程（纯组件），数据不可变以及单向数据流,当然需要双向的地方也可以手动实现， 比如借助onChange和setState来实现。</p>
+<p><strong>2.组件写法差异</strong><br>React推荐的做法是JSX + inline style, 也就是把 HTML 和 CSS 全都写进 JavaScript 中,即 all in js; Vue 推荐的做法是 template 的单文件组件格式(简单易懂，从传统前端转过来易于理解),即 html,css,JS 写在同一个文件(vue也支持JSX写法)</p>
+<p>这个差异一定程度上也是由于二者核心思想不同而导致的。</p>
+<p><strong>3.响应式原理不同</strong><br>Vue</p>
+<ul>
+<li><p>Vue依赖收集，自动优化，数据可变。</p>
+</li>
+<li><p>Vue递归监听data的所有属性,直接修改。</p>
+</li>
+<li><p>当数据改变时，自动找到引用组件重新渲染。</p>
+</li>
+</ul>
+<p>React</p>
+<ul>
+<li>React基于状态机，手动优化，数据不可变，需要setState驱动新的state替换老的state。当数据改变时，以组件为根目录，默认全部重新渲染, 所以 React 中会需要 shouldComponentUpdate 这个生命周期函数方法来进行控制</li>
+</ul>
+]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+        <tag>react</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vue中的slot的使用方法</title>
+    <url>/blog/2020/07/13/vue%E4%B8%AD%E7%9A%84slot%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h2 id="vue中的slot的使用方法"><a href="#vue中的slot的使用方法" class="headerlink" title="vue中的slot的使用方法"></a>vue中的slot的使用方法</h2><p><strong>个人理解：</strong><br>是对组件的扩展，通过slot插槽向组件内部指定位置传递内容，通过slot可以父子传参；<br>正常情况下,<Child><span style="color:red;">hello world</span></Child>在组件标签Child中的span标签会被组件模板template内容替换掉，当想让组件标签Child中内容传递给组件时需要使用slot插槽；</p>
+<p><strong>Slot的通俗理解</strong></p>
+<p>是“占坑”，在组件模板中占好了位置，当使用该组件标签时候，组件标签里面的内容就会自动填坑（替换组件模板中<slot>位置），当插槽也就是坑&lt;slot name&#x3D; ” mySlot ” &gt;有命名时，组件标签中使用属性slot&#x3D; ” mySlot ” 的元素就会替换该对应位置内容；</p>
+<p>Slot使用</p>
+<p>1、（匿名插槽）组件中有单个或多个未命名slot标签时，如下：</p>
+<pre><code class="vue">&lt;Child&gt;hello world&lt;/Child&gt;   
+&lt;template&gt;    
+
+      &lt;div&gt;
+
+        &lt;slot&gt;&lt;/slot&gt;
+
+        &lt;slot  style=&quot;color:blue;&quot; &gt;这是在slot上添加了样式&lt;/slot&gt;
+
+        &lt;slot  name=&quot;mySlot&quot;&gt;这是拥有命名的slot的默认内容&lt;/slot&gt;
+
+    &lt;/div&gt;
+
+&lt;/template&gt;
+</code></pre>
+<p>会输出：两个红色的hello world，以及一个使用slot的默认内容</p>
+<p>注意：在slot标签添加样式无效。拥有命名的插槽不能被不含slot属性的标签内容替换，会显示slot的默认值（具名slot具有对应性）；</p>
+<p>2、 （具名插槽） 组件中有多个命名的slot 插槽时，可以实现父组件对子组件的指定位置显示内容或传参，如下：</p>
+<pre><code class="vue">&lt;Child&gt;
+
+    hello world
+
+    hello world
+
+    hello world
+
+    &#123;&#123;otherData&#125;&#125;
+
+&lt;/Child&gt;
+
+ 
+
+&lt;template&gt;
+
+    &lt;div&gt;
+
+        &lt;slot  name=&quot;header&quot;&gt;这是拥有命名的slot的默认内容&lt;/slot&gt;
+
+        &lt;slot  name=&quot;main&quot;&gt;这是拥有命名的slot的默认内容&lt;/slot&gt;
+
+        &lt;slot  name=&quot;footer&quot;&gt;这是拥有命名的slot的默认内容&lt;/slot&gt;
+
+        &lt;slot  name=&quot;other&quot;&gt;这是拥有命名的slot的默认内容&lt;/slot&gt;
+
+    &lt;/div&gt;
+
+&lt;/template&gt;
+</code></pre>
+<p>3、作用域插槽！！：<br>使用时候子组件标签<Child>中要有<template slot-scope=”scopeName”>标签，再通过scopeName.childProp就可以调用子组件模板中的childProp绑定的数据，所以作用域插槽是一种子传父传参的方式，解决了普通slot在parent中无法访问child数据的去问题；</p>
+<p>作用域插槽代表性的用例是列表组件，允许在parent父组件上对列表项进行自定义显示，如下该items的所有列表项都可以通过slot定义后传递给父组件使用，也就是说数据是相同的，不同的场景页面可以有不同的展示方式：</p>
+   <ul>
+
+<pre><code class="vue">&lt;ul&gt;
+   &lt;slot name=&quot;item&quot; v-for=&quot;item in items&quot; :text=&quot;item.text&quot; :myname=&quot;item.myname&quot; &gt;
+      slot的默认内容
+   &lt;/slot&gt;
+&lt;/ul&gt;
+ 
+&lt;Child&gt;
+  &lt;template slot=&quot;item&quot; slot-scope=&quot;props&quot;&gt;
+    &lt;li&gt;&#123;undefined&#123;props.myname&#125;&#125;&lt;/li&gt;
+  &lt;/template&gt;
+&lt;/Child&gt;
+</code></pre>
+]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+        <tag>vue-slot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vue常用的指令</title>
+    <url>/blog/2020/07/27/vue%E5%B8%B8%E7%94%A8%E7%9A%84%E6%8C%87%E4%BB%A4/</url>
+    <content><![CDATA[<h2 id="vue常用的指令"><a href="#vue常用的指令" class="headerlink" title="vue常用的指令"></a>vue常用的指令</h2><pre><code class="vue"> v-model=&#39;xx&#39;：一般是用在表单元素上，input框内容发生改变，所有用到这个变量的地方都会自动更新
+     v-text=&#39;xx&#39;：相当于 innerText，不能识别结构
+     v-html=&#39;xx&#39;：相当于 innerHTML，能识别结构
+ v-cloak：专门用来提供解决小胡子的显示问题，需要搭配css使用
+          当vue编译完成之后，会把这个属性删掉，这是css样式就不起作用了
+ v-once：有这个指令的标签只会编译一次，后期数据再变，它也不会变
+ v-pre：有这个指令的标签及其后代元素，vue都不做处理（不经过vue处理），可以用来提升vue的编译效率
+
+ v-if=&#39;true/false&#39;：控制元素或者组件是否加载，有比较大的切换开销
+ v-else：跟 v-if 或者 v-eles-if 搭配只用，且中间不能插入其他无关标签或者组件
+ v-show=true/false：用来控制元素或者组件显示不显示（控制diaplay的属性），有比较大的初始加载开销
+
+ v-for=&#39;xx in yy&#39;：用来循环的，可以循环数组、数字、字符串、对象等。与v-if同时使用的时候，v-for的优先级要高于v-if的
+    key 对vue来说，是元素的身份标识，有利于vue的diff计算
+    key 在同一个for中不能重复。同一个页面或组件中想要使用相同的key值，那么key值所处的v-for不能为兄弟元素
+
+ v-bind:prop=&#39;value&#39;：用来处理行内属性的一个指令，简写是一个冒号 :
+    行内属性中 class 和 style 是经常操作的属性，所以vue对这两个属性专门做了加强
+    :class=&#39;&#123;类名1：布尔值，类名2：布尔值，...&#125;&#39; 只有值为true的类才会加上
+    :style=&quot;&#123;css属性名:css属性值&#125;&quot;
+
+ v-on:事件名=&#39;方法名&#39;：专门用来绑定事件的指令，简写是：@
+</code></pre>
+]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vue数据双向绑定原理</title>
+    <url>/blog/2020/06/15/vue%E6%95%B0%E6%8D%AE%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A%E5%8E%9F%E7%90%86/</url>
+    <content><![CDATA[<h1 id="vue数据双向绑定原理"><a href="#vue数据双向绑定原理" class="headerlink" title="vue数据双向绑定原理"></a>vue数据双向绑定原理</h1><p><strong>一、原理：</strong><br>1.vue 双向数据绑定是通过 数据劫持 结合 发布订阅模式的方式来实现的， 也就是说数据和视图同步，数据发生变化，视图跟着变化，视图变化，数据也随之发生改变；</p>
+<p>2.核心：关于VUE双向数据绑定，其核心是 Object.defineProperty()方法；</p>
+<p>3.介绍一下Object.defineProperty()方法<br>（1）Object.defineProperty(obj, prop, descriptor) ，这个语法内有三个参数，分别为 obj （要定义其上属性的对象） prop （要定义或修改的属性） descriptor （具体的改变方法）<br>（2）简单地说，就是用这个方法来定义一个值。当调用时我们使用了它里面的get方法，当我们给这个属性赋值时，又用到了它里面的set方法；</p>
+]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vue生命周期</title>
+    <url>/blog/2020/06/22/vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</url>
+    <content><![CDATA[<h1 id="vue生命周期"><a href="#vue生命周期" class="headerlink" title="vue生命周期"></a>vue生命周期</h1><h2 id="生命周期的三个阶段"><a href="#生命周期的三个阶段" class="headerlink" title="生命周期的三个阶段"></a>生命周期的三个阶段</h2><p>每一个组件或者实例都会经历一个完整的生命周期，总共分为三个阶段：初始化阶段、运行中阶段、销毁阶段。</p>
+<p><strong>初始化阶段钩子函数</strong>（beforeCreate,created,beforeMount,mounted）<br><strong>运行中阶段钩子函数</strong>（beforeUpdate,updated）<br><strong>销毁阶段钩子函数</strong>（beforeDestroy,destroyed）<br>一个组件或者实例的生命周期都是通过new开始的<br><img src="https://cdn.jsdelivr.net/gh/3-ygd/image-hosting@master/20171026193015421.5oaajcp224k0.webp"></p>
+<h2 id="生命周期各阶段说明"><a href="#生命周期各阶段说明" class="headerlink" title="生命周期各阶段说明"></a>生命周期各阶段说明</h2><p>beforeCreate () {} 创建实例以前, 此时的 DOM 还是语法, data 内的数据还没有</p>
+<p>created () {} 创建实例以后, 此时 DOM 还是语法, data 内已经有数据了</p>
+<p>beforeMount () {} 挂载以前, 渲染页面以前, 此时 DOM 还是语法, data 内已经有数据了</p>
+<p>mounted () {} 挂载以后, 渲染页面以后, 此时 DOM 正常了, data 内的数据正常</p>
+<p>beforeUpdate () {} 更新以前, 该组件内容修改之前, data 内的数据是修改前的数据</p>
+<p>undated () {} 更新以后, 该组件内容修改之后, data 内的数据就是修改后的数据</p>
+<p>beforeDestroy () {} 销毁前, 当你需要销毁该组件的时候, 销毁之前使用</p>
+<p>destroyed () {} 销毁后, 组件完全销毁完毕</p>
+]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+      <tags>
+        <tag>vue，vue生命周期</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vue组件中的data必须是函数</title>
+    <url>/blog/2020/07/05/vue%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84data%E5%BF%85%E9%A1%BB%E6%98%AF%E5%87%BD%E6%95%B0/</url>
+    <content><![CDATA[<h2 id="vue组件中的data必须是函数"><a href="#vue组件中的data必须是函数" class="headerlink" title="vue组件中的data必须是函数"></a>vue组件中的data必须是函数</h2><p>类比引用数据类型<br>Object是引用数据类型,如果不用function 返回,每个组件的data 都是<a class="link"   href="https://so.csdn.net/so/search?q=%E5%86%85%E5%AD%98&spm=1001.2101.3001.7020" >内存<i class="fas fa-external-link-alt"></i></a>的同一个地址,一个数据改变了其他也改变了;</p>
+<p>javascipt只有函数构成<a class="link"   href="https://so.csdn.net/so/search?q=%E4%BD%9C%E7%94%A8%E5%9F%9F&spm=1001.2101.3001.7020" >作用域<i class="fas fa-external-link-alt"></i></a>(注意理解作用域,只有<code>函数的&#123;&#125;</code>构成作用域,<code>对象的&#123;&#125;</code>以及 <code>if()&#123;&#125;</code>都不构成作用域)，data是一个函数时，每个组件实例都有自己的作用域，每个实例相互独立,不会相互影响</p>
+<pre><code class="js">const MyComponent = function() &#123;&#125;;
+MyComponent.prototype.data = &#123;
+    a: 1,
+    b: 2,
+&#125;
+const component1 = new MyComponent();
+const component2 = new MyComponent();
+ 
+component1.data.a === component2.data.a; // true;
+component1.data.b = 5;
+component2.data.b // 5
+</code></pre>
+<p>如果两个实例同时引用一个对象,那么当你修改其中一个属性的时候,另外一个实例也会跟着改;</p>
+<p>两个实例应该有自己各自的域才对,需要通过下面的方法来进行处理</p>
+<pre><code class="js">const MyComponent = function() &#123;
+　　this.data = this.data();
+&#125;;
+MyComponent.prototype.data = function() &#123;
+　　return &#123;
+　　　　a: 1,
+　　　　b: 2,
+　　&#125;
+&#125;;
+var c1=new MyComponent();
+var c2=new MyComponent();
+c2.data.a=5;
+console.log(c1.data);//&#123; a: 1, b: 2 &#125;
+console.log(c2.data);//&#123; a: 5, b: 2 &#125;
+</code></pre>
+<p>这样么一个实例的data属性都是独立的,不会相互影响了.</p>
+]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+        <tag>vue-data</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vue组件之间传值</title>
+    <url>/blog/2020/06/29/vue%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E4%BC%A0%E5%80%BC/</url>
+    <content><![CDATA[<h1 id="vue组件之间传值"><a href="#vue组件之间传值" class="headerlink" title="vue组件之间传值"></a>vue组件之间传值</h1><p><strong>1、父组件向子组件传递数据</strong><br>        父组件内设置要传的数据，在父组件中引用的子组件上绑定一个自定义属性并把数据<br>        绑定在自定义属性上，在子组件添加参数props 接收即可<br><strong>2、子组件向父组件传递数据</strong><br>        子组件通过vue 实例方法$emit 进行触发并且可以携带参数，父组件监听使用@（v-on）<br>        进行监听，然后进行方法处理<br><strong>3、非父子组件之间传递数据</strong></p>
+<p>​        3.1 引入第三方new vue 定义为eventBus</p>
+<p>​        3.2）在组件中created 中订阅方法eventBus.$on(“自定义事件名”,methods 中的方法名)</p>
+<p>​        3.3) 在另一个兄弟组件中的methods 中写函数，在函数中发布eventBus 订阅的方法eventBus.$emit(“自定义事件名”)</p>
+<p>​        3.4) 在组件的template 中绑定事件(比如click)</p>
+<p><strong>4、使用依赖注入</strong></p>
+<p>​        父组件根据<strong>provide</strong>进行设置，子组件根据<strong>inject</strong>来获取值进行使用</p>
+<p>​        <strong>缺点：</strong>太灵活，不受管制</p>
+<p><strong>5、使用vuex进行组件之间的通信</strong></p>
+]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+      <tags>
+        <tag>vue，vue组件传值</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>watch、methods、computed的区边</title>
+    <url>/blog/2020/08/19/watch%E3%80%81methods%E3%80%81computed%E7%9A%84%E5%8C%BA%E8%BE%B9/</url>
+    <content><![CDATA[<h2 id="watch、methods、computed的区边"><a href="#watch、methods、computed的区边" class="headerlink" title="watch、methods、computed的区边"></a>watch、methods、computed的区边</h2><p><strong>methods</strong></p>
+<p>中定义的是具体的方法，根据一些特定的触发条件，调用一次执行一次，每次调用都需重新加载没有缓存，比如说点击事件</p>
+<p><strong>computed</strong></p>
+<p>computed是vue中独有的计算属性，它是基于数据，然后进行依赖后进行缓存的，只有依赖发生改变，才会重新计算<br>就算在data中没有直接声明出要计算的变量，也可以在computed中写入<br>计算属性默认只有getter 需要的时候可以自己设置setter方法 setter默认传递一个参数，这个参数就是当前对象</p>
+<p><strong>watch</strong></p>
+<p>watch的作用是监听一个值的变化，并调用因变化需要执行的方法。<br>它用于观察vue实例上的数据变动，对应一个对象，键是表达观察式，值是回调，也可以是方法名，或者一个对象。</p>
+<p>数据量大，需要缓存使用computed，每次都需要加载不需要缓存使用methods<br>computed 和 watch 都可以观察页面的数据变化。computed的依赖是多个的，watch的依赖只能是单个的</p>
+]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+        <tag>watch</tag>
+        <tag>methods</tag>
+        <tag>computed</tag>
+      </tags>
+  </entry>
 </search>

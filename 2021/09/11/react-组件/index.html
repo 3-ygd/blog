@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="苑木木">
+    
+    <title>
+        
+            react-组件 |
+        
+        苑木木的博客
+    </title>
+    
+<link rel="stylesheet" href="/blog/css/style.css">
+
+    <link rel="shortcut icon" href="/blog/images/log.png">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"3-ygd.github.io","root":"/blog/","language":"en","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":false,"init_open":true},"style":{"primary_color":"#33CCCC","avatar":"/images/xx.png","favicon":"/images/log.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"https://raw.githubusercontent.com/3-ygd/image-hosting/master/9.6cv6skgtsuk0.webp","description":"改变想法 | 找到方法."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                苑木木的博客
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/blog/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/blog/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/blog/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/blog/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/blog/about"
+                            >
+                                关于我
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/blog/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/blog/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/blog/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/blog/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/blog/about">关于我</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">
+                react-组件
+            </span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/blog/images/xx.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">
+                            苑木木
+                        </span>
+                        
+                            <span class="author-label">
+                                Lv4
+                            </span>
+                            
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <!-- <i class="fas fa-edit"></i>&nbsp; -->
+        <span class="pc">
+            2021-09-11 17:23:50
+        </span>
+        <span class="mobile">
+            2021-09-11 17:23
+        </span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/blog/categories/react/">
+                                react
+                            </a>&nbsp;
+                    </li>
+                    
+            </ul>
+        </span>
+        
+            
+                <span class="article-tags article-meta-item">
+                    <i class="fas fa-tags"></i>&nbsp;
+                    <ul>
+                        
+                            <li>
+                                <a href="/blog/tags/react/">
+                                        react
+                                    </a>&nbsp;
+                            </li>
+                            
+                            <li>
+                                | <a href="/blog/tags/react-%E7%BB%84%E4%BB%B6/">
+                                        react-组件
+                                    </a>&nbsp;
+                            </li>
+                            
+                    </ul>
+                </span>
+                
+
+                    
+                        
+                            <span class="article-wordcount article-meta-item">
+                                <i class="fas fa-file-word"></i>&nbsp;<span>
+                                    1.2k
+                                        Words
+                                </span>
+                            </span>
+                            
+                                
+                                        
+</div>
+                    </div>
+                </div>
+            </div>
+            
+
+                    <div class="article-content markdown-body">
+                        <h1 id="react-组件"><a href="#react-组件" class="headerlink" title="react-组件"></a>react-组件</h1><p>在 React 中，组件概念是由两部分组成，分别是：</p>
+<ul>
+<li><p>定义规则</p>
+<ul>
+<li>定义一个函数的规则。</li>
+<li>定义一个类（class）的规则。</li>
+</ul>
+</li>
+<li><p>使用规则</p>
+<ul>
+<li>如何使用这个函数或类（class）的规则。</li>
+</ul>
+</li>
+</ul>
+<h3 id="函数组件"><a href="#函数组件" class="headerlink" title="函数组件"></a>函数组件</h3><p>顾名思义，就是以定义一个函数，满足特定规则的函数。</p>
+<p><strong>定义规则：</strong></p>
+<ul>
+<li>符合 JS 的函数定义(函数定义、函数表达式、箭头函数)    </li>
+<li><strong>函数名称必须以大写字母开头</strong>（React 以此区分组件和普通的 HTML标签，对应组件的使用规则）</li>
+<li><strong>函数组件必须有返回值</strong>，表示该组件的 UI 结构。如果不需要渲染任何内容，则返回 <code>null</code></li>
+</ul>
+<p><strong>代码：</strong></p>
+<pre><code class="jsx">// 函数定义组件
+function Hello() &#123;
+  return &lt;div&gt;我是函数定义组件&lt;/div&gt;
+&#125;
+// 函数表达式组件
+const Button = function () &#123;
+  return &lt;button&gt;我是函数表达式组件&lt;/button&gt;
+&#125;
+
+// 箭头函数组件
+const Hello = () =&gt; &lt;div&gt;我是箭头函数组件&lt;/div&gt;
+</code></pre>
+<p><strong>使用规则：</strong></p>
+<ul>
+<li>使用函数名称作为组件标签名称，就是把函数名写在标签里即可<code>&lt;组件名（函数名）/&gt;</code> <code>&lt;Hello/&gt;</code> <code>&lt;Button/&gt;</code></li>
+<li>交给<code>ReactDOM.render(&lt;组件名（函数名）/&gt;)</code>渲染即可。</li>
+</ul>
+<p>代码：</p>
+<pre><code class="jsx">// 使用 双标签形式 渲染组件：
+ReactDOM.render(&lt;Hello&gt;&lt;/Hello&gt;, document.getElementById(&#39;root&#39;))
+
+// 使用 自闭和标签形式 渲染组件：
+ReactDOM.render(&lt;Hello /&gt;, document.getElementById(&#39;root&#39;))
+</code></pre>
+<h3 id="类组件"><a href="#类组件" class="headerlink" title="类组件"></a>类组件</h3><p>顾名思义，就是定一个类，满足特定规则的类。</p>
+<p><strong>定义规则：</strong></p>
+<ul>
+<li>符合 ES6 的 class 定义</li>
+<li><strong>类名称必须以大写字母开头</strong>（React 以此区分组件和普通的 HTML标签，对应组件的使用规则）</li>
+<li>类组件应该继承 React.Component 父类，从而可以使用父类中提供的方法或属性 </li>
+<li>类组件必须提供 render 方法</li>
+<li>render 方法必须有返回值，表示该组件的 UI 结构。如果不需要渲染任何内容，则返回 <code>null</code></li>
+</ul>
+<p><strong>代码：</strong></p>
+<pre><code class="jsx">// 导入 React
+import React from &#39;react&#39;
+
+class Hello extends React.Component &#123;
+  render() &#123;
+    return &lt;div&gt;Hello Class Component!&lt;/div&gt; 
+  &#125;
+&#125;
+
+
+// 解构导入 Component 的方式
+import &#123; Component &#125; from &#39;react&#39;
+
+class Hello extends Component &#123;
+  render() &#123;
+    return &lt;div&gt;Hello Class Component!&lt;/div&gt; 
+  &#125;
+&#125;
+</code></pre>
+<p><strong>使用规则：</strong></p>
+<ul>
+<li>使用类名称作为组件标签名称，就是把类名写在标签里即可<code>&lt;类名/&gt;</code>。</li>
+</ul>
+<h2 id="React-组件-事件处理"><a href="#React-组件-事件处理" class="headerlink" title="React 组件-事件处理"></a>React 组件-事件处理</h2><h3 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h3><p>因为 JSX 语法的原因，就是我们的标签和 JS 代码在一起，所以React中事件处理函数绑定与 HTML 元素的属性事件绑定的语法非常像。</p>
+<p>标签的属性事件绑定：</p>
+<pre><code class="html">&lt;button onclick=&quot;btnClickHandler()&quot;&gt;
+    按钮
+&lt;/button&gt;
+</code></pre>
+<p>React中的事件绑定：</p>
+<pre><code class="jsx">&lt;button onClick=&#123;btnClickHandler&#125;&gt;
+  按钮
+&lt;/button&gt;
+</code></pre>
+<p>不同点：</p>
+<ul>
+<li>React 事件采用驼峰命名法，比如 <code>onClick</code>，其它同理 <code>onMouseEnter</code> <code>onBlur</code> 等等</li>
+<li>React 中传入的是一个 function 对象，而不是字符串</li>
+</ul>
+<p>那这个传入的 function 在 React 组件中是如何定义的呢？</p>
+<p>接下来我们就分别来看一下。</p>
+<p><strong>1-函数组件：</strong></p>
+<pre><code class="jsx">// 1、匿名箭头函数形式
+function App () &#123;
+  return(
+    &lt;div&gt;
+        &lt;button onClick=&#123;() =&gt; console.log(&#39;按钮被点击了&#39;)&#125;&gt;按钮&lt;/button&gt;
+    &lt;/div&gt;
+  )
+&#125;
+export default App
+
+
+// 2、函数定义形式
+function App () &#123;
+    function handleClick()&#123;
+    console.log(&#39;按钮被点击了&#39;)
+  &#125;
+  return(
+    &lt;div&gt;
+        &lt;button onClick=&#123;handleClick&#125;&gt;按钮&lt;/button&gt;
+    &lt;/div&gt;
+  )
+&#125;
+export default App
+
+
+// 具名箭头函数形式
+const App = () =&gt; &#123;
+  const handleClick = () =&gt; &#123;
+    console.log(&#39;按钮被点击了&#39;)
+  &#125;
+  return(
+    &lt;div&gt;
+      &lt;button onClick=&#123;handleClick&#125;&gt;按钮2&lt;/button&gt;
+    &lt;/div&gt;
+  )
+&#125;
+export default App
+</code></pre>
+<p><strong>2-类组件：</strong></p>
+<pre><code class="jsx">import React from &#39;react&#39;
+
+// 匿名箭头函数
+class App extends React.Component &#123;
+  
+  render() &#123;
+    return (
+      &lt;div&gt;
+        &lt;button onClick=&#123;() =&gt; cosole.log(&#39;按钮被点击了&#39;)&#125;&gt;按钮&lt;/button&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+&#125;
+
+// 类的原型方法
+class App extends React.Component &#123;
+  // 事件处理函数
+  handleClick() &#123;
+    console.log(&#39;按钮被点击了&#39;)
+  &#125;
+  
+  render() &#123;
+    return (
+      &lt;div&gt;
+        &lt;button onClick=&#123;this.handleClick&#125;&gt;按钮&lt;/button&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+&#125;
+export default App
+</code></pre>
+<p><strong>总结：</strong></p>
+<ul>
+<li><p>类组件绑定事件处理函数的时候，需要通过this引用事件处理函数，并传递给 DOM 元素。而函数组件中则不需要这样做。</p>
+</li>
+<li><p>背后的原因是类组件需要一个实例化的过程，在类中这个具体的实例化对象是通过 this 代表的。</p>
+</li>
+<li><p>而函数组件是没有实例化过程的，直接函数运行返回对应的UI ，即我们的 React 元素。</p>
+</li>
+</ul>
+
+                    </div>
+
+                    
+
+                            
+                                <ul class="post-tags-box">
+                                    
+                                        <li class="tag-item">
+                                            <a href="/blog/tags/react/">#react</a>&nbsp;
+                                        </li>
+                                        
+                                        <li class="tag-item">
+                                            <a href="/blog/tags/react-%E7%BB%84%E4%BB%B6/">#react-组件</a>&nbsp;
+                                        </li>
+                                        
+                                </ul>
+                                
+
+                                    
+                                        <div class="article-nav">
+                                            
+                                                <div class="article-prev">
+                                                    <a class="prev" rel="prev" href="/blog/2021/09/11/JSX/">
+                                                        <span class="left arrow-icon flex-center">
+                                                            <i class="fas fa-chevron-left"></i>
+                                                        </span>
+                                                        <span class="title flex-center">
+                                                            <span class="post-nav-title-item">
+                                                                JSX
+                                                            </span>
+                                                            <span class="post-nav-item">
+                                                                Prev posts
+                                                            </span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                
+                                                    
+                                                        <div class="article-next">
+                                                            <a class="next" rel="next"
+                                                                href="/blog/2021/05/06/style%20%E4%B8%8A%E5%8A%A0scoped%20%E5%B1%9E%E6%80%A7%E7%9A%84%E5%8E%9F%E7%90%86/">
+                                                                <span class="title flex-center">
+                                                                    <span class="post-nav-title-item">
+                                                                        style 上加scoped 属性的原理
+                                                                    </span>
+                                                                    <span class="post-nav-item">
+                                                                        Next posts
+                                                                    </span>
+                                                                </span>
+                                                                <span class="right arrow-icon flex-center">
+                                                                    <i class="fas fa-chevron-right"></i>
+                                                                </span>
+                                                            </a>
+                                                        </div>
+                                                        
+                                        </div>
+                                        
+
+                                            
+    </div>
+</div>
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>
+                    2019
+                </span>
+                -
+                
+                    2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">
+                            苑木木
+                        </a>
+        </div>
+        
+                <div class="theme-info info-item">
+                    Powered by -&nbsp;|&nbsp;believe oneself v-ygd</a>
+                </div>
+                
+                        
+    </div>
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#react-%E7%BB%84%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">react-组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E7%BB%84%E4%BB%B6"><span class="nav-number">1.0.1.</span> <span class="nav-text">函数组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E7%BB%84%E4%BB%B6"><span class="nav-number">1.0.2.</span> <span class="nav-text">类组件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React-%E7%BB%84%E4%BB%B6-%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86"><span class="nav-number">1.1.</span> <span class="nav-text">React 组件-事件处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A"><span class="nav-number">1.1.1.</span> <span class="nav-text">事件绑定</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/code-copy.js"></script>
+
+
+
+
+<div class="post-scripts">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/toc.js"></script>
+    
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="苑木木">
+    
+    <title>
+        
+            react-Redux |
+        
+        苑木木的博客
+    </title>
+    
+<link rel="stylesheet" href="/blog/css/style.css">
+
+    <link rel="shortcut icon" href="/blog/images/log.png">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"3-ygd.github.io","root":"/blog/","language":"en","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":false,"init_open":true},"style":{"primary_color":"#33CCCC","avatar":"/images/xx.png","favicon":"/images/log.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"https://raw.githubusercontent.com/3-ygd/image-hosting/master/9.6cv6skgtsuk0.webp","description":"改变想法 | 找到方法."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                苑木木的博客
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/blog/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/blog/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/blog/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/blog/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/blog/about"
+                            >
+                                关于我
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/blog/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/blog/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/blog/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/blog/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/blog/about">关于我</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">
+                react-Redux
+            </span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/blog/images/xx.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">
+                            苑木木
+                        </span>
+                        
+                            <span class="author-label">
+                                Lv4
+                            </span>
+                            
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <!-- <i class="fas fa-edit"></i>&nbsp; -->
+        <span class="pc">
+            2021-12-13 18:23:19
+        </span>
+        <span class="mobile">
+            2021-12-13 18:23
+        </span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/blog/categories/react/">
+                                react
+                            </a>&nbsp;
+                    </li>
+                    
+            </ul>
+        </span>
+        
+            
+                <span class="article-tags article-meta-item">
+                    <i class="fas fa-tags"></i>&nbsp;
+                    <ul>
+                        
+                            <li>
+                                <a href="/blog/tags/react/">
+                                        react
+                                    </a>&nbsp;
+                            </li>
+                            
+                            <li>
+                                | <a href="/blog/tags/Redux/">
+                                        Redux
+                                    </a>&nbsp;
+                            </li>
+                            
+                            <li>
+                                | <a href="/blog/tags/react-Redux/">
+                                        react-Redux
+                                    </a>&nbsp;
+                            </li>
+                            
+                    </ul>
+                </span>
+                
+
+                    
+                        
+                            <span class="article-wordcount article-meta-item">
+                                <i class="fas fa-file-word"></i>&nbsp;<span>
+                                    1.9k
+                                        Words
+                                </span>
+                            </span>
+                            
+                                
+                                        
+</div>
+                    </div>
+                </div>
+            </div>
+            
+
+                    <div class="article-content markdown-body">
+                        <h1 id="react-Redux"><a href="#react-Redux" class="headerlink" title="react-Redux"></a>react-Redux</h1><p>为什么要用 Redux?</p>
+<img src="D:/前端_资料/就业班/react/React-基础/React-基础/01-笔记/01-笔记/images/with-redux.png" style="width: 800px" />
+
+<ul>
+<li>主要的区别：<strong>组件之间的通讯问题</strong></li>
+<li>不使用 Redux (图左边) ：<ul>
+<li>只能使用父子组件通讯、状态提升等 React 自带机制 </li>
+<li>处理远房亲戚(非父子)关系的组件通讯时乏力</li>
+<li>组件之间的数据流混乱，出现 Bug 时难定位</li>
+</ul>
+</li>
+<li>使用 Redux (图右边)：<ul>
+<li><strong>集中式存储和管理应用的状态</strong></li>
+<li>处理组件通讯问题时，<strong>无视组件之间的层级关系</strong> </li>
+<li>简化大型复杂应用中组件之间的通讯问题</li>
+<li>数据流清晰，易于定位 Bug</li>
+</ul>
+</li>
+</ul>
+<h2 id="Redux-开发环境准备"><a href="#Redux-开发环境准备" class="headerlink" title="Redux 开发环境准备"></a>Redux 开发环境准备</h2><p><strong>内容：</strong></p>
+<p>使用 React CLI 来创建项目，并安装 Redux 包即可：</p>
+<ol>
+<li><p>创建 React 项目：<code>npx create-react-app redux-basic</code></p>
+</li>
+<li><p>启动项目：<code>npm start</code> </p>
+</li>
+<li><p>安装 Redux 包：<code>npm i redux</code></p>
+</li>
+</ol>
+<h2 id="Redux-核心概念-概述"><a href="#Redux-核心概念-概述" class="headerlink" title="Redux 核心概念-概述"></a>Redux 核心概念-概述</h2><p><strong>内容：</strong></p>
+<p>在 Redux 的设计中，数据管理的实现，主要被分成了三个概念，分别是：</p>
+<p><code>action</code> ，<code>reducer</code> ，<code>store</code></p>
+<ul>
+<li><p><strong>action</strong>（动作）：描述要做的事情</p>
+</li>
+<li><p><strong>reducer</strong>（函数）：更新状态</p>
+</li>
+<li><p><strong>store</strong>（仓库）：整合 action 和 reducer</p>
+</li>
+</ul>
+<h2 id="Redux核心概念-action"><a href="#Redux核心概念-action" class="headerlink" title="Redux核心概念-action"></a>Redux核心概念-action</h2><p><strong>内容：</strong></p>
+<p>action 行动（名词）、动作</p>
+<p>action：描述要做的事情，对应于项目中的一次数据变化的操作，比如，</p>
+<ul>
+<li>计数器案例：计数器加1、减1</li>
+<li>购物车案例：获取购物车数据、切换商品选中状态</li>
+<li>项目：登录，退出等（token数据的保存删除）</li>
+</ul>
+<p><strong>特点：</strong></p>
+<ul>
+<li>只描述做什么</li>
+<li>是一个 JS 对象，必须带有 <code>type</code> 属性，用于区分动作的类型（你要干啥）</li>
+<li>根据完成功能的不同，通过<code>payload</code> 属性携带额外的数据（我要打印，把纸带上）</li>
+</ul>
+<pre><code class="js">// action
+
+// 计数器案例
+&#123; type： &#39;increment&#39; &#125; // +1
+&#123; type： &#39;decrement&#39; &#125; // -1
+
+&#123; type： &#39;increment&#39;, payload: 10 &#125; // +10
+&#123; type： &#39;decrement&#39;, payload: 10 &#125; // -10
+
+// 购物车案例
+&#123; type: &#39;getGoodsList&#39; &#125;
+&#123; type: &#39;changeGoodsState&#39;, payload: &#123; id: 1, goodsState: true &#125; &#125;
+</code></pre>
+<h2 id="Redux核心概念-action-creator"><a href="#Redux核心概念-action-creator" class="headerlink" title="Redux核心概念-action creator"></a>Redux核心概念-action creator</h2><p><strong>方法：</strong>：</p>
+<ul>
+<li>使用函数创建 action 对象，这种用来创建 action 的函数称之为<code>Action Creator</code></li>
+</ul>
+<p><strong>核心代码</strong>：</p>
+<pre><code class="js">// 不使用 Action Creator
+// 创建多个 action 时，需要重复手动创建 action 对象，很繁琐
+&#123; type: &#39;decrement&#39;, payload: 2 &#125;
+&#123; type: &#39;decrement&#39;, payload: 8 &#125;
+
+// ---
+
+// 使用 Action Creator
+// 1 先创建 Action Creator 函数
+const decrement = payload =&gt; &#123;
+  return &#123; type: &#39;decrement&#39;, payload &#125;
+&#125;
+
+// 2 创建多个 action，只需要调用 Action Creator 函数即可
+decrement(2) // =&gt; &#123; type: &#39;decrement&#39;, payload: 2 &#125;
+decrement(8) // =&gt; &#123; type: &#39;decrement&#39;, payload: 8 &#125;
+
+// 简化：
+const decrement = payload =&gt; (&#123; type: &#39;decrement&#39;, payload &#125;)
+</code></pre>
+<hr>
+<h2 id="Redux核心概念-reducer"><a href="#Redux核心概念-reducer" class="headerlink" title="Redux核心概念-reducer"></a>Redux核心概念-reducer</h2><p><strong>介绍：</strong></p>
+<ul>
+<li>reducer 来自于一个大数据的处理概念 MapReduce 中的 <code>Reduce-规约</code> </li>
+<li>一个<code>Reduce-规约</code> 的具体实现叫 Reducer。是一个数据处理器，基于当前数据，处理输出一个新的数据，这个新的数据作为数据处理器下次处理数据的输入。依次不停的迭代下去的一种数据处理机制。</li>
+<li>reducer 它是一个<strong>纯函数</strong>。接收两个参数：<strong>action（要干啥），和一个给定的状态</strong> 计算出一个新的状态。这个新的状态作为 reducer 下次处理数据（接收到action通知）的输入。</li>
+</ul>
+<p><strong>说明：</strong></p>
+<ul>
+<li><p>函数签名为：<code>(state, action) =&gt; newState</code></p>
+</li>
+<li><p>接收一个的状态（数据）和 action 作为参数，根据 action 的类型，执行对应操作，返回一个新的状态（数据）</p>
+</li>
+<li><p>注意：<strong>该函数一定要有返回值</strong>，如果没有对应 action 的处理，则返回原来的状态。</p>
+</li>
+<li><p>约定：reducer 函数内不要直接修改参数 state 的值，而是根据当前状态 state 创建新的状态值。</p>
+<pre><code class="js">// 当前 state 是一个对象
+let state = &#123;name: &#39;Jack&#39;, age: 18&#125;
+// 新状态要求将年龄修改为20
+// 正确的做法：
+let newState = &#123;...state, age: 20&#125;
+// 错误的做法：
+state.age = 20
+let newState = state
+
+// 同理数组
+</code></pre>
+</li>
+</ul>
+<p><strong>核心代码</strong>：</p>
+<pre><code class="jsx">// 伪代码：
+// state 传入的状态（当前）
+// action 当前要执行的动作
+const reducer = (state, action) =&gt; &#123;
+  return newState
+&#125;
+
+// 示例：
+// state 传入的状态
+// action 当前要执行的动作
+const reducer = (state, action) =&gt; &#123;
+  switch (action.type) &#123;
+    // 计数器增加
+    case &#39;increment&#39;:
+      // 返回新状态
+      // return state + 1
+      // 根据 action 中提供的 payload 来决定到底增加多少
+      return state + action.payload
+    // 注意：一定要有 default，如果将来 reducer 无法处理某个 action，就直接将原来的状态返回即可
+    default:
+      return state
+  &#125;
+&#125;
+
+// 模拟 reducer 的调用
+// 第一次调用 reducer
+// reducer(0, &#123; type: &#39;increment&#39; &#125;) // 本次执行完成后，状态变为：1
+// 再调用，会基于上一次调用处理后的state值处理
+// reducer(1, &#123; type: &#39;increment&#39; &#125;) // 本次执行完成后，状态变为：2
+
+// 基于传入的状态继续调用 reducer
+// reducer(1, &#123; type: &#39;decrement&#39; &#125;) // 本次因为无法处理该 action，所以，直接返回原来的状态：1
+</code></pre>
+<h2 id="Redux核心概念-store"><a href="#Redux核心概念-store" class="headerlink" title="Redux核心概念-store"></a>Redux核心概念-store</h2><p><strong>Store：</strong></p>
+<ul>
+<li><p>创建 store 实例</p>
+<ul>
+<li><pre><code class="jsx">// 导入redux
+import &#123; createStore &#125; from &#39;redux&#39;
+
+// 创建 store, 参数为：reducer 函数(需要一个干活的)
+const store = createStore(reducer)
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>store 分发 action 修改数据（叫人干活）</p>
+<ul>
+<li><pre><code class="jsx">// 直接分发一个action
+store.dispatch( &#123;type: &#39;increment&#39;, payload: 2&#125; )
+// 调用action creator 返回一个action
+store.dispatch( increment(2) )
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>获取 store 中的状态</p>
+<ul>
+<li><pre><code class="jsx">// 获取状态（干完活，取成果）
+const state = store.getState()
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Redux代码执行流程"><a href="#Redux代码执行流程" class="headerlink" title="Redux代码执行流程"></a>Redux代码执行流程</h2><p><strong>流程</strong>：</p>
+<ol>
+<li>创建 store 时，Redux 就会先调用一次 reducer，给开发者设置 state 初始值的机会。</li>
+<li>store 创建完毕后，调用 <code>store.dispatch(action) </code>  修改 state。</li>
+<li>store 接收到 action 后，执行 reducer 函数，计算出新的state。</li>
+<li>这个新的state是基于我们初始化的state的值，和 action 传来的 payload 计算出的。</li>
+<li>调用 <code>store.getState()</code>获取 reducer 中存储的 state。这个 state 是下一次 action 到来之前最新的。</li>
+</ol>
+<h2 id="React-Redux介绍"><a href="#React-Redux介绍" class="headerlink" title="React-Redux介绍"></a>React-Redux介绍</h2><p><strong>说明：</strong></p>
+<p>Redux 库实现的是一种数据管理模式，和UI界面库是没有关系的。</p>
+<p>所以要想在React中使用Redux管理数据，就需要一个<strong>“中介”</strong>，将Redux中管理的数据注入到React组件中。</p>
+<p>实现这个连接注入功能的库就是 “React-Redux”。</p>
+<p><strong>内容</strong>：</p>
+<p>文档：<a class="link"   target="_blank" rel="noopener" href="https://react-redux.js.org/introduction/getting-started" >https://react-redux.js.org/introduction/getting-started<i class="fas fa-external-link-alt"></i></a></p>
+<p>react-redux 的使用分为两大步：</p>
+<ul>
+<li>1 全局配置（只需要配置一次） </li>
+<li>2 组件接入（获取状态或修改状态）是按需接入，有状态管理需求的组件接入。</li>
+</ul>
+<p><strong>全局配置步骤：</strong></p>
+<ol>
+<li>安装 react-redux：<code>npm i react-redux</code></li>
+<li>从 react-redux 中导入 Provider 组件</li>
+<li>创建 store 实例</li>
+<li>使用 Provider 包裹整个应用</li>
+<li>通过Provider 的 store 属性，将创建好的store实例注入的组件中</li>
+</ol>
+<h2 id="React-Redux-获取状态-useSelector"><a href="#React-Redux-获取状态-useSelector" class="headerlink" title="React-Redux-获取状态-useSelector"></a>React-Redux-获取状态-useSelector</h2><p><strong>说明：</strong></p>
+<p>凡是被配 <code>&lt;Provider store=&#123;store&#125; /&gt;</code> 包裹的组件，都可以通过<code>useSelector</code>  这个 react-redux 提供的 hooks 函数，将 redux 中存储的状态数据，引入到组件中。</p>
+<p><strong>步骤：</strong></p>
+<ul>
+<li><p>导入 <code>useSelector</code></p>
+<ul>
+<li><pre><code class="jsx">import &#123; useSelector &#125; from &#39;react-redux&#39;
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>调用 <code>useSelector</code> 函数，需要传入一个回调函数， <code>useSelector</code> 在调用这个回调函数的时候会把 state 作为形参传递给回调函数。 回调函数执行完毕后的返回值将作为  <code>useSelector</code> 的返回值返回。</p>
+<ul>
+<li><pre><code class="jsx">useSelector(state =&gt; state)
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>定义变量接收这个返回值，在组件中就获取到了 store 中存储的数据</p>
+<ul>
+<li><pre><code class="jsx">const count = useSelector(state =&gt; state)
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="React-Redux-分发动作useDispatch"><a href="#React-Redux-分发动作useDispatch" class="headerlink" title="React-Redux-分发动作useDispatch"></a>React-Redux-分发动作useDispatch</h2><p><strong>说明：</strong></p>
+<p>如何在 React 组件中分发 action</p>
+<p><strong>步骤：</strong></p>
+<ul>
+<li><p>导入  <code>useDispatch</code></p>
+<ul>
+<li><pre><code class="jsx">import &#123; useDispatch &#125; from &#39;react-redux&#39;
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>调用 <code>useDispatch</code> 获得 <code>dispatch</code> 函数</p>
+<ul>
+<li><pre><code class="jsx">const dispatch = useDispatch()
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>调用  <code>dispatch</code> 分发 action</p>
+<ul>
+<li><pre><code class="jsx">dispatch( action )
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+
+                    </div>
+
+                    
+
+                            
+                                <ul class="post-tags-box">
+                                    
+                                        <li class="tag-item">
+                                            <a href="/blog/tags/react/">#react</a>&nbsp;
+                                        </li>
+                                        
+                                        <li class="tag-item">
+                                            <a href="/blog/tags/Redux/">#Redux</a>&nbsp;
+                                        </li>
+                                        
+                                        <li class="tag-item">
+                                            <a href="/blog/tags/react-Redux/">#react-Redux</a>&nbsp;
+                                        </li>
+                                        
+                                </ul>
+                                
+
+                                    
+                                        <div class="article-nav">
+                                            
+                                                    
+                                                        <div class="article-next">
+                                                            <a class="next" rel="next"
+                                                                href="/blog/2021/10/26/react-Hooks/">
+                                                                <span class="title flex-center">
+                                                                    <span class="post-nav-title-item">
+                                                                        react-Hooks
+                                                                    </span>
+                                                                    <span class="post-nav-item">
+                                                                        Next posts
+                                                                    </span>
+                                                                </span>
+                                                                <span class="right arrow-icon flex-center">
+                                                                    <i class="fas fa-chevron-right"></i>
+                                                                </span>
+                                                            </a>
+                                                        </div>
+                                                        
+                                        </div>
+                                        
+
+                                            
+    </div>
+</div>
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>
+                    2019
+                </span>
+                -
+                
+                    2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">
+                            苑木木
+                        </a>
+        </div>
+        
+                <div class="theme-info info-item">
+                    Powered by -&nbsp;|&nbsp;believe oneself v-ygd</a>
+                </div>
+                
+                        
+    </div>
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#react-Redux"><span class="nav-number">1.</span> <span class="nav-text">react-Redux</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redux-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="nav-number">1.1.</span> <span class="nav-text">Redux 开发环境准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redux-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5-%E6%A6%82%E8%BF%B0"><span class="nav-number">1.2.</span> <span class="nav-text">Redux 核心概念-概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redux%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5-action"><span class="nav-number">1.3.</span> <span class="nav-text">Redux核心概念-action</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redux%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5-action-creator"><span class="nav-number">1.4.</span> <span class="nav-text">Redux核心概念-action creator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redux%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5-reducer"><span class="nav-number">1.5.</span> <span class="nav-text">Redux核心概念-reducer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redux%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5-store"><span class="nav-number">1.6.</span> <span class="nav-text">Redux核心概念-store</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redux%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B"><span class="nav-number">1.7.</span> <span class="nav-text">Redux代码执行流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React-Redux%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.8.</span> <span class="nav-text">React-Redux介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React-Redux-%E8%8E%B7%E5%8F%96%E7%8A%B6%E6%80%81-useSelector"><span class="nav-number">1.9.</span> <span class="nav-text">React-Redux-获取状态-useSelector</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React-Redux-%E5%88%86%E5%8F%91%E5%8A%A8%E4%BD%9CuseDispatch"><span class="nav-number">1.10.</span> <span class="nav-text">React-Redux-分发动作useDispatch</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/code-copy.js"></script>
+
+
+
+
+<div class="post-scripts">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/toc.js"></script>
+    
+</div>
+
+
+
+</body>
+</html>
