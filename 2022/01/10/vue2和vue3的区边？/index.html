@@ -9,7 +9,7 @@
     
     <title>
         
-            vue中keep-alive的使用 |
+            vue2和vue3的区边？ |
         
         苑木木的博客
     </title>
@@ -164,7 +164,7 @@
 
         <div class="article-title">
             <span class="title-hover-animation">
-                vue中keep-alive的使用
+                vue2和vue3的区边？
             </span>
         </div>
 
@@ -189,10 +189,10 @@
     <span class="article-date article-meta-item">
         <!-- <i class="fas fa-edit"></i>&nbsp; -->
         <span class="pc">
-            2022-02-23 15:16:37
+            2022-01-10 20:15:19
         </span>
         <span class="mobile">
-            2022-02-23 15:16
+            2022-01-10 20:15
         </span>
     </span>
     
@@ -220,12 +220,6 @@
                                     </a>&nbsp;
                             </li>
                             
-                            <li>
-                                | <a href="/blog/tags/keep-alive/">
-                                        keep-alive
-                                    </a>&nbsp;
-                            </li>
-                            
                     </ul>
                 </span>
                 
@@ -234,7 +228,7 @@
                         
                             <span class="article-wordcount article-meta-item">
                                 <i class="fas fa-file-word"></i>&nbsp;<span>
-                                    528
+                                    750
                                         Words
                                 </span>
                             </span>
@@ -248,18 +242,128 @@
             
 
                     <div class="article-content markdown-body">
-                        <h1 id="vue中keep-alive的使用"><a href="#vue中keep-alive的使用" class="headerlink" title="vue中keep-alive的使用"></a>vue中keep-alive的使用</h1><p><strong>概念</strong><br>    keep-alive 是 Vue 的内置组件，当它包裹动态组件时，会缓存不活动的组件实例，而不是销毁它们。和 transition 相似，keep-alive 是一个抽象组件：它自身不会渲染成一个 DOM 元素，也不会出现在父组件链中。</p>
-<p><strong>作用</strong><br>    在组件切换过程中将状态保留在内存中，防止重复渲染DOM，减少加载时间及性能消耗，提高用户体验性</p>
-<p><strong>原理</strong><br>    在 created 函数调用时将需要缓存的 VNode 节点保存在 this.cache 中／在 render（页面渲染） 时，如果 VNode 的 name 符合缓存条件（可以用 include 以及 exclude 控制），则会从 this.cache 中取出之前缓存的 VNode 实例进行渲染。</p>
-<p>    VNode：虚拟DOM，其实就是一个JS对象</p>
-<p><strong>Props</strong><br>    include - 字符串或正则表达式。只有名称匹配的组件会被缓存。<br>    exclude - 字符串或正则表达式。任何名称匹配的组件都不会被缓存。<br>    max - 数字。最多可以缓存多少组件实例。<br><strong>生命周期函数</strong></p>
-<p>  1. activated</p>
-<p>      在 keep-alive 组件激活时调用<br>      该钩子函数在服务器端渲染期间不被调用</p>
-<p>  2. deactivated</p>
-<p>      在 keep-alive 组件停用时调用<br>      该钩子在服务器端渲染期间不被调用</p>
-<p>    被包含在 keep-alive 中创建的组件，会多出两个生命周期的钩子: activated 与 deactivated</p>
-<p>    使用 keep-alive 会将数据保留在内存中，如果要在每次进入页面的时候获取最新的数据，需要在 activated 阶段获取数据，承担原来     created 钩子函数中获取数据的任务。</p>
-<p>    <strong>注意：</strong> 只有组件被 keep-alive 包裹时，这两个生命周期函数才会被调用，如果作为正常组件使用，是不会被调用的，以及在 2.1.0 版本之后，使用 exclude 排除之后，就算被包裹在 keep-alive 中，这两个钩子函数依然不会被调用！另外，在服务端渲染时，此钩子函数也不会被调用。</p>
+                        <h1 id="vue2和vue3的区边？"><a href="#vue2和vue3的区边？" class="headerlink" title="vue2和vue3的区边？"></a>vue2和vue3的区边？</h1><h2 id="1、vue2和vue3双向数据绑定原理发生了改变"><a href="#1、vue2和vue3双向数据绑定原理发生了改变" class="headerlink" title="1、vue2和vue3双向数据绑定原理发生了改变"></a>1、vue2和vue3双向数据绑定原理发生了改变</h2><p>vue2 的双向数据绑定是利用ES5 的一个 API Object.definePropert()对数据进行劫持 结合 发布订阅模式的方式来实现的。</p>
+<p>vue3 中使用了 es6 的 ProxyAPI 对数据代理。</p>
+<pre><code class="vue">相比于vue2.x，使用proxy的优势如下
+
+defineProperty只能监听某个属性，不能对全对象监听
+可以省去for in、闭包等内容来提升效率（直接绑定整个对象即可）
+可以监听数组，不用再去单独的对数组做特异性操作 vue3.x可以检测到数组内部数据的变化
+</code></pre>
+<h2 id="2、vue3支持多个根节点"><a href="#2、vue3支持多个根节点" class="headerlink" title="2、vue3支持多个根节点"></a>2、vue3支持多个根节点</h2><pre><code class="vue">// vue2
+&lt;template&gt;
+  &lt;div class=&#39;form-element&#39;&gt;
+      &lt;h2&gt; &#123;&#123; title &#125;&#125; &lt;/h2&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<pre><code class="vue">// vue3
+&lt;template&gt;
+  &lt;div class=&#39;form-element&#39;&gt;&lt;/div&gt;
+  &lt;h2&gt; &#123;&#123; title &#125;&#125; &lt;/h2&gt;
+&lt;/template&gt;
+</code></pre>
+<h2 id="3、-Composition-API"><a href="#3、-Composition-API" class="headerlink" title="3、 Composition API"></a>3、 Composition API</h2><p>Vue2与Vue3 <code>最大的</code>区别 — Vue2使用选项类型API（Options API）对比Vue3合成型API（Composition API）</p>
+<pre><code class="vue">// vue2
+export default &#123;
+  props: &#123;
+    title: String
+  &#125;,
+  data () &#123;
+    return &#123;
+      username: &#39;&#39;,
+      password: &#39;&#39;
+    &#125;
+  &#125;,
+  methods: &#123;
+    login () &#123;
+      // 登陆方法
+    &#125;
+  &#125;,
+  components:&#123;
+            &quot;buttonComponent&quot;:btnComponent
+        &#125;,
+  computed:&#123;
+      fullName()&#123;
+        return this.firstName+&quot; &quot;+this.lastName;     
+      &#125;
+&#125;
+ 
+&#125;
+</code></pre>
+<pre><code class="vue">// vue3
+export default &#123;
+  props: &#123;
+    title: String
+  &#125;,
+  
+  setup () &#123;
+    const state = reactive(&#123; //数据
+      username: &#39;&#39;,
+      password: &#39;&#39;,
+      lowerCaseUsername: computed(() =&gt; state.username.toLowerCase()) //计算属性
+    &#125;)
+     //方法
+    const login = () =&gt; &#123;
+      // 登陆方法
+    &#125;
+    return &#123; 
+      login,
+      state
+    &#125;
+  &#125;
+&#125;
+</code></pre>
+<h2 id="4-、建立数据-data"><a href="#4-、建立数据-data" class="headerlink" title="4.、建立数据 data"></a>4.、建立数据 data</h2><p><strong>Vue2 - 这里把数据放入data属性中</strong></p>
+<pre><code class="vue">
+export default &#123;
+  props: &#123;
+    title: String
+  &#125;,
+  data () &#123;
+    return &#123;
+      username: &#39;&#39;,
+      password: &#39;&#39;
+    &#125;
+  &#125;
+&#125;
+</code></pre>
+<p>在Vue3.0，我们就需要使用一个新的setup()方法，此方法在组件初始化构造的时候触发。</p>
+<p>使用以下三步来建立反应性数据:</p>
+<ol>
+<li>从vue引入reactive或ref</li>
+<li>使用reactive()，ref()方法来声名我们的数据为响应性数据</li>
+<li>使用setup()方法来返回我们的响应性数据，从而我们的template可以获取这些响应性数据</li>
+</ol>
+<pre><code class="vue">import &#123; reactive &#125; from &#39;vue&#39;
+
+export default &#123;
+  props: &#123;
+    title: String
+  &#125;,
+  setup () &#123;
+    const state = reactive(&#123;
+      username: &#39;&#39;,
+      password: &#39;&#39;
+    &#125;)
+
+    return &#123; state &#125;
+  &#125;
+&#125;
+</code></pre>
+<h2 id="5、生命周期钩子函数"><a href="#5、生命周期钩子函数" class="headerlink" title="5、生命周期钩子函数"></a>5、生命周期钩子函数</h2><pre><code class="vue">Vue2--------------vue3
+beforeCreate  -&gt; setup()
+created       -&gt; setup()
+beforeMount   -&gt; onBeforeMount
+mounted       -&gt; onMounted
+beforeUpdate  -&gt; onBeforeUpdate
+updated       -&gt; onUpdated
+beforeDestroy -&gt; onBeforeUnmount
+destroyed     -&gt; onUnmounted
+activated     -&gt; onActivated
+deactivated   -&gt; onDeactivated
+</code></pre>
+<p>setup() :开始创建组件之前，在beforeCreate和created之前执行。创建的是data和method<br>onBeforeMount() : 组件挂载到节点上之前执行的函数。<br>onMounted() : 组件挂载完成后执行的函数。<br>onBeforeUpdate(): 组件更新之前执行的函数。<br>onUpdated(): 组件更新完成之后执行的函数。<br>onBeforeUnmount(): 组件卸载之前执行的函数。<br>onUnmounted(): 组件卸载完成后执行的函数<br>若组件被<keep-alive>包含，则多出下面两个钩子函数。<br>onActivated(): 被包含在中的组件，会多出两个生命周期钩子函数。被激活时执行 。<br>onDeactivated(): 比如从 A组件，切换到 B 组件，A 组件消失时执行。</p>
 
                     </div>
 
@@ -272,23 +376,35 @@
                                             <a href="/blog/tags/vue/">#vue</a>&nbsp;
                                         </li>
                                         
-                                        <li class="tag-item">
-                                            <a href="/blog/tags/keep-alive/">#keep-alive</a>&nbsp;
-                                        </li>
-                                        
                                 </ul>
                                 
 
                                     
                                         <div class="article-nav">
                                             
+                                                <div class="article-prev">
+                                                    <a class="prev" rel="prev" href="/blog/2022/02/23/vue%E4%B8%ADkeep-alive%E7%9A%84%E4%BD%BF%E7%94%A8/">
+                                                        <span class="left arrow-icon flex-center">
+                                                            <i class="fas fa-chevron-left"></i>
+                                                        </span>
+                                                        <span class="title flex-center">
+                                                            <span class="post-nav-title-item">
+                                                                vue中keep-alive的使用
+                                                            </span>
+                                                            <span class="post-nav-item">
+                                                                Prev posts
+                                                            </span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                
                                                     
                                                         <div class="article-next">
                                                             <a class="next" rel="next"
-                                                                href="/blog/2022/01/10/vue2%E5%92%8Cvue3%E7%9A%84%E5%8C%BA%E8%BE%B9%EF%BC%9F/">
+                                                                href="/blog/2021/12/13/react-Redux/">
                                                                 <span class="title flex-center">
                                                                     <span class="post-nav-title-item">
-                                                                        vue2和vue3的区边？
+                                                                        react-Redux
                                                                     </span>
                                                                     <span class="post-nav-item">
                                                                         Next posts
@@ -404,7 +520,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vue%E4%B8%ADkeep-alive%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">vue中keep-alive的使用</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vue2%E5%92%8Cvue3%E7%9A%84%E5%8C%BA%E8%BE%B9%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">vue2和vue3的区边？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81vue2%E5%92%8Cvue3%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%E5%8E%9F%E7%90%86%E5%8F%91%E7%94%9F%E4%BA%86%E6%94%B9%E5%8F%98"><span class="nav-number">1.1.</span> <span class="nav-text">1、vue2和vue3双向数据绑定原理发生了改变</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81vue3%E6%94%AF%E6%8C%81%E5%A4%9A%E4%B8%AA%E6%A0%B9%E8%8A%82%E7%82%B9"><span class="nav-number">1.2.</span> <span class="nav-text">2、vue3支持多个根节点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81-Composition-API"><span class="nav-number">1.3.</span> <span class="nav-text">3、 Composition API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E3%80%81%E5%BB%BA%E7%AB%8B%E6%95%B0%E6%8D%AE-data"><span class="nav-number">1.4.</span> <span class="nav-text">4.、建立数据 data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5%E3%80%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0"><span class="nav-number">1.5.</span> <span class="nav-text">5、生命周期钩子函数</span></a></li></ol></li></ol>
     </div>
 </div>
         </aside>

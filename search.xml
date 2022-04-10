@@ -4345,4 +4345,137 @@ console.log(c2.data);//&#123; a: 5, b: 2 &#125;
         <tag>keep-alive</tag>
       </tags>
   </entry>
+  <entry>
+    <title>vue2和vue3的区边？</title>
+    <url>/blog/2022/01/10/vue2%E5%92%8Cvue3%E7%9A%84%E5%8C%BA%E8%BE%B9%EF%BC%9F/</url>
+    <content><![CDATA[<h1 id="vue2和vue3的区边？"><a href="#vue2和vue3的区边？" class="headerlink" title="vue2和vue3的区边？"></a>vue2和vue3的区边？</h1><h2 id="1、vue2和vue3双向数据绑定原理发生了改变"><a href="#1、vue2和vue3双向数据绑定原理发生了改变" class="headerlink" title="1、vue2和vue3双向数据绑定原理发生了改变"></a>1、vue2和vue3双向数据绑定原理发生了改变</h2><p>vue2 的双向数据绑定是利用ES5 的一个 API Object.definePropert()对数据进行劫持 结合 发布订阅模式的方式来实现的。</p>
+<p>vue3 中使用了 es6 的 ProxyAPI 对数据代理。</p>
+<pre><code class="vue">相比于vue2.x，使用proxy的优势如下
+
+defineProperty只能监听某个属性，不能对全对象监听
+可以省去for in、闭包等内容来提升效率（直接绑定整个对象即可）
+可以监听数组，不用再去单独的对数组做特异性操作 vue3.x可以检测到数组内部数据的变化
+</code></pre>
+<h2 id="2、vue3支持多个根节点"><a href="#2、vue3支持多个根节点" class="headerlink" title="2、vue3支持多个根节点"></a>2、vue3支持多个根节点</h2><pre><code class="vue">// vue2
+&lt;template&gt;
+  &lt;div class=&#39;form-element&#39;&gt;
+      &lt;h2&gt; &#123;&#123; title &#125;&#125; &lt;/h2&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<pre><code class="vue">// vue3
+&lt;template&gt;
+  &lt;div class=&#39;form-element&#39;&gt;&lt;/div&gt;
+  &lt;h2&gt; &#123;&#123; title &#125;&#125; &lt;/h2&gt;
+&lt;/template&gt;
+</code></pre>
+<h2 id="3、-Composition-API"><a href="#3、-Composition-API" class="headerlink" title="3、 Composition API"></a>3、 Composition API</h2><p>Vue2与Vue3 <code>最大的</code>区别 — Vue2使用选项类型API（Options API）对比Vue3合成型API（Composition API）</p>
+<pre><code class="vue">// vue2
+export default &#123;
+  props: &#123;
+    title: String
+  &#125;,
+  data () &#123;
+    return &#123;
+      username: &#39;&#39;,
+      password: &#39;&#39;
+    &#125;
+  &#125;,
+  methods: &#123;
+    login () &#123;
+      // 登陆方法
+    &#125;
+  &#125;,
+  components:&#123;
+            &quot;buttonComponent&quot;:btnComponent
+        &#125;,
+  computed:&#123;
+      fullName()&#123;
+        return this.firstName+&quot; &quot;+this.lastName;     
+      &#125;
+&#125;
+ 
+&#125;
+</code></pre>
+<pre><code class="vue">// vue3
+export default &#123;
+  props: &#123;
+    title: String
+  &#125;,
+  
+  setup () &#123;
+    const state = reactive(&#123; //数据
+      username: &#39;&#39;,
+      password: &#39;&#39;,
+      lowerCaseUsername: computed(() =&gt; state.username.toLowerCase()) //计算属性
+    &#125;)
+     //方法
+    const login = () =&gt; &#123;
+      // 登陆方法
+    &#125;
+    return &#123; 
+      login,
+      state
+    &#125;
+  &#125;
+&#125;
+</code></pre>
+<h2 id="4-、建立数据-data"><a href="#4-、建立数据-data" class="headerlink" title="4.、建立数据 data"></a>4.、建立数据 data</h2><p><strong>Vue2 - 这里把数据放入data属性中</strong></p>
+<pre><code class="vue">
+export default &#123;
+  props: &#123;
+    title: String
+  &#125;,
+  data () &#123;
+    return &#123;
+      username: &#39;&#39;,
+      password: &#39;&#39;
+    &#125;
+  &#125;
+&#125;
+</code></pre>
+<p>在Vue3.0，我们就需要使用一个新的setup()方法，此方法在组件初始化构造的时候触发。</p>
+<p>使用以下三步来建立反应性数据:</p>
+<ol>
+<li>从vue引入reactive或ref</li>
+<li>使用reactive()，ref()方法来声名我们的数据为响应性数据</li>
+<li>使用setup()方法来返回我们的响应性数据，从而我们的template可以获取这些响应性数据</li>
+</ol>
+<pre><code class="vue">import &#123; reactive &#125; from &#39;vue&#39;
+
+export default &#123;
+  props: &#123;
+    title: String
+  &#125;,
+  setup () &#123;
+    const state = reactive(&#123;
+      username: &#39;&#39;,
+      password: &#39;&#39;
+    &#125;)
+
+    return &#123; state &#125;
+  &#125;
+&#125;
+</code></pre>
+<h2 id="5、生命周期钩子函数"><a href="#5、生命周期钩子函数" class="headerlink" title="5、生命周期钩子函数"></a>5、生命周期钩子函数</h2><pre><code class="vue">Vue2--------------vue3
+beforeCreate  -&gt; setup()
+created       -&gt; setup()
+beforeMount   -&gt; onBeforeMount
+mounted       -&gt; onMounted
+beforeUpdate  -&gt; onBeforeUpdate
+updated       -&gt; onUpdated
+beforeDestroy -&gt; onBeforeUnmount
+destroyed     -&gt; onUnmounted
+activated     -&gt; onActivated
+deactivated   -&gt; onDeactivated
+</code></pre>
+<p>setup() :开始创建组件之前，在beforeCreate和created之前执行。创建的是data和method<br>onBeforeMount() : 组件挂载到节点上之前执行的函数。<br>onMounted() : 组件挂载完成后执行的函数。<br>onBeforeUpdate(): 组件更新之前执行的函数。<br>onUpdated(): 组件更新完成之后执行的函数。<br>onBeforeUnmount(): 组件卸载之前执行的函数。<br>onUnmounted(): 组件卸载完成后执行的函数<br>若组件被<keep-alive>包含，则多出下面两个钩子函数。<br>onActivated(): 被包含在中的组件，会多出两个生命周期钩子函数。被激活时执行 。<br>onDeactivated(): 比如从 A组件，切换到 B 组件，A 组件消失时执行。</p>
+]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
 </search>
